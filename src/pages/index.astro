@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import CenterTitle from '../layouts/CenterTitle.astro';
+---
+
+<Layout>
+	
+	<main>
+		<div class="landing">
+			<NavBar/>
+			<div class="slogan">
+				<CenterTitle>
+					<h1 slot="title" class="appear">小遊戲</h1>
+					<div slot="content" class="slogan-inner">
+						<h2>逢星期三、六晚上9點/10點舉行</h2>
+						<img src="../images/avatar.png" class="slide"> 
+					</div>
+					
+				</CenterTitle>
+			</div>
+				
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.landing{
+		background: url("../images/background.png");
+		background-repeat: no-repeat;
+  		background-size: cover;
+		width: 100%;
+		height: 100%;
+		opacity: 0.9;
+	}
+	.slogan{
+		height: 100%;
+	}
+
+	.slogan-inner{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.appear{
+		animation: appear 1s ease-in-out;
+	}
+	.slide{
+		position: relative;
+		animation: slide 1s ease-in-out, appear 0.5s ease-in-out;
+	}
+	
+	@keyframes slide{
+		from{
+			top: 100px;
+		}
+		to{
+			top: 0px;
+		}
+	}
+	@keyframes appear {
+		from{
+			opacity: 0;
+		}
+		to{
+			opacity: 1;
+		}
+	}
+</style>
