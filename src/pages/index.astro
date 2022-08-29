@@ -15,10 +15,16 @@ import CenterTitle from '../layouts/CenterTitle.astro';
 					<h1 slot="title" class="appear">小遊戲</h1>
 					<div slot="content" class="slogan-inner">
 						<h2 class="appear">逢星期三、六晚上9點/10點舉行</h2>
-						<img src="../images/avatar.png" class="slide"> 
+						<div class="slide avatar">
+							<div class="bubble bubble-bottom-left">你好嗎</div>
+							<img src="../images/avatar.png" alt="小妹的半身像" class="slide avatar">
+							
+						</div>
+						
 					</div>
 					
 				</CenterTitle>
+				 
 			</div>
 				
 		</div>
@@ -32,19 +38,25 @@ import CenterTitle from '../layouts/CenterTitle.astro';
   		background-size: cover;
 		width: 100%;
 		height: 100vh;
-		opacity: 0.8;
+		opacity: 0.85;
 	}
 	.slogan{
-		height: 100%;
+		/* nav bar height */ 
+		height: calc(100% - 250px);
+		margin-top: 150px;
+	}
+	.avatar{
+		width: clamp(300px, 100%, 100%);
 	}
 
 	.slogan-inner{
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: space-between;
 		align-items: center;
 		animation: bling 1s ease-in-out forwards;
 		animation-delay: 1s;
+		height: 100%;
 	}
 	.appear{
 		opacity: 0;
@@ -55,7 +67,48 @@ import CenterTitle from '../layouts/CenterTitle.astro';
 		position: relative;
 		animation: slide 0.75s ease-in-out, appear 0.5s ease-in-out;
 	}
+	.avatar:hover .bubble{
+		display: block;
+	}
+	.bubble {
+	 	position: relative;
+	 	width: 100px;
+		left: 50%;
+		top: clamp(20px, 5vh, 50px);
+	 	background: var(--shade-darken3);
+	 	border-radius: 40px;
+	 	padding: 24px;
+	 	text-align: center;
+	 	color: var(--highlight);
+		animation: speech-appear 0.2s ease-in-out;
+		display: none;
+	}
 	
+	.bubble-bottom-left:before {
+	 	content: "";
+	 	width: 0px;
+	 	height: 0px;
+	 	position: absolute;
+	 	border-left: 24px solid var(--shade-darken3);
+	 	border-right: 12px solid transparent;
+	 	border-top: 12px solid var(--shade-darken3);
+	 	border-bottom: 20px solid transparent;
+	 	left: 32px;
+	 	bottom: -24px;
+	}
+
+	@keyframes speech-appear{
+		from{
+			width: 3rem;
+			padding: 5px;
+			font-size: 5px;
+		}
+		to{
+			width: 100px;
+			padding: 24px;
+			font-size: 18px;
+		}
+	}
 	
 	@keyframes slide{
 		from{
@@ -78,7 +131,7 @@ import CenterTitle from '../layouts/CenterTitle.astro';
 			color: white;
 		}
 		to{
-			color: #FFE900;
+			color: var(--highlight);
 		}
 	}
 </style>

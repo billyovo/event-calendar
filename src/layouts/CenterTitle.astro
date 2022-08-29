@@ -4,12 +4,8 @@
 ---
 <section class="container">
 	<div class="container-inner">
-        <h1>
-            <slot name="title"/>
-        </h1>
-        <div>
-            <slot name="content"/>
-        </div>
+        <slot name="title"/>
+        <slot name="content"/>
     </div>
 </section>
 <style>
@@ -25,5 +21,6 @@
 		align-items: center;
         flex-direction: column;
 		width: 90%;
+        height: 100%;
     }
 </style>

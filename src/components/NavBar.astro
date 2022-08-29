@@ -27,15 +27,21 @@
         text-decoration: none;
         font-size: var(--font-size-base);
         font-weight: bolder;
+
+        background: linear-gradient(to left, var(--color-text) 50%, var(--shade-darken2) 50%) right;
+        background-size: 200%;
+        transition: .5s ease-in-out;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-text-fill-color: transparent;
     }
 
-    .nav-link:hover::after{
-        content: "✦";
-        position: relative;
-        display: inline-block;
-        color: yellow;
-        animation: rotate 1s ease-in-out forwards;
+    .nav-link:hover{
+        background-position: left;
     }
+
     .brand{
         width: min(100%, 400px);
     }
