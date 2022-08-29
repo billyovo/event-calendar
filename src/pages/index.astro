@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import NavBar from '../components/NavBar.astro';
 import CenterTitle from '../layouts/CenterTitle.astro';
-
+import avatar from '../assets/images/avatar.png';
 ---
 
 <Layout>
@@ -18,7 +18,7 @@ import CenterTitle from '../layouts/CenterTitle.astro';
 						<h2 class="appear">逢星期三、六晚上9點/10點舉行</h2>
 						<div class="slide avatar">
 							<div class="bubble bubble-bottom-left">你好嗎</div>
-							<img src="/images/avatar.png" alt="小妹的半身像" class="slide avatar">
+							<img src={avatar} alt="小妹的半身像" class="slide avatar">
 							
 						</div>
 						
@@ -34,7 +34,7 @@ import CenterTitle from '../layouts/CenterTitle.astro';
 
 <style>
 	.landing{
-		background: url("../images/background.png");
+		background: url("../assets/images/background.png");
 		background-repeat: no-repeat;
   		background-size: cover;
 		width: 100%;
@@ -107,7 +107,7 @@ import CenterTitle from '../layouts/CenterTitle.astro';
 		to{
 			width: 100px;
 			padding: 24px;
-			font-size: 18px;
+			font-size: 20px;
 		}
 	}
 	
