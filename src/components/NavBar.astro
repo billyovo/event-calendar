@@ -3,13 +3,13 @@
 ---
 
 <nav class="nav-container">
-    <a href="/">
+    <a href="/" class="brand">
         <img src="./icons/brand.svg" class="brand">
     </a>
     <div class="nav-links">
-        <a href="/news" class="nav-link">News</a>
-        <a href="/timetable" class="nav-link">時間表</a>
-        <a href="/record" class="nav-link">優勝記錄</a>
+        <a href="/news" class="nav-link"><span>News</span></a>
+        <a href="/timetable" class="nav-link"><span>時間表</span></a>
+        <a href="/record" class="nav-link"><span>優勝記錄</span></a>
     </div>
 </nav>
 <style>
@@ -22,10 +22,10 @@
     }
 
     .nav-link{
-        margin-right: 3rem;
+        margin: 0 1.5rem;
         color: var(--color-text);
         text-decoration: none;
-        font-size: var(--font-size-base);
+        font-size: 1.2rem;
         font-weight: bolder;
 
         background: linear-gradient(to left, var(--color-text) 50%, var(--shade-darken2) 50%) right;
@@ -45,6 +45,35 @@
     .brand{
         width: min(100%, 400px);
         margin: 0px 10px;
+    }
+
+    @media only screen and (max-width: 1000px) {
+        .nav-container{
+            height: 140px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .brand{
+            display: block;
+        }
+
+        .nav-links{
+            width: 90%;
+            display: inherit;
+            justify-content: inherit;
+            align-items: inherit;
+        }
+        .nav-link{
+            margin: 0;
+            width: 100%;
+            font-size: 1.4rem;
+        }
+        .nav-link > span{
+            display: block;
+            text-align: center;
+        }
     }
 
     @keyframes rotate{

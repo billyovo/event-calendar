@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import NavBar from '../components/NavBar.astro';
+import FooterBar from '../components/FooterBar.astro';
 import CenterTitle from '../layouts/CenterTitle.astro';
+import Container from '../layouts/Container.astro';
 ---
 
 <Layout>
-	
-	<main>
 		<div class="landing">
 			<div class="appear"><NavBar/></div>
 			
@@ -16,7 +16,9 @@ import CenterTitle from '../layouts/CenterTitle.astro';
 					<div slot="content" class="slogan-inner">
 						<h2 class="appear">逢星期三、六晚上9點/10點舉行</h2>
 						<div class="slide avatar">
-							<div class="bubble bubble-bottom-left">你好嗎</div>
+							<div class="bubble-container">
+								<div class="bubble bubble-bottom-left">你好嗎</div>
+							</div>						
 							<img src="./images/avatar.png" alt="小妹的半身像" class="slide avatar"/>
 							
 						</div>
@@ -28,7 +30,13 @@ import CenterTitle from '../layouts/CenterTitle.astro';
 			</div>
 				
 		</div>
-	</main>
+		<main class="main">
+			<Container>
+				<h1 class="header">News</h1>
+				<span>TODO</span>
+			</Container>
+		</main>
+		<FooterBar/>
 </Layout>
 
 <style>
@@ -43,8 +51,15 @@ import CenterTitle from '../layouts/CenterTitle.astro';
 	}
 	.slogan{
 		/* nav bar height */ 
-		height: calc(100% - (100px + clamp(50px, 5vw, 150px)));
+		height: calc(100% - (95px + clamp(50px, 5vw, 150px)));
 		margin-top: clamp(50px, 5vw, 150px);
+	}
+	@media only screen and (max-width: 1000px) {
+		.slogan{
+			/* nav bar height */ 
+			height: calc(100% - (155px + clamp(50px, 5vw, 150px)));
+			margin-top: clamp(50px, 5vw, 150px);
+		}
 	}
 	.avatar{
 		width: clamp(100px, 100%, 100%);
@@ -74,11 +89,15 @@ import CenterTitle from '../layouts/CenterTitle.astro';
 	.avatar:active .bubble{
 		display: block;
 	}
+	.bubble-container{
+		position: relative;
+		left: 60%;
+		bottom: clamp(20px, 5%, 50px);
+		z-index: 100000;
+	}
 	.bubble {
-	 	position: relative;
+	 	position: absolute;
 	 	width: 100px;
-		left: 50%;
-		top: clamp(20px, 5vh, 50px);
 	 	background: var(--shade-darken3);
 	 	border-radius: 40px;
 	 	padding: 24px;
@@ -101,6 +120,14 @@ import CenterTitle from '../layouts/CenterTitle.astro';
 	 	bottom: -24px;
 	}
 
+	.header{
+		color: var(--shade-darken3);
+		text-shadow: 0px 2px, 2px 0px, 2px 2px;
+		font-weight: bold;
+	}
+	.main{
+		color: black;
+	}
 	@keyframes speech-appear{
 		from{
 			width: 3rem;

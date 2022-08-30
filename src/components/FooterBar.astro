@@ -1,0 +1,57 @@
+---
+import Container from '../layouts/Container.astro';
+---
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+</head>
+<footer>
+    <Container>
+        <div class="footer-inner">
+            <h3 class="footer-title">Contact or social or something??</h3>
+            <div class="socials">
+                <a href="https://dcraft.org/discord"><i class="fa-brands fa-discord fa-lg discord"></i></a>
+                <a href="https://dcraft.org/facebook"><i class="fa-brands fa-square-facebook fa-lg facebook"></i></a>
+            </div>
+            <div class="message">
+                <span>Copywrite blah blah blah god i am so lazy to write things here</span>
+            </div>
+        </div>
+    </Container>
+</footer>
+<style>
+    footer{
+        background-color: var(--shade-darken3);
+    }
+    .footer-inner{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .footer-title{
+        color: var(--highlight);
+    }
+    .socials{
+        margin: 25px auto;
+        display: block;
+
+    }
+    .socials > a{
+        margin: 0 0.5rem;
+        padding: 10px;
+    }
+    .discord:hover{
+        color: #7289DA;
+    }
+    .facebook:hover{
+        color: #4267B2;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    .message{
+        font-size: 0.8rem;
+    }
+</style>
