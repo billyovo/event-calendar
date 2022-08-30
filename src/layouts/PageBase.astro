@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import FooterBar from '../components/FooterBar.astro';
+import CenterTitle from '../layouts/CenterTitle.astro';
+import Container from '../layouts/Container.astro';
+---
+<Layout>
+    <div>
+        <div class="nav-container">
+            <NavBar/>
+        </div>
+        <div class="banner">
+            <CenterTitle>
+                <h1 slot="title" class="header">Calendar</h1>
+            </CenterTitle>
+        </div>
+    </div>
+    <main>
+
+    </main>
+</Layout>
+
+<style>
+    .nav-container{
+        box-shadow: 0 4px 10px 0 rgba(0,0,0,0.4);
+        box-sizing: border-box;
+        z-index: 10000;
+        position: relative;
+    }
+    .banner{
+        background-color: var(--shade-darken2);
+    }
+    .header{
+        color: hsl(10, 21%, 95%);
+        font-size: 2.5rem;
+    }
+    
+    
+</style>
