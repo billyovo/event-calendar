@@ -4,10 +4,8 @@ import NavBar from '../components/NavBar.astro';
 import FooterBar from '../components/FooterBar.astro';
 import CenterTitle from '../layouts/CenterTitle.astro';
 import Container from '../layouts/Container.astro';
-import NewsListItem from '../components/NewsListItem.vue';
+import NewsList from '../components/NewsList.vue';
 
-const res = await fetch("http://ddns.bcreative.icu:28001/news?limit=3");
-const news = await res.json();
 
 ---
 
@@ -43,18 +41,7 @@ const news = await res.json();
 					<div class="more-news desktop"><a href="./news">查看更多</a></div>
 				</div>
 				
-				<div>
-					{
-						news.rows.map((newsItem)=>(
-							<>
-								<NewsListItem data={newsItem} client:load/>
-							</>
-						))
-						
-						
-					}
-					<div class="separator"></div>
-				</div>
+				<NewsList client:idle/>
 				
 				<div class="more-news mobile"><a href="./news">查看更多</a></div>
 				
@@ -158,12 +145,7 @@ const news = await res.json();
 		display: flex;
 		justify-content: space-between;
 	}
-	.separator{
-		border-top: 1px dashed black; 
-		margin-bottom: 30px;
-		width: 100%;
-		padding: 0px 20px;
-	}
+	
 	.more-news{
 		display: flex;
 		justify-content: center;
