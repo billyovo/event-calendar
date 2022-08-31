@@ -4,6 +4,8 @@ import NavBar from '../components/NavBar.astro';
 import FooterBar from '../components/FooterBar.astro';
 import CenterTitle from '../layouts/CenterTitle.astro';
 import Container from '../layouts/Container.astro';
+
+const { title } = Astro.props;
 ---
 <Layout>
     <div>
@@ -12,7 +14,7 @@ import Container from '../layouts/Container.astro';
         </div>
         <div class="banner">
             <CenterTitle>
-                <h1 slot="title" class="header">Calendar</h1>
+                <h1 slot="title" class="header">{title}</h1>
             </CenterTitle>
         </div>
     </div>

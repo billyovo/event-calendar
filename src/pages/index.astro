@@ -4,6 +4,11 @@ import NavBar from '../components/NavBar.astro';
 import FooterBar from '../components/FooterBar.astro';
 import CenterTitle from '../layouts/CenterTitle.astro';
 import Container from '../layouts/Container.astro';
+import NewsListItem from '../components/NewsListItem.vue';
+
+const res = await fetch("http://ddns.bcreative.icu:28001/news?limit=3");
+const news = await res.json();
+
 ---
 
 <Layout>
@@ -32,8 +37,28 @@ import Container from '../layouts/Container.astro';
 		</div>
 		<main class="main">
 			<Container>
-				<h1 class="header">News</h1>
-				<span>TODO</span>
+				<div class="header-container">
+					
+					<h1 class="header">News</h1>
+					<div class="more-news desktop"><a href="./news">查看更多</a></div>
+				</div>
+				
+				<div>
+					{
+						news.rows.map((newsItem)=>(
+							<>
+								<NewsListItem data={newsItem} client:load/>
+							</>
+						))
+						
+						
+					}
+					<div class="separator"></div>
+				</div>
+				
+				<div class="more-news mobile"><a href="./news">查看更多</a></div>
+				
+				
 			</Container>
 		</main>
 		<FooterBar/>
@@ -128,6 +153,45 @@ import Container from '../layouts/Container.astro';
 		color: var(--shade-darken3);
 		text-shadow: 0px 2px, 2px 0px, 2px 2px;
 		font-weight: bold;
+	}
+	.header-container{
+		display: flex;
+		justify-content: space-between;
+	}
+	.separator{
+		border-top: 1px dashed black; 
+		margin-bottom: 30px;
+		width: 100%;
+		padding: 0px 20px;
+	}
+	.more-news{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 1.2rem;
+	}
+	.more-news > a {
+		background-color: var(--shade-darken3);
+		color: white;
+		text-decoration: none;
+		width: 100%;
+		font-size: 1.1rem;
+		height: 30px;
+		padding: 10px 50px;
+		text-align: center;
+		border-radius: 20px;
+	}
+	.mobile{
+		display: none;
+		margin: 50px 0px;
+	}
+	@media screen and (max-width: 1000px){
+		.desktop{
+			display: none;
+		}
+		.mobile{
+			display: flex;
+		}
 	}
 	.main{
 		color: black;

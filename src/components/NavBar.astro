@@ -7,9 +7,9 @@
         <img src="./icons/brand.svg" class="brand">
     </a>
     <div class="nav-links">
-        <a href="/news" class="nav-link"><span>News</span></a>
-        <a href="/calendar" class="nav-link"><span>時間表</span></a>
-        <a href="/record" class="nav-link"><span>優勝記錄</span></a>
+        <a href="./news" class="nav-link"><span>News</span></a>
+        <a href="./calendar" class="nav-link"><span>時間表</span></a>
+        <a href="./record" class="nav-link"><span>優勝記錄</span></a>
     </div>
 </nav>
 <style>
@@ -48,7 +48,6 @@
 
     @media only screen and (max-width: 1000px) {
         .nav-container{
-            height: 140px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -56,6 +55,7 @@
         }
         .brand{
             display: block;
+            height: 40px;
         }
 
         .nav-links{
@@ -67,7 +67,7 @@
         .nav-link{
             margin: 0;
             width: 100%;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
         }
         .nav-link > span{
             display: block;
