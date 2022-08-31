@@ -13,5 +13,8 @@
     "@astrojs/vue": "^1.0.0",
     "astro": "^1.0.7",
     "vue": "^3.2.38"
+  },
+  "dependencies": {
+    "@astrojs/node": "^1.0.0"
   }
 }

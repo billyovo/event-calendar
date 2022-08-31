@@ -41,7 +41,7 @@ import NewsList from '../components/NewsList.vue';
 					<div class="more-news desktop"><a href="./news">查看更多</a></div>
 				</div>
 				
-				<NewsList client:idle/>
+				<NewsList limit={3} showControl={false} client:idle/>
 				
 				<div class="more-news mobile"><a href="./news">查看更多</a></div>
 				

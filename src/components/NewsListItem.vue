@@ -1,6 +1,6 @@
 <template>
-    <a class="line" :href="'./news/'+data.ID">
-        <span class="news_date">{{data.publish_date.substring(0,10)}}</span>
+    <a class="line" :href="'./news/post?id='+data.ID">
+        <span class="news-date">{{data.publish_date.substring(0,10)}}</span>
         <span>{{data.title}}</span>
     </a>
 </template>
@@ -8,9 +8,11 @@
 <style>
     .line{
         width: 100%;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow: ellipsis;
         display: grid;
-        grid-template-columns: 150px 1fr;
-
+        grid-template-columns: auto 1fr;
         padding: 30px 20px;
         text-decoration: none;
         color: initial;
@@ -20,13 +22,19 @@
         background-size: 300% 100%;
         transition: 1.5s ease-out;
     }
+    .line > span{
+        overflow: hidden; 
+        word-wrap: break-word; 
+        text-overflow: ellipsis;
+    }
     .line:hover {
         background-position: left;
     }
-    .news_date{
+    .news-date{
         color: var(--shade-darken3);
         font-weight: bold;
-        font-size: 1.2rem;
+        font-size: clamp(1rem, 5vw, 1rem);
+        padding-right: 15px;
     }
 </style>
 
