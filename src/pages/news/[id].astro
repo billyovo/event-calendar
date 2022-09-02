@@ -6,12 +6,12 @@ import FooterBar from "../../components/FooterBar.astro";
 const { id } = Astro.params;
 
 if(!parseInt(id)){
-    return Astro.redirect("/error");
+    return Astro.redirect("/404");
 }
 
 const res = await fetch("http://ddns.bcreative.icu:28001/news/"+id);
 if(res.status !== 200){
-    return Astro.redirect("/error");
+    return Astro.redirect("/404");
 }
 const data = await res.json();
 ---
