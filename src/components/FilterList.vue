@@ -19,7 +19,6 @@ export default {
             newParams.set('event', this.selectedEvent);
             newParams.set('type', this.searchPlayer);
             window.history.replaceState({}, '', `${location.pathname}?${newParams.toString()}`);
-            console.log("TEST");
         }
     }
 }
@@ -37,11 +36,11 @@ export default {
     </div>
     <div class="radio-line">
         <input type="radio" name="server" value="survival" id="survival" v-model="server" @change="syncQueryString"/>
-                 <label for="survival"><img src="/icons/survival.webp" alt="生存伺服器圖示" width="30" height="30" class="radio-icon">生存</label>
+                 <label for="survival"><img alt="生存伺服器圖示" width="30" height="30" class="radio-icon">生存</label>
     </div>
     <div class="radio-line">
         <input type="radio" name="server" value="skyblock" id="skyblock" v-model="server" />
-                 <label for="skyblock"><img src="/icons/skyblock.webp" alt="空島伺服器圖示" width="30" height="30" class="radio-icon">空島</label>
+                 <label for="skyblock"><img alt="空島伺服器圖示" width="30" height="30" class="radio-icon">空島</label>
     </div>
     <div class="separator"/>
     <h3 class="title">活動 {{selectedEvent}}</h3>

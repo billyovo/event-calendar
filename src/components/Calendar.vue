@@ -1,6 +1,6 @@
 <script>
     import event from '../assets/event.json';
-    import { RRule } from 'rrule'
+    import { RRule } from 'rrule';
     
     export default {
 
@@ -49,7 +49,6 @@
               }
             }
           }
-          console.log(this.occurence);
         }
       },
       mounted(){ 

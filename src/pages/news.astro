@@ -1,26 +1,18 @@
 ---
-function pagination(length, currentPage, itemsPerPage) {
-    return {
-        total: length,
-        per_page: itemsPerPage,
-        current_page: currentPage,
-        last_page: Math.ceil(length / itemsPerPage),
-        from: ((currentPage - 1) * itemsPerPage) + 1,
-        to: currentPage * itemsPerPage
-    };
-};
+
 
 import PageBase from '../layouts/PageBase.astro';
 import NewsList from '../components/NewsList.vue';
 import Container from '../layouts/Container.astro';
 import FooterBar from '../components/FooterBar.astro';
 
+const { API_URL } = import.meta.env;
 ---
 
 <PageBase title="News">
     <div class="news-container">
         <Container>
-            <NewsList limit={10} showControl={true} client:load/>
+            <NewsList limit={10} showControl={true} API_URL={API_URL} client:load/>
 
         </Container>
     </div>
