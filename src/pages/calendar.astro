@@ -1,14 +1,15 @@
 ---
+
 import PageBase from '../layouts/PageBase.astro';
 import Container from '../layouts/Container.astro';
-import FooterBar from '../components/FooterBar.astro'
-import CalendarList from '../components/CalendarList.vue'
+import FooterBar from '../components/FooterBar.astro';
+import Calendar from '../components/Calendar.vue';
 ---
 
 <PageBase title="Calendar">
     <div class="news-container">
         <Container>
-            <CalendarList/>
+            <Calendar limit={10} showControl={true} client:load/>
 
         </Container>
     </div>
@@ -16,5 +17,7 @@ import CalendarList from '../components/CalendarList.vue'
 </PageBase>
 
 <style>
-   
+    .news-container{
+        min-height: calc(100vh - 400px);
+    }
 </style>

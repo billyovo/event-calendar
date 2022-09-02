@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@astrojs/vue": "^1.0.0",
-    "astro": "^1.0.7",
+    "astro": "^1.1.3",
     "vue": "^3.2.38"
   },
   "dependencies": {
@@ -21,6 +21,8 @@
     "@fullcalendar/list": "^5.11.3",
     "@fullcalendar/timegrid": "^5.11.3",
     "@fullcalendar/vue3": "^5.11.2",
+    "luxon": "^3.0.3",
+    "rrule": "^2.7.1",
     "vite": "^2.9.9"
   }
 }

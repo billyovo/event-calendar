@@ -1,0 +1,120 @@
+---
+import PageBase from '../layouts/PageBase.astro';
+import Container from '../layouts/Container.astro';
+import FooterBar from '../components/FooterBar.astro';
+
+import events from '../assets/event.json';
+
+---
+<PageBase title="Record">
+    <div class="page-container">
+        <div class="container">
+            <div class="filter">
+                <h2 class="title">Filter</h2>
+                <div class="separator"/>
+                <h3>伺服器</h3>
+                <div class="radio-line">
+                    <input type="radio" name="server" value="all" id="all" checked>
+                    <label for="all">全部</label>
+                </div>
+                <div class="radio-line">
+                    <input type="radio" name="server" value="survival" id="survival">
+                    <label for="survival"><img src="/icons/survival.webp" alt="生存伺服器圖示" width="30" height="30" class="radio-icon">生存</label>
+                </div>
+                <div class="radio-line">
+                    <input type="radio" name="server" value="skyblock" id="skyblock">
+                    <label for="skyblock"><img src="/icons/skyblock.webp" alt="空島伺服器圖示" width="30" height="30" class="radio-icon">空島</label>
+                </div>
+                <div class="separator"/>
+                <h3 class="title">活動</h3>
+                <div class="radio-line">
+                    <input type="radio" name="event" value="all" id="all-event" checked>
+                     <label for="all-event">全部</label>
+                </div>
+                
+                {
+                    events.map((event)=>
+                        <div class="radio-line">
+                            <input type="radio" name="event" value={event.id} id={event.id}>
+                            <label for={event.id}><img src={event.imageurl} alt={event.title+"活動圖示"} width="30" height="30" class="radio-icon">{event.title}</label>
+                        </div>
+                    )
+                }
+                <div class="separator"/>
+                <h3 class="title">Type</h3>
+                <div class="radio-line">
+                    <input type="radio" name="type" value="record" id="record" checked>
+                     <label for="record">勝利紀錄</label>
+                </div>
+                <div class="radio-line">
+                    <input type="radio" name="type" value="count" id="count">
+                     <label for="count">勝利次數</label>
+                </div>
+                
+                
+            </div>
+            <div class="search-container">
+                <div/>
+                <input type="search" id="query" name="q"
+                    placeholder="搜尋玩家名稱"
+                    aria-label="透過玩家名稱搜尋紀錄"
+                    class="search"
+                >
+
+
+            </div>
+        </div>
+    </div>
+    <FooterBar/>
+</PageBase>
+
+<style>
+    .search-container{
+        display: flex;
+        justify-content: space-between;
+        height: 2rem;
+        margin-bottom: 10px;
+    }
+    .search{
+        padding: 5px;
+        height: 2rem;
+        font-size: 1rem;
+        border-radius: 10px;
+        width: 30%;
+    }
+    .page-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    .filter{
+        margin-right: 10%;
+    }
+    .title{
+        margin: 0;
+    }
+    .radio-line{
+        margin-top: 15px;
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+
+        text-align: center;
+        
+    }
+    .radio-icon{
+        margin-right: 10px;
+    }
+    .container{
+        display: grid;
+        grid-template-columns: 20% 70%;
+        width: 90%;
+    }
+    .separator{
+        height: 1px;
+        width: 100%;
+        background-color: gray;
+        margin: 10px 0px;
+    }
+</style>
