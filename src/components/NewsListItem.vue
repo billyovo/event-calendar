@@ -1,5 +1,5 @@
 <template>
-    <a class="line" :href="'./news/post?id='+data.ID">
+    <a class="line" :href="'./news/'+data.ID">
         <span class="news-date">{{data.publish_date.substring(0,10)}}</span>
         <span>{{data.title}}</span>
     </a>

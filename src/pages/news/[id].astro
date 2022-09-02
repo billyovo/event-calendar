@@ -1,0 +1,66 @@
+---
+import PageBase from "../../layouts/PageBase.astro";
+import Container from "../../layouts/Container.astro";
+import FooterBar from "../../components/FooterBar.astro";
+
+const { id } = Astro.params;
+
+if(!parseInt(id)){
+    return Astro.redirect("/error");
+}
+
+const res = await fetch("http://ddns.bcreative.icu:28001/news/"+id);
+if(res.status !== 200){
+    return Astro.redirect("/error");
+}
+const data = await res.json();
+---
+
+<PageBase title="News">
+    <div class="news-container">
+        <Container>
+            <span class="date">{data.publish_date.substring(0,10)}</span>
+            <h2 class="title">{data.title}</h2>
+            {
+                data.content.split("\n").map((paragraph)=>(
+                    <>
+                        <p>{paragraph}</p>
+                    </>
+                ))
+            }
+
+            { data.image && <img src={data.image} alt="新聞的描述相片">}
+            <div class="back"><a href="/news" class="back-href"><span>回到News</span></a></div>
+
+        </Container>
+    </div>
+    <FooterBar/>
+</PageBase>
+
+<style>
+    .news-container{
+        min-height: calc(100vh - 400px);
+    }
+    .date{
+        color: var(--shade-darken3);
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+    .title{
+        font-size: 1.2rem;
+    }
+    .back-href{
+        text-decoration: none;
+        color: initial;
+        padding: 30px 60px;
+        
+    }
+    .back{
+        width: 100%;
+        margin-top: 60px;
+        border-top: 1px dashed black;
+        display: flex;
+        justify-content: center;
+    }
+
+</style>

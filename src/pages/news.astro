@@ -11,8 +11,24 @@ function pagination(length, currentPage, itemsPerPage) {
 };
 
 import PageBase from '../layouts/PageBase.astro';
+import NewsList from '../components/NewsList.vue';
+import Container from '../layouts/Container.astro';
+import FooterBar from '../components/FooterBar.astro';
+
 ---
 
 <PageBase title="News">
+    <div class="news-container">
+        <Container>
+            <NewsList limit={10} showControl={true} client:load/>
 
+        </Container>
+    </div>
+    <FooterBar/>
 </PageBase>
+
+<style>
+    .news-container{
+        min-height: calc(100vh - 400px);
+    }
+</style>
