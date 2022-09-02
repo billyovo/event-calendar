@@ -1,6 +1,6 @@
 {
-  "name": "@example/basics",
-  "version": "0.0.1",
+  "name": "Event Calendar",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -16,13 +16,6 @@
   },
   "dependencies": {
     "@astrojs/node": "^1.0.0",
-    "@fullcalendar/core": "^5.11.3",
-    "@fullcalendar/daygrid": "^5.11.3",
-    "@fullcalendar/list": "^5.11.3",
-    "@fullcalendar/timegrid": "^5.11.3",
-    "@fullcalendar/vue3": "^5.11.2",
-    "luxon": "^3.0.3",
-    "rrule": "^2.7.1",
-    "vite": "^2.9.9"
+    "rrule": "^2.7.1"
   }
 }
