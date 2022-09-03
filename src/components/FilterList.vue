@@ -46,11 +46,11 @@ export default {
     </div>
     <div class="radio-line">
         <input type="radio" name="server" value="survival" id="survival" v-model="server" @change="syncQueryString"/>
-        <label for="survival"><img src="/images/survival.webp/" alt="生存伺服器圖示" width="30" height="30" class="radio-icon">生存</label>
+        <label for="survival"><img src="../../public/images/survival.svg/" alt="生存伺服器圖示" width="30" height="30" class="radio-icon">生存</label>
     </div>
     <div class="radio-line">
         <input type="radio" name="server" value="skyblock" id="skyblock" v-model="server" @change="syncQueryString"/>
-         <label for="skyblock"><img src="/images/skyblock.webp/" alt="空島伺服器圖示" width="30" height="30" class="radio-icon">空島</label>
+         <label for="skyblock"><img src="../../public/images/skyblock.svg/" alt="空島伺服器圖示" width="30" height="30" class="radio-icon">空島</label>
     </div>
     
     <div class="separator"/>
