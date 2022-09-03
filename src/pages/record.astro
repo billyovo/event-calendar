@@ -4,17 +4,21 @@ import FilterList from '../components/FilterList.vue';
 import FooterBar from '../components/FooterBar.astro';
 
 import SearchBar from '../components/SearchBar.vue';
+import PlayerRecordList from '../components/PlayerRecordList.vue';
 
-
+const {API_URL} = import.meta.env;
 ---
 <PageBase title="Record">
 
     <div class="page-container">
         <div class="container">
             
-            <div class="filter"><FilterList/></div>
+            <div class="filter">
+                <FilterList client:idle/>
+            </div>
             <div>
-                <SearchBar/>
+                <SearchBar client:idle/>
+                <PlayerRecordList API_URL={API_URL} client:load/>
             </div>     
         </div>
             

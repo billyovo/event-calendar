@@ -9,17 +9,25 @@ export default {
             server: "all",
             selectedEvent: "all",
             selectedType: "record",
-            searchPlayer: "",
         }
     },
     methods:{
-        syncQueryString(){
+        syncQueryString(){        
             const newParams = new URLSearchParams(window.location.search);
             newParams.set('server', this.server);
             newParams.set('event', this.selectedEvent);
-            newParams.set('type', this.searchPlayer);
+            newParams.set('type', this.selectedType);
             window.history.replaceState({}, '', `${location.pathname}?${newParams.toString()}`);
+        },
+        loadQueryString(){
+            const params = new URLSearchParams(window.location.search);
+            this.server = params.get("server") || "all";
+            this.selectedEvent = params.get("event") || "all";
+            this.selectedType = params.get("type") || "record";
         }
+    },
+    mounted(){
+        this.loadQueryString();
     }
 }
 </script>
@@ -28,42 +36,46 @@ export default {
     
 <div>
     <h2 class="title">Filter</h2>
+    
     <div class="separator"/>
-    <h3>伺服器 {{server}}</h3>
+    <h3>伺服器</h3>
+
     <div class="radio-line">
-        <input type="radio" name="server" value="all" id="all" v-model="server"/>
-         <label for="all">全部</label>
+        <input type="radio" name="server" value="all" id="all" v-model="server" @change="syncQueryString"/>
+        <label for="all">全部</label>
     </div>
     <div class="radio-line">
         <input type="radio" name="server" value="survival" id="survival" v-model="server" @change="syncQueryString"/>
-                 <label for="survival"><img alt="生存伺服器圖示" width="30" height="30" class="radio-icon">生存</label>
+        <label for="survival"><img src="/images/survival.webp/" alt="生存伺服器圖示" width="30" height="30" class="radio-icon">生存</label>
     </div>
     <div class="radio-line">
-        <input type="radio" name="server" value="skyblock" id="skyblock" v-model="server" />
-                 <label for="skyblock"><img alt="空島伺服器圖示" width="30" height="30" class="radio-icon">空島</label>
+        <input type="radio" name="server" value="skyblock" id="skyblock" v-model="server" @change="syncQueryString"/>
+         <label for="skyblock"><img src="/images/skyblock.webp/" alt="空島伺服器圖示" width="30" height="30" class="radio-icon">空島</label>
     </div>
+    
     <div class="separator"/>
-    <h3 class="title">活動 {{selectedEvent}}</h3>
+    <h3 class="title">活動</h3>
     <div class="radio-line">
-        <input type="radio" name="event" value="all" id="all-event" checked v-model="selectedEvent">
-                  <label for="all-event">全部</label>
+        <input type="radio" name="event" value="all" id="all-event" checked v-model="selectedEvent" @change="syncQueryString">
+        <label for="all-event">全部</label>
     </div>
     
     <div class="radio-line" v-for="event in events" :key="event">
-        <input type="radio" name="event" :value="event.id" :id="event.id" v-model="selectedEvent">
+        <input type="radio" name="event" :value="event.id" :id="event.id" v-model="selectedEvent" @change="syncQueryString">
                        <label :for="event.id"><img :src="event.imageurl" :alt="event.title+'活動圖示'" width="30" height="30" class="radio-icon">{{event.title}}</label>
     </div>
         
     <div class="separator"/>
-    <h3 class="title">Type {{selectedType}}</h3>
+    <h3 class="title">Type</h3>
     <div class="radio-line">
-        <input type="radio" name="type" value="record" id="record" checked v-model="selectedType">
+        <input type="radio" name="type" value="record" id="record" checked v-model="selectedType" @change="syncQueryString">
         <label for="record">勝利紀錄</label>
     </div>
     <div class="radio-line">
-        <input type="radio" name="type" value="count" id="count" v-model="selectedType">
+        <input type="radio" name="type" value="count" id="count" v-model="selectedType" @change="syncQueryString">
          <label for="count">勝利次數</label>
     </div>
+    
 </div>
 </template>
 

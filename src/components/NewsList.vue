@@ -68,6 +68,7 @@
           this.news = data.rows;
 
       },
+      
     }
 </script>
 <template>
@@ -77,7 +78,12 @@
               <i class="fa-solid fa-arrow-left">上一頁</i>
             </button>
 
-            <span>showing {{from}}~{{to}} of {{total}}</span>
+            <div>
+              <select v-model="currentPage" class="pageSelect" @change="changePage(0)">
+                <option v-for="index in lastPage" :key="index" :value="parseInt(index)">{{index}}</option>
+              </select>
+              <span>/{{lastPage}}頁</span>
+            </div>
 
             <button @click="changePage(1)" class="button" :style="'visibility:'+( (currentPage >= lastPage) ? 'hidden' : 'visible')">
               下一頁<i class="fa-solid fa-arrow-right"></i>
@@ -88,7 +94,7 @@
 	</div>
 </template>
 
-<style>
+<style scoped>
     .control{
       width: 100%;
       display: flex;
@@ -97,17 +103,22 @@
       margin-bottom: 20px;
       margin-top: -30px;
     }
+    .pageSelect{
+      width: 50px;
+      height: 100%;
+      font-size: 0.9rem;
+      margin: 10px;
+    }
     .separator{
-		border-top: 1px dashed black; 
-		margin-bottom: 30px;
-		width: 100%;
-		padding: 0px 20px;
-	}
+		  border-top: 1px dashed black; 
+		  margin-bottom: 30px;
+		  width: 100%;
+		  padding: 0px 20px;
+	  }
   .button{
     background: none;
     border: none;
     color: var(--shade-darken3);
-    padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     font-size: 1.1rem;

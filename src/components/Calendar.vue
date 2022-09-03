@@ -26,15 +26,15 @@
             this.emptyPaddingCell = firstDay.getDay();
         },
         fillDateCells(){
-          const lastDay = new Date(this.selectedMonth.getFullYear(), this.selectedMonth.getMonth(),0);
+          const lastDay = new Date(this.selectedMonth.getFullYear(), this.selectedMonth.getMonth()+1,0);
           this.dateCells = lastDay.getDate();
           
         },
         changeMonth(month){
           this.selectedMonth = new Date(this.selectedMonth.getFullYear(), this.selectedMonth.getMonth()+month, 1);
-          this.getOccurence();
           this.fillEmptyCells();
           this.fillDateCells();
+          this.getOccurence();
         },
         getOccurence(){
           this.occurence = {};
@@ -77,10 +77,17 @@
               <span :style="(today.getFullYear() === selectedMonth.getFullYear() && today.getMonth() === selectedMonth.getMonth()) && (today.getDate() === index)? 'color: red' : null">{{index}}</span>
               <div v-if="occurence[index]" class="wrapper-content">
                 <span class="wrapper-content-title">{{occurence[index].title}}</span>
-                <img :src="occurence[index].imageurl" height="50">
+                <img :src="occurence[index].imageurl" :alt="occurence[index].title+' 活動圖示'" :title="occurence[index].title+' 活動圖示'" height="50">
               </div>
             </div>
           </div>
+      </div>
+      <div> 
+        <div class="mobile-hints">
+          <div v-for="event in events" :key="event.id" class="mobile-hints-line">
+            <img :src="event.imageurl" :alt="event.title+ '活動圖示'" height="25" width="25"><span> = {{event.title}}</span>
+          </div>
+        </div>
       </div>
   </div>
 </template>
@@ -127,6 +134,24 @@
     }
     .wrapper-content-title{
       margin-bottom: 5px;
+    }
+    .mobile-hints{
+      margin-top: 15px;
+      display: none;
+      width: 100%;
+    }
+    .mobile-hints-line{
+      margin-right: 15px;
+      margin-bottom: 10px;
+    }
+    @media screen and (max-width: 550px){
+      .wrapper-content-title{
+        display: none;
+      }
+      .mobile-hints{
+        display: flex;
+        flex-wrap: wrap;
+      }
     }
     .cell{
       min-height: 50px;
