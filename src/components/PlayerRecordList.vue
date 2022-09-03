@@ -48,7 +48,7 @@
                 const server = params.get("server") || "all";
                 const event = params.get("event") || "all";
                 const player = params.get("player") || "";
-                return `http://ddns.bcreative.icu:28001/${type}/${server}/${event}${(player ? "/"+player : "")}?page=${this.currentPage}&limit=10`;
+                return `https://minigame-api.letsdream.today/${type}/${server}/${event}${(player ? "/"+player : "")}?page=${this.currentPage}&limit=10`;
             }   
         },
         async mounted(){
@@ -83,7 +83,8 @@
                 </button>
         </div>
         <div class="list">
-            <PlayerRecordItem v-for="record in records" :key="record.uuid" :data="record"/>
+            <PlayerRecordItem v-for="(record, index) in records" :key="index" :data="record"/>
+            <span v-if="total===0">沒有任何紀錄 :( </span>
         </div>
     </div>
 </template>

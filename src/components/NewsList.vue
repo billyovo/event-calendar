@@ -32,7 +32,7 @@
             this.to = (currentPage * itemsPerPage) < length ? (currentPage * itemsPerPage) : length
         },
         async getNews(){
-          const res = await fetch("http://ddns.bcreative.icu:28001"+"/news?limit="+this.itemsPerPage+"&page="+(this.currentPage-1));
+          const res = await fetch("https://minigame-api.letsdream.today"+"/news?limit="+this.itemsPerPage+"&page="+(this.currentPage-1));
           if(res.status !== 200){
             return [];
           }
