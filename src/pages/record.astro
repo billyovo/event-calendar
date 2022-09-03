@@ -1,47 +1,17 @@
 ---
 import PageBase from '../layouts/PageBase.astro';
-import FilterList from '../components/FilterList.vue';
+import RecordContainer from '../components/RecordContainer.vue';
 import FooterBar from '../components/FooterBar.astro';
-
-import SearchBar from '../components/SearchBar.vue';
-import PlayerRecordList from '../components/PlayerRecordList.vue';
 
 const {API_URL} = import.meta.env;
 ---
 <PageBase title="Record">
-
-    <div class="page-container">
-        <div class="container">
-            
-            <div class="filter">
-                <FilterList client:idle/>
-            </div>
-            <div>
-                <SearchBar client:idle/>
-                <PlayerRecordList API_URL={API_URL} client:load/>
-            </div>     
-        </div>
-            
-    </div>
+    
+    <RecordContainer client:load/>
     <FooterBar/>
 </PageBase>
 
 <style>
-    .filter{
-        margin-right: 10%;
-    }
-    .container{
-        display: grid;
-        grid-template-columns: 20% 80%;
-        width: 90%;
-        padding: 50px;
-    }
-
-    .page-container{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-top: 15px;
-    }
+    
     
 </style>

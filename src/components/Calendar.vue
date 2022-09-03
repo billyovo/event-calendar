@@ -51,7 +51,10 @@
           }
         }
       },
-      mounted(){ 
+      mounted(){
+        //make sure it's first day of the month to prevent any bug 
+        this.selectedMonth = new Date(this.selectedMonth.getFullYear(), this.selectedMonth.getMonth(), 1);
+
         this.fillEmptyCells();
         this.fillDateCells();
         this.getOccurence();

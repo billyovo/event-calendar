@@ -4,7 +4,7 @@ export default {
         return{
             searchPlayer: "",
             timeout: null,
-            itemsPerPage: 10
+            itemsPerPage: 15
         }
     },
     methods:{
@@ -12,12 +12,15 @@ export default {
             const newParams = new URLSearchParams(window.location.search);
             newParams.set('player', this.searchPlayer);
             newParams.set('itemsPerPage', this.itemsPerPage);
+            newParams.set('page', 1);
+            
             window.history.replaceState({}, '', `${location.pathname}?${newParams.toString()}`);
+            this.$emit('changed', 'someValue')
         },
         loadQueryString(){
             const params = new URLSearchParams(window.location.search);
             this.searchPlayer = params.get("player") || "";
-            this.itemsPerPage = params.get("itemsPerPage") || 10;
+            this.itemsPerPage = params.get("itemsPerPage") || 15;
         },
         debounceSearch(){
             if (this.timeout){
@@ -77,4 +80,5 @@ export default {
         width: 30%;
         margin: 0;
     }
+
 </style>

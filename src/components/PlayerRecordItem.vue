@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-inner">
             <div class="label-line">
-                <div class="label-container">
+                <div class="label-container" v-if="data.server">
                     <span class="label" :style="'background: '+(data.server==='生存' ? 'red' : 'blue')">{{data.server}}</span>
                 </div>
                 <div class="name">
@@ -19,12 +19,15 @@
                     <span>{{data.name}}</span>
                 </div>
             </div>
-            <div class="card-content">
+            <div class="card-content" v-if="data.event">
                 <img :src="imageurl" :alt="data.title +'遊戲圖示'" height="24" width="24" style="margin-right: 10px">
                 <span class="card-content">{{data.event}}</span>
             </div>
-            <div class="card-content">
+            <div class="card-content" v-if="data.date">
                 <i class="fa fa-calendar fa-xl" style="margin-right: 10px;"></i><span>{{data.date.substring(0,10)}}</span>
+            </div>
+            <div class="card-content" v-if="data.total">
+                <span>勝利次數: {{data.total}}次</span>
             </div>
             
         </div>
@@ -34,10 +37,11 @@
 <style scoped>
     .card{
         background: white;
-        width: 250px;
+        width: 230px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         margin: 15px 20px;
         border-radius: 10px;
+        word-wrap: break-word;
     }
     .card-content{
         font-size: 0.9rem;

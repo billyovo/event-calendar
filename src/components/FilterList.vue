@@ -17,7 +17,11 @@ export default {
             newParams.set('server', this.server);
             newParams.set('event', this.selectedEvent);
             newParams.set('type', this.selectedType);
+
+            //we reset the page number when filter changes
+            newParams.set('page', 1);
             window.history.replaceState({}, '', `${location.pathname}?${newParams.toString()}`);
+            this.$emit('changed', 'someValue');
         },
         loadQueryString(){
             const params = new URLSearchParams(window.location.search);
@@ -80,6 +84,7 @@ export default {
 </template>
 
 <style scoped>
+    
     .title{
         margin: 0;
     }
