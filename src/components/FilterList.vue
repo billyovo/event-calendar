@@ -52,7 +52,7 @@ export default {
         <input type="radio" name="server" value="skyblock" id="skyblock" v-model="server" @change="syncQueryString"/>
          <label for="skyblock"><img src="../../public/images/skyblock.svg/" alt="空島伺服器圖示" width="30" height="30" class="radio-icon">空島</label>
     </div>
-    
+
     <div class="separator"/>
     <h3 class="title">活動</h3>
     <div class="radio-line">
