@@ -4,17 +4,20 @@ export default {
         return{
             searchPlayer: "",
             timeout: null,
+            itemsPerPage: 10
         }
     },
     methods:{
         syncQueryString(){        
             const newParams = new URLSearchParams(window.location.search);
             newParams.set('player', this.searchPlayer);
+            newParams.set('itemsPerPage', this.itemsPerPage);
             window.history.replaceState({}, '', `${location.pathname}?${newParams.toString()}`);
         },
         loadQueryString(){
             const params = new URLSearchParams(window.location.search);
             this.searchPlayer = params.get("player") || "";
+            this.itemsPerPage = params.get("itemsPerPage") || 10;
         },
         debounceSearch(){
             if (this.timeout){
@@ -35,6 +38,15 @@ export default {
 
 <template>
     <div class="container-search">
+        <div>
+            <span>items per page</span>
+            <select name="itemsPerPage" v-model="itemsPerPage" class="itemsPerPage" @change="syncQueryString()">
+              <option>5</option>
+              <option>10</option>
+              <option>15</option>
+              <option>25</option>
+            </select>
+        </div>
         <input type="search" id="query" name="q"
             v-model="searchPlayer"
             placeholder="搜尋玩家名稱"
@@ -47,9 +59,15 @@ export default {
 </template>
 
 <style scoped>
+    .itemsPerPage{
+        padding: 3px;
+        font-size: 0.85rem;
+        margin-left: 10px;
+    }
     .container-search{
         display: flex;
-        justify-content: right;
+        justify-content: space-between;
+        align-items: baseline;
     }
     .search{
         padding: 5px;

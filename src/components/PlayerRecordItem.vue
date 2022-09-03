@@ -1,7 +1,8 @@
 <script>
     export default {
         props:{
-            data: Object
+            data: Object,
+            imageurl: String,
         }
     }
 </script>
@@ -9,19 +10,23 @@
     <div class="card">
         <div class="card-inner">
             <div class="label-line">
+                <div class="label-container">
+                    <span class="label" :style="'background: '+(data.server==='生存' ? 'red' : 'blue')">{{data.server}}</span>
+                </div>
                 <div class="name">
                     <img :src="`https://crafatar.com/avatars/${data.uuid}?size=30&overlay=true`" :alt="data.name+' 的遊戲頭像'" :title="data.name" style="margin-right: 10px" v-if="data.name!=='平手'">
                     <img src="../../public/images/draw.png" alt="平手圖示" title="平手" style="margin-right: 10px" v-else>
                     <span>{{data.name}}</span>
                 </div>
-                <span class="label" :style="'background: '+(data.server=='生存') ? 'red' : 'blue'">{{data.server}}</span>
             </div>
-            <div>
-                <span>{{data.date.substring(0,10)}}</span>
+            <div class="card-content">
+                <img :src="imageurl" :alt="data.title +'遊戲圖示'" height="24" width="24" style="margin-right: 10px">
+                <span class="card-content">{{data.event}}</span>
             </div>
-
-            <span>{{data.event}}</span>
-            <span>{{data.server}}</span>
+            <div class="card-content">
+                <i class="fa fa-calendar fa-xl" style="margin-right: 10px;"></i><span>{{data.date.substring(0,10)}}</span>
+            </div>
+            
         </div>
     </div>
 </template>
@@ -34,15 +39,29 @@
         margin: 15px 20px;
         border-radius: 10px;
     }
+    .card-content{
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
     .label-line{
         display: flex;
         justify-content: space-between;
         width: 100%;
     }
+    .label-container{
+        position: absolute;
+    }
     .label{
         position: relative;
-        left: 50px;
+        right: 53px;
+        bottom: 10px;
         width: 3rem;
+        color: white;
+        font-size: 0.85rem;
+        padding: 5px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
     .card-inner{
         padding: 20px;

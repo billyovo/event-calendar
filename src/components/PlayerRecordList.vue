@@ -1,10 +1,14 @@
 <script>
     import PlayerRecordItem from './PlayerRecordItem.vue';
+    import event from '../assets/event.json'
 
     export default {
         data(){
             return{
                 records: [],
+                route: null,
+                events: event,
+                eventMap: new Map(),
 
                 total: 0,
                 itemsPerPage: 10,
@@ -48,19 +52,28 @@
                 const server = params.get("server") || "all";
                 const event = params.get("event") || "all";
                 const player = params.get("player") || "";
-                return `https://minigame-api.letsdream.today/${type}/${server}/${event}${(player ? "/"+player : "")}?page=${this.currentPage}&limit=10`;
+                const limit = params.get("itemsPerPage") || 10;
+                return `https://minigame-api.letsdream.today/${type}/${server}/${event}${(player ? "/"+player : "")}?page=${this.currentPage}&limit=${this.itemsPerPage}`;
             }   
         },
+        computed:{
+            queryStrings(){
+                return window.location.search;
+            }
+        },
         async mounted(){
+            for(let i = 0;i<this.events.length;i++){
+                this.eventMap.set(this.events[i].title, this.events[i].imageurl);
+            }
+            console.log(window.location.search);
             await this.getRecord();
         },
-        watch: {
-            async constructURL(){
-                await this.getRecord();
-                console.log("changed!");
+        watch:{
+            queryStrings(){
+                console.log("test");
             }
-        
-      }
+        }
+
     }
 </script>
 
@@ -78,12 +91,12 @@
                   <span>/{{lastPage}}頁</span>
                 </div>
 
-                <button @click="changePage(1)" class="button" :style="'visibility:'+( (currentPage >= lastPage) ? 'hidden' : 'visible')">
+                <button @click="changePage(1)" class="button" :style="'visibility:'+((currentPage >= lastPage) ? 'hidden' : 'visible')">
                   下一頁<i class="fa-solid fa-arrow-right"></i>
                 </button>
         </div>
         <div class="list">
-            <PlayerRecordItem v-for="(record, index) in records" :key="index" :data="record"/>
+            <PlayerRecordItem v-for="(record, index) in records" :key="index" :data="record" :imageurl="eventMap.get(record.event)"/>
             <span v-if="total===0">沒有任何紀錄 :( </span>
         </div>
     </div>
