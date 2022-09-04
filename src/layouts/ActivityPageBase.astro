@@ -1,6 +1,7 @@
 ---
 import PageBase from '../layouts/PageBase.astro';
 import Container from '../layouts/Container.astro';
+import FooterBar from '../components/FooterBar.astro';
 import events from '../assets/event.json';
 
 const {eventImage} = Astro.props;
@@ -31,8 +32,8 @@ const {eventImage} = Astro.props;
             <slot name="win-reward"/>
         </section>
         <slot/>
-        
     </Container>
+    <FooterBar/>
 </PageBase>
 
 <style>
