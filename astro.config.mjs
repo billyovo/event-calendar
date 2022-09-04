@@ -7,6 +7,7 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   integrations: [vue(), sitemap()],
+  site: "https://minigame.letsdream.today/",
   output: 'server',
   adapter: node()
 });
