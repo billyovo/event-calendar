@@ -78,7 +78,7 @@ export default {
         position: fixed;
         top: 0;
         width: 100%;
-        height: 100%;
+        min-height: 150%;
         background: white;
         z-index: 100000;
         margin: 50px;
