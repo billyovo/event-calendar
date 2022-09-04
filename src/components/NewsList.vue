@@ -113,7 +113,7 @@
 		  border-top: 1px dashed black; 
 		  margin-bottom: 30px;
 		  width: 100%;
-		  padding: 0px 20px;
+		  padding-right: 20px;
 	  }
   .button{
     background: none;
