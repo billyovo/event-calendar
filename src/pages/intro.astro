@@ -9,8 +9,44 @@ import NewsList from '../components/NewsList.vue';
 ---
 
 <PageBase title="活動介紹">
-	
+	<Container>
+        <div class="intro-nav">
+            <div class="intro-chip-line">
+                <a href="/intro" class="intro-chip">
+                    <span>test</span>
+                </a>
+            </div>
+            <a href="/intro" class="intro-chip">
+                <span>test</span>
+            </a>
+            <a href="/intro" class="intro-chip">
+                <span>test</span>
+            </a>
+            <a href="/intro" class="intro-chip">
+                <span>test</span>
+            </a>
+        </div>
+    </Container>
 </PageBase>
 
 <style>
+    .intro-chip-line{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .intro-nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .intro-chip{
+        text-decoration: none;
+        color: white;
+        background-color: var(--shade-darken3);
+        padding: 5px 20px;
+        border-radius: 15px;
+        margin: 10px;
+    }
 </style>
