@@ -30,7 +30,11 @@ const data = await res.json();
                 ))
             }
 
-            { data.image && <img src={data.image} alt="新聞的描述相片">}
+            { data.image && 
+                <div class="img-container">
+                    <img src={data.image} alt="新聞的描述相片" class="news-image">
+                </div>
+            }
             <div class="back"><a href="/news" class="back-href"><span>回到News</span></a></div>
 
         </Container>
@@ -41,6 +45,13 @@ const data = await res.json();
 <style>
     .news-container{
         min-height: calc(100vh - 400px);
+    }
+
+    .img-container{
+        max-width: 90%;
+    }
+    .news-image{
+        width: 100%;
     }
     .date{
         color: var(--shade-darken3);

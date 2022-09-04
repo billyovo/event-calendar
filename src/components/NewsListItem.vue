@@ -7,7 +7,7 @@
 
 <style>
     .line{
-        width: 100%;
+        width: calc(100% - 20px);
         white-space:nowrap;
         overflow:hidden;
         text-overflow: ellipsis;
