@@ -42,7 +42,7 @@ export default {
             </div>
         </div>
 
-        <div class="floating" :style="'top: 90vh;' +(mobileFilter ? 'background: red' : null)" @click="mobileFilter = !mobileFilter">
+        <div class="floating" :style="'top: 80vh;' +(mobileFilter ? 'background: red' : null)" @click="mobileFilter = !mobileFilter">
             <i :class="'fa-solid fa-xl '+(mobileFilter ? 'fa-xmark' : 'fa-filter')"></i>
         </div>   
     </main>
@@ -64,7 +64,7 @@ export default {
         width: 70px;
         height: 70px;
         color: white;
-        position: absolute;
+        position: fixed;
         right: 20px;
         border-radius: 50%;
         display: flex;
