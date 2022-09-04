@@ -77,14 +77,15 @@ export default {
     .mobile-modal{
         position: fixed;
         top: 0;
-        width: 100%;
-        min-height: 150%;
+        width: 100vw; /* viewport width */
+        height: 100vh; /* viewport height */
+        overflow-y: scroll;
+        overflow-x: hidden;
         background: white;
         z-index: 100000;
         margin: 50px;
-        overflow-y: scroll;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        transform: scale(1.2);
+
         
     }
     .mobile-modal-inner{
