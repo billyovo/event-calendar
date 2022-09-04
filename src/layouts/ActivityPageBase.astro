@@ -1,0 +1,68 @@
+---
+import PageBase from '../layouts/PageBase.astro';
+import Container from '../layouts/Container.astro';
+import events from '../assets/event.json';
+
+const {eventImage} = Astro.props;
+---
+
+<PageBase title="活動介紹">
+	<Container>
+        <div class="intro-nav">
+            <div class="intro-chip-line">
+                <a href="/introduction" class="intro-chip" id={Astro.url.pathname==="/introduction" ? "active" : null}>
+                    <span>introduction</span>
+                </a>
+            </div>
+            {events.map((event)=>(
+                <a href={"/introduction/"+event.id} class="intro-chip" id={Astro.url.pathname==="/introduction/"+event.id ? "active" : null}>
+                    <img src={event.imageurl} height="20" width="20" style="margin-right: 5px"><span>{event.title}</span>
+                </a>
+
+            ))}
+        </div>
+        <section class="event-img-container">
+            <img src={eventImage} class="event-img">
+        </section>
+        <section>
+            <slot name="introduction-text"/>
+        </section>
+        <section style="margin-top: 50px">
+            <slot name="win-reward"/>
+        </section>
+        <slot/>
+    </Container>
+</PageBase>
+
+<style>
+    .event-img{
+        width: 100%;
+        aspect-ratio: 16 / 8;
+    }
+    .intro-chip-line{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    #active{
+        background-color: rgb(46,204,113);
+    }
+    .intro-nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .intro-chip{
+        text-decoration: none;
+        color: white;
+        background-color: var(--shade-darken3);
+        padding: 5px 20px;
+        border-radius: 15px;
+        margin: 10px;
+    }
+    .event-img-container{
+        width: 100%;
+    }
+    
+</style>

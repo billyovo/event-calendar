@@ -1,3 +1,32 @@
 ---
-
+import PageBase from '../layouts/PageBase.astro'
+import FooterBar from '../components/FooterBar.astro';
 ---
+
+<PageBase title="這裡什麼都沒有!">
+    <h2 class="title">but u found a rapidly spinning sleepyrose!</h2>
+    <div class="center-container">
+        <img src="/images/sleepyrose.png" height="100" width="100" class="spin">
+    </div>
+    <FooterBar></FooterBar>
+</PageBase>
+
+<style>
+    .center-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 200px);
+    }
+    .title{
+        display: flex;
+        justify-content: center;
+    }
+    .spin{
+        animation: spin 0.3s infinite linear;
+    }
+    @keyframes spin {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+</style>
