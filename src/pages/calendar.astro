@@ -6,8 +6,6 @@ import FooterBar from '../components/FooterBar.astro';
 import Calendar from '../components/Calendar.vue';
 
 //the date doesnt matter here
-const startTimeSurvival = new Date('4/9/2022 01:00:00 PM UTC');
-const startTimeSkyblock = new Date('4/9/2022 02:00:00 PM UTC');
 ---
 
 <PageBase title="Calendar">
@@ -15,8 +13,8 @@ const startTimeSkyblock = new Date('4/9/2022 02:00:00 PM UTC');
         <Container>
             <Calendar limit={10} showControl={true} client:load/>
             <div style="margin-top:10px">
-                <div>{startTimeSurvival.getHours()}:00</div>
-                <div>{startTimeSkyblock.getHours()}:00</div>
+                <div>21:00</div>
+                <div>22:00</div>
             </div>
         </Container>
     </div>
