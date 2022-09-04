@@ -65,9 +65,9 @@
 <template>
   <div>
     <div class="tool-bar">
-      <button @click="changeMonth(-1)" :style="(today-selectedMonth) < 0 ? null : 'visibility: hidden'" class="control-button"><i class="fa-solid fa-arrow-left"></i> LEft</button>
+      <button @click="changeMonth(-1)" :style="(today-selectedMonth) < 0 ? null : 'visibility: hidden'" class="control-button"><i class="fa-solid fa-arrow-left"></i>上一頁</button>
       <h2 class="selected">{{selectedMonth.getFullYear()}} / {{selectedMonth.getMonth()+1}}</h2>
-      <button @click="changeMonth(1)" :style="(selectedMonth-today) < 31556952000 ? null : 'visibility: hidden'" class="control-button">right <i class="fa-solid fa-arrow-right"></i></button>
+      <button @click="changeMonth(1)" :style="(selectedMonth-today) < 31556952000 ? null : 'visibility: hidden'" class="control-button">下一頁<i class="fa-solid fa-arrow-right"></i></button>
       </div>
     
       <div class="container">

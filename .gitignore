@@ -22,3 +22,5 @@ pnpm-debug.log*
 .vscode
 start.sh
 app.js
+test-results
+tests/**/*.png
