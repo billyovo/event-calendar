@@ -64,7 +64,7 @@ export default {
         width: 70px;
         height: 70px;
         color: white;
-        position: fixed;
+        position: absolute;
         right: 20px;
         border-radius: 50%;
         display: flex;

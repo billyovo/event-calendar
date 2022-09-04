@@ -41,7 +41,7 @@ export default {
 <div>
     <h2 class="title">Filter</h2>
     
-    <div class="separator"/>
+    <div class="separator-line"/>
     <h3>伺服器</h3>
 
     <div class="radio-line">
@@ -57,7 +57,7 @@ export default {
          <label for="skyblock"><img src="../../public/images/skyblock.svg/" alt="空島伺服器圖示" width="30" height="30" class="radio-icon">空島</label>
     </div>
 
-    <div class="separator"/>
+    <div class="separator-line"/>
     <h3 class="title">活動</h3>
     <div class="radio-line">
         <input type="radio" name="event" value="all" id="all-event" checked v-model="selectedEvent" @change="syncQueryString">
@@ -69,7 +69,7 @@ export default {
                        <label :for="event.id"><img :src="event.imageurl" :alt="event.title+'活動圖示'" width="30" height="30" class="radio-icon">{{event.title}}</label>
     </div>
         
-    <div class="separator"/>
+    <div class="separator-line"/>
     <h3 class="title">Type</h3>
     <div class="radio-line">
         <input type="radio" name="type" value="record" id="record" checked v-model="selectedType" @change="syncQueryString">
@@ -101,7 +101,7 @@ export default {
         margin-right: 10px;
     }
  
-    .separator{
+    .separator-line{
         height: 1px;
         width: 100%;
         background-color: gray;
