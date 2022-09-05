@@ -2,12 +2,6 @@ import { test, expect } from '@playwright/test';
 
 const url = "https://minigame.letsdream.today";
 
-test('Landing page is working', async ({ page }) => {
-    await page.goto(url);
-    await page.waitForLoadState('domcontentloaded');
-    await expect(page).toHaveScreenshot();
-})
-
 test('News can load', async ({ page }) => {
     await page.goto(`${url}/news`);
     await page.waitForSelector(".line");
