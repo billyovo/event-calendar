@@ -23,4 +23,9 @@ jobs:
     - run: npm ci
     - run: npx playwright install
     - run: npx playwright install-deps
-    - run: npm test
+    - run: npm run test
+    
+    - uses: sarisia/actions-status-discord@v1
+      if: always()
+      with:
+        webhook: ${{ secrets.DISCORD_WEBHOOK }}
