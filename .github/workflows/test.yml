@@ -23,7 +23,7 @@ jobs:
     - run: npm ci
     - run: npx playwright install
     - run: npx playwright install-deps
-    - run: npx playwright test page.test.js
+    - run: npm run test
     
     - uses: sarisia/actions-status-discord@v1
       if: always()
