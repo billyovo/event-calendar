@@ -45,13 +45,14 @@ export default {
 <template>
     <div class="container-search">
         <div>
-            <span>items per page</span>
+            <span>每頁顯示</span>
             <select name="itemsPerPage" v-model="itemsPerPage" class="itemsPerPage" @change="syncQueryString()">
               <option>5</option>
               <option>10</option>
               <option>15</option>
               <option>25</option>
             </select>
+            <span>個</span>
         </div>
         <input type="search" id="query" name="q"
             v-model="searchPlayer"
