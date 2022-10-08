@@ -58,17 +58,27 @@
             },
             async getRecord(){
                 this.loading = true;
-                const res = await fetch(this.constructURL());
-                this.loading = false;
-                if(res.status===204){
-                    this.records = [];
-                    this.paginate(0, 1, this.itemsPerPage);
-                    return;
-                }
-                const data = await res.json();
+                try{
+                    const res = await fetch(this.constructURL());
 
-                this.records = data?.rows || [];
-                this.paginate(data?.total || 0, this.currentPage, this.itemsPerPage);
+                    if(res.status===204){
+                        this.records = [];
+                        this.paginate(0, 1, this.itemsPerPage);
+                        return;
+                    }
+
+                    const data = await res.json();
+                    this.records = data?.rows || [];
+                    this.paginate(data?.total || 0, this.currentPage, this.itemsPerPage);
+                }
+                catch(error){
+                    alert("一個錯誤發生了 D:");
+                }
+                finally{
+                    this.loading = false;
+                }
+                
+                
             },
             constructURL(){
                 const params = new URLSearchParams(window.location.search);

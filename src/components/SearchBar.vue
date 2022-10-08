@@ -28,6 +28,9 @@ export default {
             } 
             
             this.timeout = setTimeout(() => {
+                if(this.searchPlayer && !/^[a-zA-Z0-9_]{2,16}$/.test(this.searchPlayer)){
+                    return;
+                }
                 this.syncQueryString();
             }, 500);
         }
@@ -56,6 +59,7 @@ export default {
             maxlength="48"
             aria-label="透過玩家名稱搜尋紀錄"
             class="search"
+            pattern="^[a-zA-Z0-9_]{2,16}$"
             @input="debounceSearch"
         >
     </div>
@@ -79,6 +83,12 @@ export default {
         border-radius: 10px;
         width: 30%;
         margin: 0;
+    }
+
+    input:invalid {
+        border: red solid 2px;
+        outline-color: red;
+        box-shadow: 0 0 0.6rem #ff0000;
     }
 
 </style>
