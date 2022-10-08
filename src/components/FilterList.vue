@@ -39,7 +39,7 @@ export default {
 <template>
     
 <div>
-    <h2 class="title">Filter</h2>
+    <h2 class="title">篩選</h2>
     
     <div class="separator-line"/>
     <h3>伺服器</h3>
@@ -70,7 +70,7 @@ export default {
     </div>
         
     <div class="separator-line"/>
-    <h3 class="title">Type</h3>
+    <h3 class="title">類型</h3>
     <div class="radio-line">
         <input type="radio" name="type" value="record" id="record" checked v-model="selectedType" @change="syncQueryString">
         <label for="record">勝利紀錄</label>
