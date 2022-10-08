@@ -9,7 +9,7 @@ import FooterBar from '../components/FooterBar.astro';
 const { API_URL } = import.meta.env;
 ---
 
-<PageBase title="News">
+<PageBase title="通知">
     <div class="news-container">
         <Container>
             <NewsList limit={10} showControl={true} API_URL={API_URL} client:load/>
