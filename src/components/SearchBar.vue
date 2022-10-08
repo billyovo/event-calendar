@@ -52,7 +52,7 @@ export default {
               <option>15</option>
               <option>25</option>
             </select>
-            <span>個</span>
+            <span> 個</span>
         </div>
         <input type="search" id="query" name="q"
             v-model="searchPlayer"
