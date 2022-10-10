@@ -5,7 +5,14 @@ import ActivityPageBase from "../../layouts/ActivityPageBase.astro";
 
 <ActivityPageBase title="活動介紹" eventImage="https://via.placeholder.com/2000x2000">
     
-    <p slot="introduction-text">活動會在blah blah blah舉行, go by blah blah blah, how to get reward blah blah blah etc</p>
+    <div slot="introduction-text">
+    <h2>遊戲規則:</h2>
+<p>每回合有10秒時間尋找合適的位置往下跳</p>
+<p>倒數結束後平台的地板會消失</p>
+<p>只能降落在白色混凝土上, 否則會被淘汰</p>
+<p>成功降落時會將附近地板填色</p>
+<p>所有人都墜落完成會開始新一回合, 最後一人為勝者</p>
+</div>
     <div slot="win-reward">
         <h2>勝利獎勵</h2>
         <img src="/images/items/drop-winner.png" alt="勝利獎勵圖示" class="winner-image"> 
