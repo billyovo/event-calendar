@@ -38,6 +38,9 @@
                   this.currentPage = 0;
                 }
                 this.syncQueryString();
+                if(document.documentElement.clientWidth <= 800){
+                    window.scrollTo({ top: 50 });
+                }
                 await this.getRecord();
             },
             resetPage(){
@@ -113,6 +116,11 @@
 
 <template>
     <div>
+        <div class="list">
+            <PlayerRecordItem v-for="(record, index) in records" :key="index" :data="record" :imageurl="eventMap.get(record.event)"/>
+            <span v-if="total===0">沒有任何紀錄 :( </span>
+        </div>
+
         <div class="control">
             <button @click="changePage(-1)" class="button" :style="'visibility:'+((currentPage <= 1) ? 'hidden' : 'visible')">
                 <span><i class="fa-solid fa-arrow-left">上一頁</i></span>
@@ -129,11 +137,7 @@
                   <span>下一頁<i class="fa-solid fa-arrow-right"></i></span>
                 </button>
         </div>
-        <div class="list">
-            <PlayerRecordItem v-for="(record, index) in records" :key="index" :data="record" :imageurl="eventMap.get(record.event)"/>
-            <span v-if="total===0">沒有任何紀錄 :( </span>
-        </div>
-        <div class="loading" v-if="loading">
+         <div class="loading" v-if="loading">
             <div class="loader-line"></div>
         </div>
     </div>

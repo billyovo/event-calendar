@@ -75,7 +75,7 @@ export default {
         <input type="radio" name="type" value="record" id="record" checked v-model="selectedType" @change="syncQueryString">
         <label for="record">勝利紀錄</label>
     </div>
-    <div class="radio-line">
+    <div class="radio-line" style="padding-bottom: 30px">
         <input type="radio" name="type" value="count" id="count" v-model="selectedType" @change="syncQueryString">
          <label for="count">勝利次數</label>
     </div>
