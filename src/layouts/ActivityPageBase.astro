@@ -21,6 +21,9 @@ const {eventImage} = Astro.props;
                 </a>
 
             ))}
+            <a href={"/introduction/maze"} class="intro-chip" id={Astro.url.pathname==="/introduction/maze" ? "active" : null}>
+                    <img src="/images/maze.svg" height="20" width="20" style="margin-right: 5px"><span>赤翠迷蹤</span>
+            </a>
         </div>
         <section class="event-img-container">
             <img src={eventImage} class="event-img">
