@@ -88,7 +88,7 @@
             <button @click="changePage(1)" class="button" :style="'visibility:'+( (currentPage >= lastPage) ? 'hidden' : 'visible')">
               下一頁<i class="fa-solid fa-arrow-right"></i>
             </button>
-        </div>
+      </div>
         <NewsListItem :data="newsItem" v-for="newsItem in news" :key="newsItem.ID"/>
 		<div class="separator"></div>
 	</div>

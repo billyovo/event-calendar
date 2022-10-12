@@ -31,7 +31,9 @@ export default {
             </div>
             
             <div>
-                <SearchBar @changed="notifyList"/>
+                <div class="desktop">
+                    <SearchBar @changed="notifyList"/>
+                </div>
                 <PlayerRecordList ref="list"/>
             </div>     
         </div>
@@ -39,6 +41,7 @@ export default {
         <div class="mobile-modal" v-if="mobileFilter">
             <div class="mobile-modal-inner">
                 <FilterList @changed="notifyList"/>
+                <SearchBar @changed="notifyList"/>
             </div>
         </div>
 
@@ -76,7 +79,7 @@ export default {
     }
     .mobile-modal{
         position: fixed;
-        top: 0;
+        top: -50px;
         width: 100vw; /* viewport width */
         height: 100vh; /* viewport height */
         overflow-y: scroll;
@@ -102,6 +105,9 @@ export default {
         }
         .floating{
             display: flex;
+        }
+        .desktop{
+            display: none;
         }
     }
     .page-container{

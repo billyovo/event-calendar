@@ -92,4 +92,15 @@ export default {
         box-shadow: 0 0 0.6rem #ff0000;
     }
 
+    @media screen and (max-width: 1200px) {
+        .container-search{
+            flex-direction: column;
+        }
+
+        .search{
+            width: 100%;
+            margin: 10px 0px;
+        }
+        
+    }
 </style>
