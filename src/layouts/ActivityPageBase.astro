@@ -4,7 +4,8 @@ import Container from '../layouts/Container.astro';
 import FooterBar from '../components/FooterBar.astro';
 import events from '../assets/event.json';
 
-const {eventImage} = Astro.props;
+let {eventImage} = Astro.props;
+
 ---
 
 <PageBase title="活動介紹">
@@ -17,12 +18,12 @@ const {eventImage} = Astro.props;
             </div>
             {events.map((event)=>(
                 <a href={"/introduction/"+event.id} class="intro-chip" id={Astro.url.pathname==="/introduction/"+event.id ? "active" : null}>
-                    <img src={event.imageurl} height="20" width="20" style="margin-right: 5px"><span>{event.title}</span>
+                    <img src={event.imageurl} height="20" width="20" style="margin-right: 5px" alt={event.title+"的活動圖示"}><span>{event.title}</span>
                 </a>
 
             ))}
             <a href={"/introduction/maze"} class="intro-chip" id={Astro.url.pathname==="/introduction/maze" ? "active" : null}>
-                    <img src="/images/maze.svg" height="20" width="20" style="margin-right: 5px"><span>赤翠迷蹤</span>
+                    <img src="/images/maze.svg" height="20" width="20" style="margin-right: 5px" alt="赤翠迷蹤的活動圖示"><span>赤翠迷蹤</span>
             </a>
         </div>
         <section class="event-img-container">
