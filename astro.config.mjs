@@ -10,7 +10,7 @@ export default defineConfig({
     { customPages: ["https://minigame.letsdream.today/", "https://minigame.letsdream.today/news",
   "https://minigame.letsdream.today/introduction","https://minigame.letsdream.today/calendar","https://minigame.letsdream.today/record",
 "https://minigame.letsdream.today/bumper", "https://minigame.letsdream.today/cannon","https://minigame.letsdream.today/snake", "https://minigame.letsdream.today/boat",
-"https://minigame.letsdream.today/drop","https://minigame.letsdream.today/match"] 
+"https://minigame.letsdream.today/drop","https://minigame.letsdream.today/match","https://minigame.letsdream.today/maze"] 
   })],
   site: "https://minigame.letsdream.today/",
   output: 'server',
