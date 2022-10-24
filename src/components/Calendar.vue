@@ -40,7 +40,8 @@
           this.occurence = {};
           for(let i = 0;i<this.events.length;i++){
             const rule = RRule.fromString(this.events[i].rrule);
-            const occurence = rule.between(this.selectedMonth, new Date(this.selectedMonth.getFullYear(), this.selectedMonth.getMonth()+1, 0));
+            const occurence = rule.between(this.selectedMonth, new Date(this.selectedMonth.getFullYear(), this.selectedMonth.getMonth()+1, 0), true);
+
             for(let j = 0;j<occurence.length;j++){
               const date = occurence[j];
               this.occurence[date.getDate()] = {

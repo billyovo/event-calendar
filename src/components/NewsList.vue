@@ -75,7 +75,7 @@
     <div>
       <div class="control" v-if="showControl">
             <button @click="changePage(-1)" class="button" :style="'visibility:'+((currentPage <= 1) ? 'hidden' : 'visible')">
-              <i class="fa-solid fa-arrow-left">上一頁</i>
+              <i class="fa-solid fa-arrow-left"></i>上一頁
             </button>
 
             <div>
