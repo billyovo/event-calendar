@@ -123,7 +123,7 @@
 
         <div class="control">
             <button @click="changePage(-1)" class="button" :style="'visibility:'+((currentPage <= 1) ? 'hidden' : 'visible')">
-                <span><i class="fa-solid fa-arrow-left">上一頁</i></span>
+                <span><i class="fa-solid fa-arrow-left"></i>上一頁</span>
                 </button>
 
                 <div class="pageSelect-container">
