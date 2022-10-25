@@ -3,7 +3,7 @@ import PageBase from '../layouts/PageBase.astro';
 import RecordContainer from '../components/RecordContainer.vue';
 import FooterBar from '../components/FooterBar.astro';
 
-const API_URL= process.env.PUBLIC_API_URL;
+const API_URL= process.env.PUBLIC_API_URL ?? import.meta.env.PUBLIC_API_URL;
 ---
 <PageBase title="活動紀錄">
     

@@ -4,9 +4,9 @@ import NewsList from "../components/NewsList.vue";
 import Auth from "../components/Auth.vue";
 import FooterBar from "../components/FooterBar.astro";
 
-const CLIENT_ID = process.env.CLIENT_ID;
-const REDIRECT_URI = process.env.REDIRECT_URI
-const API_URL = process.env.PUBLIC_API_URL;
+const CLIENT_ID = process.env.CLIENT_ID ?? import.meta.env.CLIENT_ID;
+const REDIRECT_URI = process.env.REDIRECT_URI ?? import.meta.env.REDIRECT_URI;
+const API_URL = process.env.PUBLIC_API_URL ?? import.meta.env.PUBLIC_API_URL;
 
 ---
 <EditPageBase>

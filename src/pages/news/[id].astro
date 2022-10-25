@@ -4,7 +4,7 @@ import Container from "../../layouts/Container.astro";
 import FooterBar from "../../components/FooterBar.astro";
 
 const { id } = Astro.params;
-const API_URL = process.env.PUBLIC_API_URL;
+const API_URL = process.env.PUBLIC_API_URL ?? import.meta.env.PUBLIC_API_URL;
 
 if(!parseInt(id)){
     return Astro.redirect("/404");
