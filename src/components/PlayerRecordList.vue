@@ -3,6 +3,9 @@
     import event from '../assets/event.json'
 
     export default {
+        props: {
+            API_URL: String,
+        },
         data(){
             return{
                 records: [],
@@ -93,7 +96,7 @@
                 const player = params.get("player") || "";
                 const limit = params.get("itemsPerPage") || 15;
                 this.itemsPerPage = limit;
-                return `https://minigame-api.letsdream.today/${type}/${server}/${event}${(player ? "/"+player : "")}?page=${this.currentPage-1}&limit=${this.itemsPerPage}`;
+                return `${this.API_URL}/${type}/${server}/${event}${(player ? "/"+player : "")}?page=${this.currentPage-1}&limit=${this.itemsPerPage}`;
             }   
         },
         computed:{

@@ -1,0 +1,27 @@
+---
+import EditPageBase from "../layouts/EditPageBase.astro";
+import NewsList from "../components/NewsList.vue";
+import Auth from "../components/Auth.vue";
+import FooterBar from "../components/FooterBar.astro";
+
+const CLIENT_ID = process.env.CLIENT_ID;
+const REDIRECT_URI = process.env.REDIRECT_URI
+const API_URL = process.env.PUBLIC_API_URL;
+
+---
+<EditPageBase>
+    <Auth client:only="vue" CLIENT_ID={CLIENT_ID} API_URL={API_URL} REDIRECT_URI={REDIRECT_URI}/>
+    <div><a href="./edit/new" class="add-news"><i class="fa fa-plus" aria-hidden="true"></i> Add New</a></div>
+    <div class="pad"></div>
+    <NewsList client:load limit={10} showControl={true} API_URL={API_URL} editMode={true}/>
+    
+</EditPageBase>
+<FooterBar/>
+<style>
+    .add-news{
+        text-decoration: none;
+    }
+    .pad{
+        height: 30px;
+    }
+</style>

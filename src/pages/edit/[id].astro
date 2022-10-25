@@ -1,0 +1,41 @@
+---
+import EditPageBase from "../../layouts/EditPageBase.astro";
+import NewsEditor from "../../components/NewsEditor.vue";
+import FooterBar from "../../components/FooterBar.astro";
+
+const { id } = Astro.params;
+const API_URL = process.env.PUBLIC_API_URL;
+
+if(!parseInt(id)){
+    return Astro.redirect("/404");
+}
+
+const res = await fetch(`${API_URL}/news/${id}`);
+if(res.status !== 200){
+    return Astro.redirect("/404");
+}
+const data = await res.json();
+---
+
+<EditPageBase>
+    <NewsEditor data={data} API_URL={API_URL} client:load/>
+    <div class="back"><a href="/edit" class="back-href"><span>回到通知</span></a></div>
+    
+</EditPageBase>
+<FooterBar/>
+
+<style>
+    .back{
+        width: 100%;
+        margin-top: 60px;
+        border-top: 1px dashed black;
+        display: flex;
+        justify-content: center;
+    }
+    .back-href{
+        text-decoration: none;
+        color: initial;
+        padding: 30px 60px;
+        
+    }
+</style>

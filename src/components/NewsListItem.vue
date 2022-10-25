@@ -1,5 +1,14 @@
+<script>
+    export default {
+      props: {
+        data: Object,
+        editMode: Boolean
+      },
+    }
+</script>
+
 <template>
-    <a class="line" :href="'./news/'+data.ID">
+    <a class="line" :href="editMode ? `./edit/${data.ID}` : `./news/${data.ID}`">
         <span class="news-date">{{data.publish_date.substring(0,10)}}</span>
         <span>{{data.title}}</span>
     </a>
@@ -37,11 +46,3 @@
         padding-right: 15px;
     }
 </style>
-
-<script>
-    export default {
-      props: {
-        data: Object
-      },
-    }
-</script>

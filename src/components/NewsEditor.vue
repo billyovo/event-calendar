@@ -1,0 +1,165 @@
+<script>
+export default {
+    props:{
+        data: Object,
+        API_URL: String
+    },
+    data(){
+        return{
+            date: new Date(this.data.publish_date).toISOString().slice(0, 10),
+            title: this.data.title,
+            content: this.data.content,
+            image: this.data.image,
+
+            loading: false,
+            done: false,
+        }
+    },
+    methods: {
+        onInputContent(e) {
+            this.content = e.target.innerText;
+        },
+        onInputTitle(e){
+            this.title = e.target.innerText;
+        },
+        async postEditResult(){
+            this.loading = true;
+            this.done = false;
+            fetch(`${this.API_URL}/news/edit/${this.data.ID}`,{
+                method: "PATCH",
+                body: JSON.stringify({
+                            title: this.title,
+                            content: this.content,
+                            publish_date: new Date(this.date).toISOString().slice(0, 10),
+                            image: this.image,
+                        }),
+                headers: new Headers({
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${sessionStorage.getItem("edit-token")}`
+                    }),
+            })
+            .then((res)=>{
+                if(res.status === 401){
+                    sessionStorage.removeItem("edit-token");
+                    sessionStorage.removeItem("name");
+                    sessionStorage.removeItem("avatarurl");
+
+                    alert("Login expired or you are not logged in :(");
+                }
+                else{
+                    this.done = true;
+                }
+            })
+            .catch((error)=>{
+                alert(error.message);
+            })
+            .finally(()=>{
+                this.loading = false;
+            })
+        },
+        async deleteNews(){
+            if(!confirm("Sure you want to delete this news?")) return;
+            this.loading = true;
+            this.done = false;
+            fetch(`${this.API_URL}/news/edit/${this.data.ID}`,{
+                method: "DELETE",
+                headers: new Headers({
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${sessionStorage.getItem("edit-token")}`
+                    }),
+            })
+            .then((res)=>{
+                if(res.status === 401){
+                    sessionStorage.removeItem("edit-token");
+                    sessionStorage.removeItem("name");
+                    sessionStorage.removeItem("avatarurl");
+
+                    alert("Login expired or you are not logged in :(");
+                }
+                else{
+                    this.done = true;
+                }
+            })
+            .catch((error)=>{
+                alert(error.message);
+            })
+            .finally(()=>{
+                this.loading = false;
+            })
+        }
+  },
+}
+</script>
+<template>
+    <div class="news-container">
+        <div class="news-control">
+            <span class="date">{{date.substring(0,10)}}</span> 
+            <div>
+                <i class="fas fa-circle-notch fa-spin icon loading-icon" v-if="loading"></i>
+                <span v-if="done" style="margin-right: 10px">done!</span>
+                <i class="fa-solid fa-floppy-disk save-icon icon" @click="postEditResult"></i>
+                
+                <i class="fa fa-trash delete-icon icon" aria-hidden="true" @click="deleteNews"></i>
+            </div>
+        </div>
+            <input type="date" v-model="date" :max="new Date().toISOString().split('T')[0]">
+            <h2 contenteditable="true" class="title" @input="onInputTitle">{{title}}</h2>
+            
+            <p contenteditable="true" @input="onInputContent">{{content}}</p>
+            
+            
+            
+            <div class="img-container">
+                
+                <img :src="image" alt="新聞的描述相片" class="news-image">
+                <input type="text" v-model="image" class="image-url">
+            </div>
+            
+
+    </div>
+</template>
+<style>
+    .news-container{
+        min-height: calc(100vh - 400px);
+    }
+    .news-control{
+        display: flex;
+        justify-content: space-between;
+    }
+    .icon{
+        font-size: 1.5rem;
+        margin-right: 30px;
+        cursor: pointer;
+    }
+    
+    .delete-icon:hover{
+        color: red;
+    }
+
+    .save-icon:hover{
+        color: green;
+    }
+    .load-icon{
+        color: blue
+    }
+    .img-container{
+        max-width: 90%;
+    }
+    .news-image{
+        width: 100%;
+    }
+    .date{
+        color: var(--shade-darken3);
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+    .title{
+        font-size: 1.2rem;
+    }
+    .image-url{
+        font-size: 0.75rem;
+        margin-top: 20px;
+        padding: 5px;
+        width: 100%;
+    }
+</style>
