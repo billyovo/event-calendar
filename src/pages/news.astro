@@ -1,12 +1,10 @@
 ---
-
-
 import PageBase from '../layouts/PageBase.astro';
 import NewsList from '../components/NewsList.vue';
 import Container from '../layouts/Container.astro';
 import FooterBar from '../components/FooterBar.astro';
 
-const { API_URL } = import.meta.env;
+const API_URL = process.env.PUBLIC_API_URL;
 ---
 
 <PageBase title="通知">

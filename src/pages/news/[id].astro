@@ -4,13 +4,13 @@ import Container from "../../layouts/Container.astro";
 import FooterBar from "../../components/FooterBar.astro";
 
 const { id } = Astro.params;
-const { API_URL } = import.meta.env;
+const API_URL = process.env.PUBLIC_API_URL;
 
 if(!parseInt(id)){
     return Astro.redirect("/404");
 }
 
-const res = await fetch("https://minigame-api.letsdream.today/news/"+id);
+const res = await fetch(`${API_URL}/news/${id}`);
 if(res.status !== 200){
     return Astro.redirect("/404");
 }

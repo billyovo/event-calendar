@@ -1,0 +1,28 @@
+---
+import Layout from "./Layout.astro";
+import EditNavBar from "../components/EditNavBar.vue";
+import Container from "./Container.astro";
+---
+
+<Layout>
+    <div class="nav-container">
+        <EditNavBar client:only="vue"/>
+    </div>
+    <Container>
+        <slot/>
+    </Container>
+    
+</Layout>
+
+<style>
+    .nav-container{
+        box-shadow: 0 4px 10px 0 rgba(0,0,0,0.4);
+        background-color: var(--color-footer);
+        color: hsl(10,21%,95%);
+        box-sizing: border-box;
+        z-index: 10000;
+        position: relative;
+        margin-bottom: 20px;
+    }
+    
+</style>

@@ -24,3 +24,4 @@ start.sh
 app.js
 test-results
 tests/**/*.png
+config.json

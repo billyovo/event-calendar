@@ -4,6 +4,9 @@ import SearchBar from './SearchBar.vue';
 import PlayerRecordList from './PlayerRecordList.vue';
 
 export default {
+    props: {
+        API_URL: String,
+      },
     data(){
         return{
             mobileFilter: false,
@@ -34,7 +37,7 @@ export default {
                 <div class="desktop">
                     <SearchBar @changed="notifyList"/>
                 </div>
-                <PlayerRecordList ref="list"/>
+                <PlayerRecordList ref="list" :API_URL="API_URL"/>
             </div>     
         </div>
 

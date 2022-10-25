@@ -6,6 +6,7 @@
         limit: Number,
         showControl: Boolean,
         API_URL: String,
+        editMode: Boolean
       },
       components:{
         NewsListItem
@@ -32,7 +33,7 @@
             this.to = (currentPage * itemsPerPage) < length ? (currentPage * itemsPerPage) : length
         },
         async getNews(){
-          const res = await fetch("https://minigame-api.letsdream.today"+"/news?limit="+this.itemsPerPage+"&page="+(this.currentPage-1));
+          const res = await fetch(this.API_URL+"/news?limit="+this.itemsPerPage+"&page="+(this.currentPage-1));
           if(res.status !== 200){
             return [];
           }
@@ -89,7 +90,7 @@
               下一頁<i class="fa-solid fa-arrow-right"></i>
             </button>
       </div>
-        <NewsListItem :data="newsItem" v-for="newsItem in news" :key="newsItem.ID"/>
+        <NewsListItem :data="newsItem" v-for="newsItem in news" :key="newsItem.ID" :editMode="editMode"/>
 		<div class="separator"></div>
 	</div>
 </template>
