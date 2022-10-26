@@ -38,7 +38,6 @@
                     }
                 }
                 catch(error){
-                    alert("something is wrong or u are not authorized :(");
                     window.location.replace(this.SITE);
                 }
             }
