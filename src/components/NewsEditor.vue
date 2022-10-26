@@ -29,7 +29,6 @@ export default {
             await this.$nextTick()
             const paragraphs = document.getElementsByClassName("paragraph-input");
             paragraphs[index+1].focus();
-            console.log(this.content[index]);
         },
         deleteParagraph(index){
             if(!this.content[index] && this.content.length !== 1){
@@ -59,11 +58,15 @@ export default {
                     sessionStorage.removeItem("avatarurl");
 
                     alert("Login expired or you are not logged in :(");
+                    return;
                 }
-                else{
-                    this.done = true;
-                    window.history.go(-1);
+                if(!res.ok){
+                    alert("Failed! Is your title or conte too long?");
+                    return;
                 }
+                this.done = true;
+                window.history.go(-1);
+                
             })
             .catch((error)=>{
                 alert(error.message);
@@ -95,10 +98,14 @@ export default {
                     sessionStorage.removeItem("avatarurl");
 
                     alert("Login expired or you are not logged in :(");
+                    return;
                 }
-                else{
-                    this.done = true;
+                if(!res.ok){
+                    alert("Failed! Is your title or conte too long?");
+                    return;
                 }
+                this.done = true;
+                
             })
             .catch((error)=>{
                 alert(error.message);
