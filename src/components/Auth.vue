@@ -3,7 +3,8 @@
         props: {
             REDIRECT_URI: String,
             CLIENT_ID: String,
-            API_URL: String
+            API_URL: String,
+            SITE: String
         },
         data(){
             return{
@@ -38,7 +39,7 @@
                 }
                 catch(error){
                     alert("something is wrong or u are not authorized :(");
-                    window.location = window.location.pathname.split("/")[0];
+                    window.location.replace(this.SITE);
                 }
             }
             else{
