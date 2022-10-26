@@ -214,7 +214,7 @@ export default {
         max-width: 90%;
     }
     .news-image{
-        width: 100%;
+        max-width: 100%;
     }
     .date{
         color: var(--shade-darken3);
