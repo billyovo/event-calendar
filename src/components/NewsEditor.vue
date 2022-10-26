@@ -2,13 +2,14 @@
 export default {
     props:{
         data: Object,
-        API_URL: String
+        API_URL: String,
+        createMode: Boolean
     },
     data(){
         return{
             date: new Date(this.data.publish_date).toISOString().slice(0, 10),
             title: this.data.title,
-            content: this.data.content,
+            content: this.data.content.split("\n\n"),
             image: this.data.image,
 
             loading: false,
@@ -17,10 +18,59 @@ export default {
     },
     methods: {
         onInputContent(e) {
-            this.content = e.target.innerText;
+            const index = parseInt(e.target.getAttribute("data-index"));
+            this.content[index] = e.target.innerText;
         },
         onInputTitle(e){
             this.title = e.target.innerText;
+        },
+        async createNewParagraph(index){
+            this.content.splice(index+1, 0 , "");
+            await this.$nextTick()
+            const paragraphs = document.getElementsByClassName("paragraph-input");
+            paragraphs[index+1].focus();
+            console.log(this.content[index]);
+        },
+        deleteParagraph(index){
+            if(!this.content[index] && this.content.length !== 1){
+                this.content.splice(index, 1);
+            }
+        },
+        async createNews(){
+            this.loading = true;
+            this.done = false;
+            fetch(`${this.API_URL}/news/edit/new`,{
+                method: "POST",
+                body: JSON.stringify({
+                            title: this.title,
+                            content: this.content.join("\r\n"),
+                            publish_date: new Date(this.date).toISOString().slice(0, 10),
+                            image: this.image,
+                        }),
+                headers: new Headers({
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${sessionStorage.getItem("edit-token")}`
+                    }),
+            })
+            .then((res)=>{
+                if(res.status === 401){
+                    sessionStorage.removeItem("edit-token");
+                    sessionStorage.removeItem("name");
+                    sessionStorage.removeItem("avatarurl");
+
+                    alert("Login expired or you are not logged in :(");
+                }
+                else{
+                    this.done = true;
+                    window.history.go(-1);
+                }
+            })
+            .catch((error)=>{
+                alert(error.message);
+            })
+            .finally(()=>{
+                this.loading = false;
+            })
         },
         async postEditResult(){
             this.loading = true;
@@ -29,7 +79,7 @@ export default {
                 method: "PATCH",
                 body: JSON.stringify({
                             title: this.title,
-                            content: this.content,
+                            content: this.content.join("\r\n"),
                             publish_date: new Date(this.date).toISOString().slice(0, 10),
                             image: this.image,
                         }),
@@ -86,7 +136,7 @@ export default {
             .finally(()=>{
                 this.loading = false;
             })
-        }
+        },
   },
 }
 </script>
@@ -97,15 +147,26 @@ export default {
             <div>
                 <i class="fas fa-circle-notch fa-spin icon loading-icon" v-if="loading"></i>
                 <span v-if="done" style="margin-right: 10px">done!</span>
-                <i class="fa-solid fa-floppy-disk save-icon icon" @click="postEditResult"></i>
+                <i class="fa-solid fa-floppy-disk save-icon icon" @click="createNews" v-if="createMode"></i>
+                <i class="fa-solid fa-floppy-disk save-icon icon" @click="postEditResult" v-else></i>
                 
-                <i class="fa fa-trash delete-icon icon" aria-hidden="true" @click="deleteNews"></i>
+                <i class="fa fa-trash delete-icon icon" aria-hidden="true" @click="deleteNews" v-if="!createMode"></i>
             </div>
         </div>
             <input type="date" v-model="date" :max="new Date().toISOString().split('T')[0]">
             <h2 contenteditable="true" class="title" @input="onInputTitle">{{title}}</h2>
             
-            <p contenteditable="true" @input="onInputContent">{{content}}</p>
+            <p contenteditable="true" 
+                v-for="(paragraph, index) in content" 
+                :key="index"
+                :data-index="index"
+                class="paragraph-input"
+                @input="onInputContent" 
+                v-on:keyup.enter="createNewParagraph(index);  $event.target.nextElementSibling.focus()"
+                v-on:keyup.delete="deleteParagraph(index)"
+            >
+                {{paragraph}}
+            </p>
             
             
             
@@ -161,5 +222,10 @@ export default {
         margin-top: 20px;
         padding: 5px;
         width: 100%;
+    }
+    p{
+        border: 1px solid black;
+        padding: 5px;
+        border-radius: 10px;
     }
 </style>
