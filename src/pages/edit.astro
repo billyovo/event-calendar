@@ -7,10 +7,10 @@ import FooterBar from "../components/FooterBar.astro";
 const CLIENT_ID = process.env.PUBLIC_CLIENT_ID ?? import.meta.env.PUBLIC_CLIENT_ID;
 const REDIRECT_URI = process.env.PUBLIC_REDIRECT_URI ?? import.meta.env.PUBLIC_REDIRECT_URI;
 const API_URL = process.env.PUBLIC_API_URL ?? import.meta.env.PUBLIC_API_URL;
-
+const SITE = process.env.BASE_URL ?? import.meta.env.BASE_URL;
 ---
 <EditPageBase>
-    <Auth client:only="vue" CLIENT_ID={CLIENT_ID} API_URL={API_URL} REDIRECT_URI={REDIRECT_URI}/>
+    <Auth client:only="vue" CLIENT_ID={CLIENT_ID} API_URL={API_URL} REDIRECT_URI={REDIRECT_URI} SITE={SITE}/>
     <div><a href="./edit/new" class="add-news"><i class="fa fa-plus" aria-hidden="true"></i> Add New</a></div>
     <div class="pad"></div>
     <NewsList client:load limit={10} showControl={true} API_URL={API_URL} editMode={true}/>
