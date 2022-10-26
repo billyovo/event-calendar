@@ -1,0 +1,37 @@
+---
+import EditPageBase from "../../layouts/EditPageBase.astro";
+import NewsEditor from "../../components/NewsEditor.vue";
+import FooterBar from "../../components/FooterBar.astro";
+
+const API_URL = process.env.PUBLIC_API_URL ?? import.meta.env.PUBLIC_API_URL;
+const data = {
+    title: 'Title',
+    publish_date: new Date().toISOString().slice(0, 10),
+    content: 'content',
+    image: 'https://media.tenor.com/Y0rQE-mqiUoAAAAd/bocchi-bocchi-the-rock.gif'
+
+}
+---
+
+<EditPageBase>
+    <NewsEditor data={data} API_URL={API_URL} createMode={true} client:load/>
+    <div class="back"><a href="/edit" class="back-href"><span>回到通知</span></a></div>
+    
+</EditPageBase>
+<FooterBar/>
+
+<style>
+    .back{
+        width: 100%;
+        margin-top: 60px;
+        border-top: 1px dashed black;
+        display: flex;
+        justify-content: center;
+    }
+    .back-href{
+        text-decoration: none;
+        color: initial;
+        padding: 30px 60px;
+        
+    }
+</style>
