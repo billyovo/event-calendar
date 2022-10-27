@@ -31,6 +31,9 @@
                     alert("You are being hacked!!!!!");
                     return;
                 }
+                else{
+                    localStorage.removeItem("oauth-state");
+                }
                 try{
                     const result = await fetch(`${this.API_URL}/auth`,{
                         method: 'POST',
