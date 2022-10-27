@@ -14,8 +14,10 @@
                     <span class="label" :style="'background: '+(data.server==='生存' ? 'rgb(46,204,113)' : 'rgb(52,152,219)')">{{data.server}}</span>
                 </div>
                 <div class="name">
-                    <img :src="`https://crafatar.com/avatars/${data.uuid}?size=30&overlay=true`" height="30" width="30" :alt="data.name+' 的遊戲頭像'" :title="data.name" style="margin-right: 10px" v-if="data.name!=='平手'">
-                    <img src="../../public/images/draw.png" alt="平手圖示" title="平手" style="margin-right: 10px" height="30" width="30" v-else>
+                    <div class="avatar-container">
+                        <img :src="`https://crafatar.com/avatars/${data.uuid}?size=30&overlay=true`" height="30" width="30" :alt="data.name+' 的遊戲頭像'" :title="data.name" style="margin-right: 10px" v-if="data.name!=='平手'">
+                        <img src="../../public/images/draw.png" alt="平手圖示" title="平手" style="margin-right: 10px" height="30" width="30" v-else>
+                    </div>
                     <span>{{data.name}}</span>
                 </div>
             </div>
@@ -51,6 +53,13 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
+    }
+    .avatar-container{
+        background-image: url("../../images/steve.jpg");
+        width: 30px;
+        height: 30px;
+        background-size: 30px;
+        margin-right: 5px;
     }
     .label-container{
         position: absolute;
