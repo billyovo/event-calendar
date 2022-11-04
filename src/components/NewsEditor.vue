@@ -148,7 +148,7 @@ export default {
 }
 </script>
 <template>
-    <div class="news-container">
+    <article class="news-container">
         <div class="news-control">
             <span class="date">{{date.substring(0,10)}}</span> 
             <div>
@@ -184,7 +184,7 @@ export default {
             </div>
             
 
-    </div>
+        </article>
 </template>
 <style>
     .news-container{
