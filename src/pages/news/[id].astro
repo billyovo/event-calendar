@@ -18,7 +18,7 @@ const data = await res.json();
 ---
 
 <PageBase title="News">
-    <div class="news-container">
+    <article class="news-container">
         <Container>
             <span class="date">{data.publish_date.substring(0,10)}</span>
             <h2 class="title">{data.title}</h2>
@@ -38,7 +38,7 @@ const data = await res.json();
             <div class="back"><a href="/news" class="back-href"><span>回到通知</span></a></div>
 
         </Container>
-    </div>
+    </article>
     <FooterBar/>
 </PageBase>
 

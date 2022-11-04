@@ -8,10 +8,12 @@
 </script>
 
 <template>
-    <a class="line" :href="editMode ? `./edit/${data.ID}` : `./news/${data.ID}`">
-        <span class="news-date">{{data.publish_date.substring(0,10)}}</span>
-        <span>{{data.title}}</span>
-    </a>
+    <article>
+        <a class="line" :href="editMode ? `./edit/${data.ID}` : `./news/${data.ID}`">
+            <span class="news-date">{{data.publish_date.substring(0,10)}}</span>
+            <span>{{data.title}}</span>
+        </a>
+    </article>
 </template>
 
 <style>
