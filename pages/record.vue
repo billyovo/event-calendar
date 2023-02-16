@@ -1,22 +1,24 @@
 <template>
     <div class="wrapper">
         <FilterList/>
-        <main>
-            <span>找到{{ total }}個紀錄</span>
-            <div class="record-container">
-                <PlayerRecordItem
-                    v-for="(item, index) in record"
-                    :key="index"
-                    :data="item"
-                    :imageurl="images[eventMapping.get(item.event)]"
+        <ClientOnly>
+            <main>
+                <span>找到{{ total }}個紀錄</span>
+                <div class="record-container">
+                    <PlayerRecordItem
+                        v-for="(item, index) in record"
+                        :key="index"
+                        :data="item"
+                        :imageurl="images[eventMapping.get(item.event)]"
 
-                />
-                <PlayerRecordSkeleton 
-                    :style="total === record.length ? 'display: none' : null"
-                    ref="endList" 
-                />
-            </div>
-        </main>
+                    />
+                    <PlayerRecordSkeleton 
+                        :style="total === record.length ? 'display: none' : null"
+                        ref="endList" 
+                    />
+                </div>
+            </main>
+        </ClientOnly>
     </div>
 </template>
 <style scoped>

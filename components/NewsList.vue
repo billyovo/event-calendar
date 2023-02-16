@@ -62,16 +62,18 @@
     }
 </script>
 <template>
-    <div class="container">
-        <NewsListItem :data="newsItem" v-for="newsItem in news" :key="newsItem.ID" :editMode="editMode"/>
-        <NewsItemSkeleton
-          ref="bottom" 
-          class="bottom"
-          v-if="(total !== news.length) && !hideControl"
-          :aria-hidden="(total !== news.length) && !hideControl"
-        />
-        <div class="separator"/>
-	</div>
+    <ClientOnly>
+      <div class="container">
+          <NewsListItem :data="newsItem" v-for="newsItem in news" :key="newsItem.ID" :editMode="editMode"/>
+          <NewsItemSkeleton
+            ref="bottom" 
+            class="bottom"
+            v-if="(total !== news.length) && !hideControl"
+            :aria-hidden="(total !== news.length) && !hideControl"
+          />
+          <div class="separator"/>
+	    </div>
+  </ClientOnly>
 </template>
 
 <style scoped>
