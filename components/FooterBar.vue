@@ -1,0 +1,54 @@
+<template>
+    <footer>
+        <div class="footer-inner co">
+            <h3>聯絡我們</h3>
+            <div class="socials">
+                <a href="https://dcraft.org/discord" class="social" aria-label="Discord連結"><i class="fa-brands fa-discord fa-lg discord icon"></i></a>
+                <a href="https://dcraft.org/facebook" class="social" aria-label="Facebook連結"><i class="fa-brands fa-square-facebook fa-lg facebook icon"></i></a>
+                <a href="https://instagram.com/mc.dreamcrafter/" class="social" aria-label="Instagram連結"><i class="fa-brands fa-instagram fa-lg instagram icon"></i></a>
+            </div>
+            <div class="message">
+                <span>Copyright © DreamCrafter 2022</span>
+            </div>
+        </div>
+    </footer>
+</template>
+<style>
+    footer{
+        background-color: var(--color-main);
+        padding: 20px 0px;
+    }
+    .footer-inner{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: hsl(10, 21%, 95%);
+    }
+    .socials{
+        margin: 25px auto;
+        display: block;
+
+    }
+
+    .socials > a{
+        margin: 0 0.5rem;
+    }
+
+    .discord:hover{
+        color: #7289da;
+    }
+    .facebook:hover{
+        color: #1778F2;
+    }
+    .instagram:hover{
+        color: #fd5949;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    .message{
+        font-size: 0.8rem;
+    }
+</style>
