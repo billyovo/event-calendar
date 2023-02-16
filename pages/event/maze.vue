@@ -11,10 +11,6 @@
                     <p>畫面上方的BOSS血條代表各階段的時間</p>
                 </div>
             </template>
-            <template #reward>
-                <h2>勝利獎勵</h2>
-                <img src="~/assets/images/items/maze-winner.png" alt="勝利獎勵圖示" class="winner-image"> 
-            </template>
         </NuxtLayout>
     </div>
 </template>
