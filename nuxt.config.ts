@@ -7,7 +7,7 @@ export default defineNuxtConfig({
                 {
                     rel: "icon",
                     type: "image/svg+xml",
-                    href:"/favicon.ico"
+                    href:"/favicon.svg"
                 },
                 {
                     rel: "preload stylesheet",
