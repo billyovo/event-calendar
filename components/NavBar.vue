@@ -10,7 +10,7 @@
             <NuxtLink to="/record" class="nav-link"><span>優勝記錄</span></NuxtLink>
             <NuxtLink @click="updateTheme" class="theme-button">
                 <font-awesome-icon 
-                    :icon="'fa-solid '+ ($colorMode.value === 'dark' ? 'fa-moon' :'fa-sun')" 
+                    :icon="'fa-solid '+ ($colorMode?.value === 'dark' ? 'fa-moon' :'fa-sun')" 
                     size="lg" 
                     aria-label="網頁顏色"
                 />
@@ -51,8 +51,7 @@
     export default{
         methods:{
             updateTheme(){
-                this.$colorMode.preference = this.$colorMode.value === 'dark' ? 'light' : 'dark';
-                console.log(this.$colorMode.value);
+                this.$colorMode?.preference = this.$colorMode?.value === 'dark' ? 'light' : 'dark';
                 this.$forceUpdate();
             }
         }

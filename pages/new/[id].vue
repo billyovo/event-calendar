@@ -35,7 +35,6 @@
             const news = await fetch(`${this.API_URL}/news/${route.params.id}`)
             
             this.news = await news.json();
-            console.log(this.news);
         }
     }
 </script>
