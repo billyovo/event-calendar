@@ -100,7 +100,7 @@
     color: var(--highlight);
 }
 .slogan-title{
-    color: var(--color-text);
+    color: hsl(10, 21%, 95%);
 }
 .appear{
     opacity: 0;
@@ -127,23 +127,6 @@
     justify-content: space-between;
 }
 
-.more-news{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-}
-.more-news > a {
-    background-color: var(--shade-darken3);
-    color: white;
-    text-decoration: none;
-    width: 100%;
-    font-size: 1.1rem;
-    height: 30px;
-    padding: 10px 50px;
-    text-align: center;
-    border-radius: 20px;
-}
 .mobile{
     display: none;
     margin: 50px 0px;
@@ -163,9 +146,7 @@
 	color: var(--shade-darken3);
 	font-weight: bold;
 }
-*{
-    --color-text: hsl(10, 21%, 95%);
-}
+
 @keyframes speech-appear{
     from{
         top: 200px;

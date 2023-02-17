@@ -16,7 +16,7 @@
     }
 }
 :root {
-    --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+    --font-size-base: clamp(0.9rem, 0.34vw + 0.7rem, 1.19rem);
     --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
     --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
 
@@ -29,10 +29,18 @@
     --highlight: #FFE900;
     
     --color-bg: rgba(0,0,0,0.025);
+    --color-disabled: rgb(180,180,180);
+    --color-secondary: rgb(240,240,240);
     --color-main: rgb(31,0,44);
     --color-text: rgb(45,45,45);
 }
-
+.dark-mode body{
+    --shade-darken3: rgb(63,123,254);
+    --color-disabled: black;
+    --color-secondary: rgb(50,50,50);
+    --color-bg:  rgb(32,35,39);
+    --color-text: rgb(220,220,220);
+}
 h1 {
     font-size: var(--font-size-xl);
 }
@@ -40,9 +48,11 @@ h1 {
 h2 {
     font-size: var(--font-size-lg);
 }
-html {
+
+html, body {
     font-family: 'Noto Sans', system-ui, sans-serif;
     font-size: var(--font-size-base);
     color: var(--color-text);
     background-color: var(--color-bg);
+    min-height: 100vh;
 }

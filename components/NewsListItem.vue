@@ -26,10 +26,10 @@
         grid-template-columns: auto 1fr;
         padding: 30px 20px;
         text-decoration: none;
-        color: initial;
-        border-top: 1px dashed black;
+        color: var(--color-text);
+        border-top: 1px dashed var(--color-text);
         
-        background: linear-gradient(to left, white 50%, var(--shade-darken) 50%) right;
+        background: linear-gradient(to left, var(--color-secondary) 50%, var(--shade-darken) 50%) right;
         background-size: 300% 100%;
         transition: 1.5s ease-out;
     }

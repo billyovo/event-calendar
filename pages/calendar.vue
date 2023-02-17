@@ -105,7 +105,7 @@
         padding: 1px;
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        background-color: gray;
+        background-color: var(--color-disabled);
         grid-gap: 1px;
     }
     .tool-bar{
@@ -132,7 +132,7 @@
     }
     .wrapper{
       box-sizing: border-box;
-      background-color: white;
+      background-color: var(--color-secondary);
     }
     .wrapper-content{
       display: flex;
@@ -168,7 +168,7 @@
       min-width: 40px;
     }
     .empty{
-      background-color: gray;
+      background-color: var(--color-disabled);
     }
     .title{
         font-size: 0.9rem;

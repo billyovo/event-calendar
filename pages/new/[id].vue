@@ -58,14 +58,14 @@
     }
     .back-href{
         text-decoration: none;
-        color: initial;
+        color: var(--color-text);
         padding: 30px 60px;
         
     }
     .back{
         width: 100%;
         margin-top: 60px;
-        border-top: 1px dashed black;
+        border-top: 1px dashed var(--color-text);
         display: flex;
         justify-content: center;
     }

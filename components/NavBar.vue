@@ -1,13 +1,20 @@
 <template>
     <nav class="nav-container">
-        <a href="/" class="brand">
+        <NuxtLink to="/" class="brand">
             <img src="~/assets/icons/brand.svg" alt="伺服器圖示" class="brand" height="50" width="300">
-        </a>
+        </NuxtLink>
         <div class="nav-links">
             <NuxtLink to="/introduction" class="nav-link"><span>活動介紹</span></NuxtLink>
             <NuxtLink to="/news" class="nav-link"><span>通知</span></NuxtLink>
             <NuxtLink to="/calendar" class="nav-link"><span>時間表</span></NuxtLink>
             <NuxtLink to="/record" class="nav-link"><span>優勝記錄</span></NuxtLink>
+            <NuxtLink @click="updateTheme" class="theme-button">
+                <font-awesome-icon 
+                    :icon="'fa-solid '+ ($colorMode.value === 'dark' ? 'fa-moon' :'fa-sun')" 
+                    size="lg" 
+                    aria-label="網頁顏色"
+                />
+            </NuxtLink>
         </div>
     </nav>
 </template>
@@ -29,6 +36,10 @@
     padding: 0px 50px;
 }
 
+.theme-button{
+    cursor: pointer;
+}
+
 
 @media screen and (max-width: 850px){
     .nav-container{
@@ -36,3 +47,14 @@
     }
 }
 </style>
+<script>
+    export default{
+        methods:{
+            updateTheme(){
+                this.$colorMode.preference = this.$colorMode.value === 'dark' ? 'light' : 'dark';
+                console.log(this.$colorMode.value);
+                this.$forceUpdate();
+            }
+        }
+    }
+</script>

@@ -3,12 +3,18 @@
         <div class="footer-inner co">
             <h3>聯絡我們</h3>
             <div class="socials">
-                <a href="https://dcraft.org/discord" class="social" aria-label="Discord連結"><i class="fa-brands fa-discord fa-lg discord icon"></i></a>
-                <a href="https://dcraft.org/facebook" class="social" aria-label="Facebook連結"><i class="fa-brands fa-square-facebook fa-lg facebook icon"></i></a>
-                <a href="https://instagram.com/mc.dreamcrafter/" class="social" aria-label="Instagram連結"><i class="fa-brands fa-instagram fa-lg instagram icon"></i></a>
+                <a href="https://dcraft.org/discord" class="social" aria-label="Discord連結">
+                    <font-awesome-icon icon="fa-brands fa-discord" class="discord" size="2xl" />
+                </a>
+                <a href="https://dcraft.org/facebook" class="social" aria-label="Facebook連結">
+                    <font-awesome-icon icon="fa-brands fa-facebook" class="facebook" size="2xl" />
+                </a>
+                <a href="https://instagram.com/mc.dreamcrafter/" class="social" aria-label="Instagram連結">
+                    <font-awesome-icon icon="fa-brands fa-instagram" class="instagram" size="2xl" />
+                </a>
             </div>
             <div class="message">
-                <span>Copyright © DreamCrafter 2022</span>
+                <span>Copyright © DreamCrafter 2023</span>
             </div>
         </div>
     </footer>
@@ -26,7 +32,7 @@
         color: hsl(10, 21%, 95%);
     }
     .socials{
-        margin: 25px auto;
+        margin: 10px 0px 20px 0px;
         display: block;
 
     }

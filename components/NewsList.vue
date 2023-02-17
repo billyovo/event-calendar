@@ -19,7 +19,6 @@
           }
       },
       methods:{
-
         async getNews(after){
           const res = await fetch(`${this.API_URL}/news?limit=${this.limit}`+ (after ? `&after=${after}` : ""));
           if(res.status !== 200){
@@ -28,12 +27,6 @@
           const news = await res.json();
           return news;
         },
-
-        syncQueryString(){
-          const newParams = new URLSearchParams(window.location.search);
-          newParams.set('page', this.currentPage);
-          window.history.replaceState({}, '', `${location.pathname}?${newParams.toString()}`);
-        }
       },
 
       async mounted(){ 

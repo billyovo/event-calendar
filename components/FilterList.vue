@@ -42,7 +42,9 @@
             now-button-label="今天"
             :hide-navigation="['time', 'calendar']"
             :clearable="false"
+            :dark="$colorMode.value === 'dark'"
         />
+
         <span>之前</span>
         <div class="divider"/>
         <h3>玩家名稱</h3>
@@ -59,21 +61,13 @@
     export default{
         components:{ Datepicker},
         mixins:[eventHandler],
-        methods:{
-            syncQueryString(){
-                this.server = this.$route.query.server || "all";
-                this.eventSelection = this.$route.query.event || "all";
-                this.type = this.$route.query.type || "record",
-                this.name = this.$route.query.name || "";
-            },
-        },
         data(){
             return{
                 server: this.$route.query.server || "all",
                 eventSelection: this.$route.query.event || "all",
                 type: this.$route.query.type || "record",
                 name: this.$route.query.name || "",
-                date: this.$route.query.date || new Date().toISOString().substring(0,10),
+                date: this.$route.query.dateBefore || new Date().toISOString().substring(0,10),
             }
         },
         watch:{
@@ -129,5 +123,8 @@
         padding: 5px;
         font-size: 1.0rem;
         border-radius: 10px;
+        background-color: var(--color-secondary);
+        color: var(--color-text);
+        border: none;
     }
 </style>

@@ -14,14 +14,6 @@ export default defineNuxtConfig({
                     as: "font",
                     crossorigin: "anonymous",
                     href: "https://fonts.googleapis.com/css?family=Noto Sans"
-                },
-                {
-                    rel: "stylesheet",
-                    href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/brands.min.css",
-                },
-                {
-                    rel: "stylesheet",
-                    href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
                 }
             ],
             meta:[
@@ -81,9 +73,11 @@ export default defineNuxtConfig({
         }
     },
     css: [
-        '~/assets/css/shared.css'
+        '~/assets/css/shared.css', 
+        '@fortawesome/fontawesome-svg-core/styles.css'
     ],
     build: {
         transpile: ['@vuepic/vue-datepicker']
-    }
+    },
+    modules: ['@nuxtjs/color-mode']
 })
