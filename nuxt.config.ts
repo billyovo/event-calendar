@@ -25,43 +25,55 @@ export default defineNuxtConfig({
                     "charset": "UFT-8",
                 },
                 {
-                    "description": "在這裡你可以查詢到我們小遊戲的資訊。"
+                    "name": "description"
                 },
                 {
-                    "keywords": "minecraft, minigame, 當個創世神, 築夢物語, 築夢物語伺服器"
+                    "name": "keywords",
+                    "content": "minecraft, minigame, 當個創世神, 築夢物語, 築夢物語伺服器"
                 },
                 {
-                    "author": "billyovo"
+                    "name": "author",
+                    "content": "billyovo"
                 },
                 {
-                    "og:type": "website",
+                    "property": "og:type",
+                    "content": "website"
                 },
                 {
-                    "og:url": "https://minigame.letsdream.today/"
+                    "property": "og:url", 
+                    "content": "https://minigame.letsdream.today/"
                 },
                 {
-                    "og:title": "DC 築夢物語 - 綜合伺服器 | 小遊戲"
+                    "property": "og:title" ,
+                    "content": "DC 築夢物語 - 綜合伺服器 | 小遊戲"
                 },
                 {
-                    "og:description": "在這裡你可以查詢到我們小遊戲的資訊。"
+                    "property": "og:description",
+                    "content": "在這裡你可以查詢到我們小遊戲的資訊。"
                 },
                 {
-                    "og:image": "https://minigame.letsdream.today/images/avatar.png"
+                    "property": "og:image", 
+                    "content": "https://minigame.letsdream.today/images/avatar.png"
                 },
                 {
-                    "twitter:card": "summary_large_image"
+                    "property": "twitter:card", 
+                    "content": "summary_large_image"
                 },
                 {
-                    "twitter:url": "https://minigame.letsdream.today/"
+                    "property": "twitter:url",
+                    "content": "https://minigame.letsdream.today/"
                 },
                 {
-                    "twitter:title": "DC 築夢物語 - 綜合伺服器 | 小遊戲"
+                    "property": "twitter:title",
+                    "content": "DC 築夢物語 - 綜合伺服器 | 小遊戲"
                 },
                 {
-                    "twitter:description": "在這裡你可以查詢到我們小遊戲的資訊。"
+                    "property": "twitter:description",
+                    "content": "在這裡你可以查詢到我們小遊戲的資訊。"
                 },
                 {
-                    "twitter:image": "https://minigame.letsdream.today/images/avatar.png"
+                    "property": "twitter:image",
+                    "content": "https://minigame.letsdream.today/images/avatar.png"
                 }
             ]
         },
