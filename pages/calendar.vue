@@ -1,6 +1,7 @@
 <script>
     import eventHandler from '~~/mixins/eventHandler.vue';
-    import { RRule } from 'rrule';
+    import pkg from '~/node_modules/rrule/dist/es5/rrule.js';
+    const { RRule } = pkg;
     
     export default {
       mixins: [eventHandler],
