@@ -42,7 +42,7 @@
             now-button-label="今天"
             :hide-navigation="['time', 'calendar']"
             :clearable="false"
-            :dark="$colorMode.value === 'dark'"
+            :dark="$colorMode?.value === 'dark'"
         />
 
         <span>之前</span>

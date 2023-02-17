@@ -77,7 +77,7 @@ export default defineNuxtConfig({
         '@fortawesome/fontawesome-svg-core/styles.css'
     ],
     build: {
-        transpile: ['@vuepic/vue-datepicker'],
-        modules: ['@nuxtjs/color-mode']
-    }
+        transpile: ['@vuepic/vue-datepicker', '@fortawesome/fontawesome-svg-core', '@fortawesome/free-brands-svg-icons', '@fortawesome/free-solid-svg-icons','@fortawesome/vue-fontawesome','rrule'],
+    },
+    modules: ['@nuxtjs/color-mode']
 })
