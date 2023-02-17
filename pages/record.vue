@@ -1,7 +1,8 @@
 <template>
     <div class="wrapper">
-        <FilterList/>
+        
         <ClientOnly>
+            <FilterList/>
             <main>
                 <span>找到{{ total }}個紀錄</span>
                 <div class="record-container">

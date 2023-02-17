@@ -1,3 +1,5 @@
 <template>
-    <NewsList :limit="15"/>
+    <ClientOnly>
+        <NewsList :limit="15"/>
+    </ClientOnly>
 </template>
