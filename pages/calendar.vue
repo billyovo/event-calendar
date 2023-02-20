@@ -176,3 +176,8 @@
         padding: 10px;
     }
 </style>
+<script setup>
+  definePageMeta({
+    layout: 'default'
+  })
+</script>

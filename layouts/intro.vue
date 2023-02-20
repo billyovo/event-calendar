@@ -14,12 +14,12 @@
                 <Chip
                     v-for="event in events" 
                     :key="event.id" 
-                    :to="`/event/${event.id}`"
+                    :to="`/introduction/${event.id}`"
                 >
                     <img :src="images[event.id]" height="20" width="20" style="margin-right: 5px" :alt="`${event.title}的活動圖示`">
                     <span>{{event.title}}</span>
                 </Chip>
-                <Chip to="/event/maze">
+                <Chip to="/introduction/maze">
                     <img src="~/assets/images/maze.svg" height="20" width="20" style="margin-right: 5px" alt="赤翠迷蹤的活動圖示">
                     <span>赤翠迷蹤</span>
                 </Chip>

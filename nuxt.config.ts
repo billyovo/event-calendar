@@ -91,5 +91,63 @@ export default defineNuxtConfig({
     build: {
         transpile: ['@vuepic/vue-datepicker', '@fortawesome/fontawesome-svg-core', '@fortawesome/free-brands-svg-icons', '@fortawesome/free-solid-svg-icons','@fortawesome/vue-fontawesome','rrule'],
     },
-    modules: ['@nuxtjs/color-mode']
+    modules: ['@nuxtjs/color-mode'],
+    hooks: {
+        'pages:extend'(pages) {
+            const introIndex = pages.findIndex(obj => obj.name === 'introduction');
+            delete pages[introIndex].children;
+
+            const newPages = [
+                {
+                    name: 'boat',
+                    path: '/introduction/boat',
+                    file: '~/pages/introduction/boat.vue'
+                },
+                {
+                    name: 'bumper',
+                    path: '/introduction/bumper',
+                    file: '~/pages/introduction/bumper.vue'
+                },
+                {
+                    name: 'cannon',
+                    path: '/introduction/cannon',
+                    file: '~/pages/introduction/cannon.vue'
+                },
+                {
+                    name: 'drop',
+                    path: '/introduction/drop',
+                    file: '~/pages/introduction/drop.vue'
+                },
+                {
+                    name: 'match',
+                    path: '/introduction/match',
+                    file: '~/pages/introduction/match.vue'
+                },
+                {
+                    name: 'maze',
+                    path: '/introduction/maze',
+                    file: '~/pages/introduction/maze.vue'
+                },
+                {
+                    name: 'snake',
+                    path: '/introduction/snake',
+                    file: '~/pages/introduction/snake.vue'
+                },
+                {
+                    name: 'news/id',
+                    path: '/news/:id',
+                    file: '~/pages/news/[id].vue'
+                }
+                
+            ]
+            newPages.forEach((page)=>{
+                pages.push(page);
+            })
+            const newsIndex = pages.findIndex(obj => obj.name === 'news');
+            delete pages[newsIndex].children;
+        },
+    },
+
+  
+    
 })

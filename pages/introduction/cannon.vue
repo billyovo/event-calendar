@@ -18,3 +18,4 @@
         </NuxtLayout>
     </div>
 </template>
+
