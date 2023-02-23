@@ -1,7 +1,7 @@
 // For Nuxt 3
 import { library, config } from '@fortawesome/fontawesome-svg-core'
 import { faDiscord, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
-import {faMoon, faSun} from '@fortawesome/free-solid-svg-icons';
+import {faMoon, faSun, faBook, faNewspaper, faClock, faTrophy} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 // This is important, we are going to let Nuxt worry about the CSS
@@ -14,7 +14,10 @@ library.add(faInstagram);
 library.add(faFacebook);
 library.add(faMoon);
 library.add(faSun);
-
+library.add(faBook);
+library.add(faNewspaper);
+library.add(faClock);
+library.add(faTrophy);
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component('font-awesome-icon', FontAwesomeIcon, {})

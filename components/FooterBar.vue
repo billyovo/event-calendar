@@ -4,13 +4,13 @@
             <h3>聯絡我們</h3>
             <div class="socials">
                 <a href="https://dcraft.org/discord" class="social" aria-label="Discord連結">
-                    <font-awesome-icon icon="fa-brands fa-discord" class="discord" size="2xl" />
+                    <font-awesome-icon icon="fa-brands fa-discord" class="discord" size="xl" />
                 </a>
                 <a href="https://dcraft.org/facebook" class="social" aria-label="Facebook連結">
-                    <font-awesome-icon icon="fa-brands fa-facebook" class="facebook" size="2xl" />
+                    <font-awesome-icon icon="fa-brands fa-facebook" class="facebook" size="xl" />
                 </a>
                 <a href="https://instagram.com/mc.dreamcrafter/" class="social" aria-label="Instagram連結">
-                    <font-awesome-icon icon="fa-brands fa-instagram" class="instagram" size="2xl" />
+                    <font-awesome-icon icon="fa-brands fa-instagram" class="instagram" size="xl" />
                 </a>
             </div>
             <div class="message">

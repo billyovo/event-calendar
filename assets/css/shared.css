@@ -55,4 +55,12 @@ html, body {
     color: var(--color-text);
     background-color: var(--color-bg);
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 1000px){
+    html, body{
+        min-height: calc(100vh + 400px);
+    }
 }

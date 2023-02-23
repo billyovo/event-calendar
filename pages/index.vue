@@ -35,7 +35,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
 .landing{
     background: url("~/assets/images/background.webp");
     background-repeat: no-repeat;

@@ -26,6 +26,7 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
+    width: 100%;
 }
 
 .nav-links{
@@ -33,7 +34,7 @@
     gap: 15px;
     text-decoration: none;
     font-size: 1.2rem;
-    padding: 0px 50px;
+    padding: 0px 20px;
 }
 
 .theme-button{
@@ -41,18 +42,13 @@
 }
 
 
-@media screen and (max-width: 850px){
-    .nav-container{
-        justify-content: center;
-    }
-}
+
 </style>
 <script>
     export default{
         methods:{
             updateTheme(){
                 this.$colorMode.preference = this.$colorMode?.value === 'dark' ? 'light' : 'dark';
-                this.$forceUpdate();
             }
         }
     }
