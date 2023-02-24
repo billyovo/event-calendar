@@ -26,7 +26,7 @@
                 <span class="card-content">{{data.event}}</span>
             </div>
             <div class="card-content" v-if="data.date">
-                <i class="fa fa-calendar fa-xl" style="margin-right: 10px;"></i><span>{{data.date.substring(0,10)}}</span>
+                <font-awesome-icon icon="fa-solid fa-calendar" size="xl" style="margin-right: 15px" color="v"/><span>{{data.date.substring(0,10)}}</span>
             </div>
             <div class="card-content" v-if="data.total">
                 <span>勝利次數: {{data.total}}次</span>
