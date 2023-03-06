@@ -64,7 +64,7 @@
 
 <template>
   <main>
-  {{`${eventTime.getHours()}:${eventTime.getMinutes()}`}}
+  {{`${eventTime.getHours().toString().padStart(2,"0")}:${eventTime.getMinutes().toString().padStart(2,"0")}`}}
     <header class="tool-bar">
       <button @click="changeMonth(-1)" :style="(today-selectedMonth) < 0 ? null : 'visibility: hidden'" class="control-button"><i class="fa-solid fa-arrow-left"></i>上一頁</button>
       <h2 class="selected">{{selectedMonth.getFullYear()}} / {{selectedMonth.getMonth()+1}}</h2>
