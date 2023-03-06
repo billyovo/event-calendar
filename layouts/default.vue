@@ -9,7 +9,7 @@
 <style>
     .nav-bg{
         background-color: var(--color-main);
-        z-index: 100000;
+        z-index: 1000;
     }
 
     .mobile{

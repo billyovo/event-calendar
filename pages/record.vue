@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
         
-            <FilterList/>
+            <FilterList class="desktop-filter"/>
             <main>
                 <span>找到{{ total }}個紀錄</span>
                 <ClientOnly>
@@ -20,6 +20,7 @@
                     </div>
                 </ClientOnly>
             </main>
+            <Modal><FilterList/></Modal>
     </div>
 </template>
 <style scoped>
@@ -30,9 +31,18 @@
         column-gap: 50px;
     }
     .record-container{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        column-gap: 20px;
+    }
+
+    @media screen and (max-width: 1000px) {
+        .desktop-filter{
+            display: none;
+        }
+        .wrapper{
+            grid-template-columns: 1fr;
+        }
     }
 </style>
 

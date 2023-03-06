@@ -15,7 +15,7 @@
                 </div>
                 <div class="name">
                     <div class="avatar-container">
-                        <img :src="`https://crafatar.com/avatars/${data.UUID}?size=30&overlay=true`" height="30" width="30" :alt="data.name+' 的遊戲頭像'" :title="data.name" style="margin-right: 10px" v-if="data.UUID!=='draw_result'">
+                        <img :src="`https://crafatar.com/avatars/${data.UUID}?size=30&overlay=true`" height="30" width="30" :title="data.name" style="margin-right: 10px" v-if="data.UUID!=='draw_result'">
                         <img src="~/assets/images/draw.png" alt="平手圖示" title="平手" style="margin-right: 10px" height="30" width="30" v-else>
                     </div>
                     <span>{{data.name}}</span>

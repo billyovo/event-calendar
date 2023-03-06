@@ -9,7 +9,7 @@
             emptyPaddingCell: 0,
             dateCells: 0,
             RRule: RRule,
-
+            eventTime: new Date(1678107600),
             occurence: {},
 
             weekdays: ["日", "一", "二", "三","四","五","六"],
@@ -64,8 +64,7 @@
 
 <template>
   <main>
-  const date = new Date(1678107600);
-  date.toLocaleTimeString();
+  {{eventTime.toLocaleTimeString()}}
     <header class="tool-bar">
       <button @click="changeMonth(-1)" :style="(today-selectedMonth) < 0 ? null : 'visibility: hidden'" class="control-button"><i class="fa-solid fa-arrow-left"></i>上一頁</button>
       <h2 class="selected">{{selectedMonth.getFullYear()}} / {{selectedMonth.getMonth()+1}}</h2>
