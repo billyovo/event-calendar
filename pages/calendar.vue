@@ -65,8 +65,6 @@
 
 <template>
   <main>
-  {{空島時間: `${skyeventTime.getHours().toString().padStart(2,"0")}:${skyeventTime.getMinutes().toString().padStart(2,"0")}`}}
-  {{生存時間: `${sureventTime.getHours().toString().padStart(2,"0")}:${sureventTime.getMinutes().toString().padStart(2,"0")}`}}
     <header class="tool-bar">
       <button @click="changeMonth(-1)" :style="(today-selectedMonth) < 0 ? null : 'visibility: hidden'" class="control-button"><i class="fa-solid fa-arrow-left"></i>上一頁</button>
       <h2 class="selected">{{selectedMonth.getFullYear()}} / {{selectedMonth.getMonth()+1}}</h2>
@@ -74,6 +72,8 @@
     </header>
     
       <section class="container">
+        {{`空島時間: ${skyeventTime.getHours().toString().padStart(2,"0")}:${skyeventTime.getMinutes().toString().padStart(2,"0")}`}}
+        {{`生存時間: ${sureventTime.getHours().toString().padStart(2,"0")}:${sureventTime.getMinutes().toString().padStart(2,"0")}`}}
           <div v-for="weekday in weekdays" :key="weekday" class="weekday wrapper">
               <h3 class="title">{{weekday}}</h3>
           </div>
