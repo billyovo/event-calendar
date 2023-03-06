@@ -9,7 +9,7 @@
             emptyPaddingCell: 0,
             dateCells: 0,
             RRule: RRule,
-            eventTime: new Date(1678107600),
+            eventTime: new Date(1678107600000),
             occurence: {},
 
             weekdays: ["日", "一", "二", "三","四","五","六"],
