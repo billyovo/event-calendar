@@ -9,7 +9,8 @@
             emptyPaddingCell: 0,
             dateCells: 0,
             RRule: RRule,
-            eventTime: new Date(1678107600000),
+            skyeventTime: new Date(1678107600000),
+            sureventTime: new Date(1678111200000),
             occurence: {},
 
             weekdays: ["日", "一", "二", "三","四","五","六"],
@@ -64,7 +65,8 @@
 
 <template>
   <main>
-  {{`${eventTime.getHours().toString().padStart(2,"0")}:${eventTime.getMinutes().toString().padStart(2,"0")}`}}
+  {{空島時間: `${skyeventTime.getHours().toString().padStart(2,"0")}:${skyeventTime.getMinutes().toString().padStart(2,"0")}`}}
+  {{生存時間: `${sureventTime.getHours().toString().padStart(2,"0")}:${sureventTime.getMinutes().toString().padStart(2,"0")}`}}
     <header class="tool-bar">
       <button @click="changeMonth(-1)" :style="(today-selectedMonth) < 0 ? null : 'visibility: hidden'" class="control-button"><i class="fa-solid fa-arrow-left"></i>上一頁</button>
       <h2 class="selected">{{selectedMonth.getFullYear()}} / {{selectedMonth.getMonth()+1}}</h2>
