@@ -6,7 +6,7 @@
                 <h2 class="title">{{ news?.title }}</h2>
                 <p class="title">{{ news?.content }}</p>
                 <div class="img-container" v-if="news?.image?.length > 0">
-                    <img :src="news?.image" alt="新聞的描述相片" class="news-image">
+                    <img v-for="imgLink in news.image" :src="imgLink" alt="新聞的描述相片" class="news-image">
                 </div>
             
                 <div class="back">
