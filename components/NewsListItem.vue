@@ -19,8 +19,7 @@
 <style>
     .line{
         width: calc(100% - 20px);
-        white-space:nowrap;
-        overflow:hidden;
+        overflow: hidden;
         text-overflow: ellipsis;
         display: grid;
         grid-template-columns: auto 1fr;
@@ -29,7 +28,7 @@
         color: var(--color-text);
         border-top: 1px dashed var(--color-text);
         
-        background: linear-gradient(to left, var(--color-secondary) 50%, var(--shade-darken) 50%) right;
+        background: var(--color-secondary);
         background-size: 300% 100%;
         transition: 1.5s ease-out;
     }

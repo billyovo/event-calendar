@@ -34,7 +34,7 @@
             <section class="event-img-container">
                 <slot name="event"/>
             </section>
-            <section style="margin-top: 50px">
+            <section style="margin: 30px 0px" class="event-img-container">
                 <slot name="reward"/>
             </section>
 

@@ -6,7 +6,7 @@
 <template>
     <div>
         <main class="landing">
-            <div class="appear nav-bar"><NavBar/></div>
+            <div class="appear nav-bar desktop-nav"><NavBar/></div>
 
             <div class="slogan">
                 <div/>
@@ -32,6 +32,7 @@
                 <NewsList hide-control :limit="3"/>
             </div>
         </section>
+        <NavBarMobile style="background-color: var(--color-main);" class="mobile-nav"/>
     </div>
 </template>
 
@@ -170,6 +171,20 @@
     }
     to{
         opacity: 1;
+    }
+}
+
+.mobile-nav{
+    display: none;
+}
+
+@media  screen and (max-width: 1000px) {
+    .desktop-nav{
+        visibility: hidden;
+    }
+
+    .mobile-nav{
+        display: flex;
     }
 }
 </style>
