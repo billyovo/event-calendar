@@ -24,7 +24,7 @@
         text-overflow: ellipsis;
         display: grid;
         grid-template-columns: auto 1fr;
-        padding: 30px 20px;
+        padding: 30px 10px;
         text-decoration: none;
         color: var(--color-text);
         border-top: 1px dashed var(--color-text);

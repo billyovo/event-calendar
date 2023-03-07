@@ -3,26 +3,24 @@
         
             <FilterList class="desktop-filter"/>
             <main>
-                <span>找到{{ total }}個紀錄</span>
-                <ClientOnly>
-                    <div class="record-container">
-                        <PlayerRecordItem
-                            v-for="(item, index) in record"
-                            :key="index"
-                            :data="item"
-                            :imageurl="images[eventMapping.get(item.event)]"
-                    
-                        />
-                        <PlayerRecordSkeleton 
-                            :style="total === record.length ? 'display: none' : null"
+                    <span>找到{{ total }}個紀錄</span>      
+                        <div class="record-container">
+                            <PlayerRecordItem
+                                v-for="(item, index) in record"
+                                :key="index"
+                                :data="item"
+                                :imageurl="images[eventMapping.get(item.event)]"
+                        
+                            />
+                            <PlayerRecordSkeleton 
+                                :style="total === record.length ? 'display: none' : null"
                             ref="endList" 
                         />
                     </div>
-                </ClientOnly>
             </main>
             <Modal v-model="isOpened" class="mobile"><FilterList style="height: 100vh"/></Modal>
             <FloatingButton @click="toggleModal" :style="`background-color: ${isOpened ? 'var(--color-danger)' : 'var(--color-main)'}`" class="mobile">
-                <font-awesome-icon :icon="`fa-solid ${isOpened ? 'fa-xmark' : 'fa-magnifying-glass'}`" size="xl"/>
+                <font-awesome-icon :icon="`fa-solid ${isOpened ? 'fa-xmark' : 'fa-filter'}`" size="xl"/>
             </FloatingButton>
     </div>
 </template>
@@ -30,7 +28,7 @@
     .wrapper{
         display: grid;
         grid-template-columns: 2fr 8fr;
-        margin: 30px;
+        padding: 30px;
         column-gap: 50px;
     }
     .record-container{

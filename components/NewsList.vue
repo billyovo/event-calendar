@@ -56,7 +56,7 @@
 </script>
 <template>
     <ClientOnly>
-      <div class="container">
+      <div class="list-container">
           <NewsListItem :data="newsItem" v-for="newsItem in news" :key="newsItem.ID" :editMode="editMode"/>
           <NewsItemSkeleton
             ref="bottom" 
@@ -70,22 +70,9 @@
 </template>
 
 <style scoped>
-    .container{
-        width: 100%;
-    }
-    .control{
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      margin-top: -30px;
-    }
-    .pageSelect{
-      width: 50px;
-      height: 100%;
-      font-size: 0.9rem;
-      margin: 10px;
+    .list-container{
+        width: 90%;
+        margin: 0 auto;
     }
     .separator{
 		  border-top: 1px dashed black; 
@@ -93,16 +80,4 @@
 		  width: 100%;
 		  padding-right: 20px;
 	  }
-  .button{
-    background: none;
-    border: none;
-    color: var(--shade-darken3);
-    text-align: center;
-    text-decoration: none;
-    font-size: 1.1rem;
-    cursor: pointer;
-  }
-  .button:hover{
-    font-weight: bold;
-  }
 </style>

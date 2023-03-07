@@ -38,11 +38,11 @@
                 <slot name="reward"/>
             </section>
 
-            <FloatingButton style="background-color: var(--color-main);" @click="()=>isOpened = !isOpened">
+            <FloatingButton class="mobile-intro" style="background-color: var(--color-main);" @click="()=>isOpened = !isOpened">
                 <font-awesome-icon icon="fa-solid fa-book" size="xl" v-if="$route.name === 'introduction'"/>
                 <img v-else :src="images[$route.name]" height="30" width="30" :alt="`正在觀看${eventMapping.get($route.name)}的介紹`">
             </FloatingButton>
-            <Modal v-model="isOpened">
+            <Modal v-model="isOpened" class="mobile-intro">
                 <div class="modal-content">
                     <IconNav to="/introduction">
                         <font-awesome-icon icon="fa-solid fa-book" style="width: 55px; height: 55px; margin-bottom: 5px"></font-awesome-icon>
@@ -101,11 +101,17 @@
     .event-img-container{
         width: 100%;
         height: auto;
+        padding-top: 30px;
     }
-
+    .mobile-intro{
+        display: none;
+    }
     @media  screen and (max-width: 1000px) {
         .desktop-intro{
             display: none;
+        }
+        .mobile-intro{
+            display: flex;
         }
     }
 </style>
