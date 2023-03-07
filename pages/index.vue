@@ -6,6 +6,7 @@
 <template>
     <div>
         <main class="landing">
+            <NavBarMobileControl class="mobile-nav"/>
             <div class="appear nav-bar desktop-nav"><NavBar/></div>
 
             <div class="slogan">

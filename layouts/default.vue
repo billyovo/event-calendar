@@ -1,5 +1,6 @@
 <template>
     <NavBar class="nav-bg desktop"/>
+    <NavBarMobileControl class="mobile"/>
     <slot/>
     <FooterBar/>
     <NavBarMobile class="nav-bg mobile"/>
@@ -18,6 +19,7 @@
     
     .desktop{
         position: sticky;
+        display: flex;
         top: 0;
     }
     
