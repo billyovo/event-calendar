@@ -20,7 +20,10 @@
                     </div>
                 </ClientOnly>
             </main>
-            <Modal><FilterList/></Modal>
+            <Modal v-model="isOpened" class="mobile"><FilterList style="height: 100vh"/></Modal>
+            <FloatingButton @click="toggleModal" :style="`background-color: ${isOpened ? 'var(--color-danger)' : 'var(--color-main)'}`" class="mobile">
+                <font-awesome-icon :icon="`fa-solid ${isOpened ? 'fa-xmark' : 'fa-magnifying-glass'}`" size="xl"/>
+            </FloatingButton>
     </div>
 </template>
 <style scoped>
@@ -35,13 +38,18 @@
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         column-gap: 20px;
     }
-
+    .mobile{
+        display: none;
+    }
     @media screen and (max-width: 1000px) {
         .desktop-filter{
             display: none;
         }
         .wrapper{
             grid-template-columns: 1fr;
+        }
+        .mobile{
+            display: block;
         }
     }
 </style>
@@ -52,12 +60,17 @@
 
     export default{
         mixins: [configHandler, eventHandler],
+        methods:{
+            toggleModal(){
+                this.isOpened = !this.isOpened;
+            },           
+        },
         data(){
             return{
                 total: 0,
                 page: 1,
                 record: [],
-
+                isOpened: false,
                 observer: null
             }
         },

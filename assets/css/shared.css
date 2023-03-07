@@ -33,6 +33,7 @@
     --color-secondary: rgb(240,240,240);
     --color-main: rgb(31,0,44);
     --color-text: rgb(45,45,45);
+    --color-danger: rgb(220,53,69);
 }
 .dark-mode body{
     --shade-darken3: rgb(63,123,254);

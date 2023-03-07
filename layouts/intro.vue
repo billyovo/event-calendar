@@ -1,13 +1,19 @@
 <script>
     import eventHandler from '~~/mixins/eventHandler.vue';
 
+
     export default{
         mixins: [eventHandler],
+        data(){
+            return{
+                isOpened: false
+            }
+        }
     }
 </script>
 <template>
         <main class="container">
-            <header class="intro-nav">
+            <header class="intro-nav desktop-intro">
                 <Chip to="/introduction">
                     <span>介紹</span>
                 </Chip>
@@ -31,10 +37,40 @@
             <section style="margin-top: 50px">
                 <slot name="reward"/>
             </section>
+
+            <FloatingButton style="background-color: var(--color-main);" @click="()=>isOpened = !isOpened">
+                <font-awesome-icon icon="fa-solid fa-book" size="xl" v-if="$route.name === 'introduction'"/>
+                <img v-else :src="images[$route.name]" height="30" width="30" :alt="`正在觀看${eventMapping.get($route.name)}的介紹`">
+            </FloatingButton>
+            <Modal v-model="isOpened">
+                <div class="modal-content">
+                    <IconNav to="/introduction">
+                        <font-awesome-icon icon="fa-solid fa-book" style="width: 55px; height: 55px; margin-bottom: 5px"></font-awesome-icon>
+                        <span>介紹</span>
+                    </IconNav>
+                    <IconNav 
+                        v-for="event in events" 
+                        :key="event.id" 
+                        :to="`/introduction/${event.id}`"
+                    >
+                        <img :src="images[event.id]" height="60" width="60" :alt="`${event.title}的活動圖示`">
+                        <span>{{event.title}}</span>
+                    </IconNav>
+                    <IconNav to="/introduction/maze">
+                        <img :src="images.maze" height="60" width="60" alt="赤翠迷蹤的活動圖示">
+                        <span>赤翠迷蹤</span>
+                    </IconNav>
+                </div>
+            </Modal>
         </main>
 </template>
 
 <style>
+    .modal-content{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
     .intro-chip-base.router-link-exact-active {
         background-color: rgb(46,204,113);
     }
@@ -65,5 +101,11 @@
     .event-img-container{
         width: 100%;
         height: auto;
+    }
+
+    @media  screen and (max-width: 1000px) {
+        .desktop-intro{
+            display: none;
+        }
     }
 </style>

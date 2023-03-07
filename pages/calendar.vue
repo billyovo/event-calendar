@@ -66,9 +66,21 @@
 <template>
   <main>
     <header class="tool-bar">
-      <button @click="changeMonth(-1)" :style="(today-selectedMonth) < 0 ? null : 'visibility: hidden'" class="control-button"><i class="fa-solid fa-arrow-left"></i>上一頁</button>
+      <button 
+        @click="changeMonth(-1)" 
+        :style="(today-selectedMonth) < 0 ? null : 'visibility: hidden'" 
+        class="control-button desktop-tool-bar"
+      >
+        <i class="fa-solid fa-arrow-left"></i>上一頁
+      </button>
       <h2 class="selected">{{selectedMonth.getFullYear()}} / {{selectedMonth.getMonth()+1}}</h2>
-      <button @click="changeMonth(1)" :style="(selectedMonth-today) < 31556952000 ? null : 'visibility: hidden'" class="control-button">下一頁<i class="fa-solid fa-arrow-right"></i></button>
+      <button 
+        @click="changeMonth(1)" 
+        :style="(selectedMonth-today) < 31556952000 ? null : 'visibility: hidden'" 
+        class="control-button desktop-tool-bar"
+      >
+        下一頁<i class="fa-solid fa-arrow-right"></i>
+      </button>
     </header>
     <div class="notification">
       <span style="margin-right: 30px">{{`空島時間: ${skyeventTime.getHours().toString().padStart(2,"0")}:${skyeventTime.getMinutes().toString().padStart(2,"0")}`}}</span>
@@ -95,6 +107,11 @@
           </div>
         </section>
       <section> 
+        <header class="tool-bar mobile-tool-bar">
+          <button @click="changeMonth(-1)" :style="(today-selectedMonth) < 0 ? null : 'visibility: hidden'" class="control-button"><i class="fa-solid fa-arrow-left"></i>上一頁</button>
+          <div/>
+          <button @click="changeMonth(1)" :style="(selectedMonth-today) < 31556952000 ? null : 'visibility: hidden'" class="control-button">下一頁<i class="fa-solid fa-arrow-right"></i></button>
+        </header>
         <div class="mobile-hints">
           <div v-for="event in events" :key="event.id" class="mobile-hints-line">
             <img :src="images[event.id]" :alt="event.title+ '活動圖示'" height="25" width="25"><span> = {{event.title}}</span>
@@ -105,6 +122,20 @@
 </template>
 
 <style scoped>
+  .mobile-tool-bar{
+    visibility: hidden;
+  }
+  .desktop-tool-bar{
+    visibility: visible;
+  }
+  @media screen and (max-width: 1000px) {
+    .mobile-tool-bar{
+      visibility: visible;
+    }
+    .desktop-tool-bar{
+      visibility: hidden;
+    }
+  }
     .container{
         padding: 1px;
         display: grid;

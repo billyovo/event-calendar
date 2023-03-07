@@ -40,14 +40,19 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    opacity: 0.6;
 }
 
 .nav-brand{
     border-radius: 5px;
 }
+.nav-home{
+    opacity: 1;
+}
 
 .router-link-active{
-    color: rgb(46,204,113);
+    border-bottom: 2px solid rgb(46,204,113);
+    opacity: 1;
 }
 
 </style>
