@@ -7,7 +7,7 @@
                 遊戲開始後飛天蛇會開始移動
                 想辦法繼續留在蛇上, 最後一人為勝者
             "/>
-            <Meta property="og:twitter" content="遊戲開始前跳到飛天蛇上
+            <Meta property="twitter:description" content="遊戲開始前跳到飛天蛇上
                 遊戲開始後飛天蛇會開始移動
                 想辦法繼續留在蛇上, 最後一人為勝者"
             />

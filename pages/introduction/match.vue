@@ -8,7 +8,7 @@
                     憑記憶站到正確的顔色上, 最後一人為勝者
                     畫面上方的BOSS血條代表各階段的時間
             "/>
-            <Meta property="og:twitter" content="每回合開始時把地板的顔色記起來
+            <Meta property="og:description" content="每回合開始時把地板的顔色記起來
                     牆上顯示顔色後地板將不會有顔色
                     憑記憶站到正確的顔色上, 最後一人為勝者
                     畫面上方的BOSS血條代表各階段的時間

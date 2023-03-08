@@ -4,7 +4,7 @@
             <Title>{{news.title}}</Title>
             <Meta property="og:description" :content="news.content"/>
             
-            <Meta property="og:twitter" :content="news.content"/>
+            <Meta property="og:description" :content="news.content"/>
 
           </Head>
         <ClientOnly>
