@@ -78,7 +78,7 @@
         display: grid;
         grid-template-columns: repeat( auto-fit, minmax(220px, 1fr));
         gap: 15px;
-        margin-bottom: 15px;
+        margin: 15px 0px;
     }
     .intro-nav :first-child {
         grid-column: 1 / -1;

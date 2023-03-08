@@ -41,6 +41,7 @@
 <style>
     .news-container{
         min-height: calc(100vh - 400px);
+        margin-top: 15px;
     }
 
     .img-container{

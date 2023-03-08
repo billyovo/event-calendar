@@ -72,7 +72,9 @@
 <style scoped>
     .list-container{
         width: 90%;
+        min-height: 80vh;
         margin: 0 auto;
+        margin-top: 20px;
     }
     .separator{
 		  border-top: 1px dashed black; 
