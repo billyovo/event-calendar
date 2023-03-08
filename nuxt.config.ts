@@ -1,8 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    experimental:{
-        payloadExtraction: false
-    },
     app:{
         head:{
             title: "DC 築夢物語 - 綜合伺服器 | 小遊戲",

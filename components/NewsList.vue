@@ -55,7 +55,6 @@
     }
 </script>
 <template>
-    <ClientOnly>
       <div class="list-container">
           <NewsListItem :data="newsItem" v-for="newsItem in news" :key="newsItem.ID" :editMode="editMode"/>
           <NewsItemSkeleton
@@ -66,7 +65,6 @@
           />
           <div class="separator"/>
 	    </div>
-  </ClientOnly>
 </template>
 
 <style scoped>

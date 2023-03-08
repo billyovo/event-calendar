@@ -7,7 +7,6 @@
             <Meta property="og:description" :content="news.content"/>
 
           </Head>
-        <ClientOnly>
 
             <article class="news-container">
                 <div class="container">
@@ -26,7 +25,6 @@
                 
                 </div>
             </article>
-        </ClientOnly>
     </div>
 </template>
 
