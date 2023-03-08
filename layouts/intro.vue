@@ -10,9 +10,13 @@
             }
         }
     }
+
+    
 </script>
+
 <template>
         <main class="container">
+            
             <header class="intro-nav desktop-intro">
                 <Chip to="/introduction">
                     <span>介紹</span>

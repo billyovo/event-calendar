@@ -1,23 +1,33 @@
 <template>
-    <ClientOnly>
-        <article class="news-container">
-            <div class="container">
-                <span class="date">{{news?.publish_date}}</span>
-                <h2 class="title">{{ news?.title }}</h2>
-                <p class="title">{{ news?.content }}</p>
-                <div class="img-container" v-if="news?.image?.length > 0">
-                    <img v-for="imgLink in news.image" :src="imgLink" alt="新聞的描述相片" class="news-image">
-                </div>
+    <div>
+        <Head>
+            <Title>{{news.title}}</Title>
+            <Meta property="og:description" :content="news.content"/>
             
-                <div class="back">
-                    <NuxtLink to="/news" class="back-href">
-                        <span>回到通知</span>
-                    </NuxtLink>
+            <Meta property="og:twitter" :content="news.content"/>
+
+          </Head>
+        <ClientOnly>
+
+            <article class="news-container">
+                <div class="container">
+                    <span class="date">{{news?.publish_date}}</span>
+                    <h2 class="title">{{ news?.title }}</h2>
+                    <p class="title">{{ news?.content }}</p>
+                    <div class="img-container" v-if="news?.image?.length > 0">
+                        <img v-for="imgLink in news.image" :src="imgLink" alt="新聞的描述相片" class="news-image">
+                    </div>
+                
+                    <div class="back">
+                        <NuxtLink to="/news" class="back-href">
+                            <span>回到通知</span>
+                        </NuxtLink>
+                    </div>
+                
                 </div>
-            
-            </div>
-        </article>
-    </ClientOnly>
+            </article>
+        </ClientOnly>
+    </div>
 </template>
 
 <script>

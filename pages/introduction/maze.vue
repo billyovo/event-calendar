@@ -1,5 +1,24 @@
 <template>
     <div>
+        <Html>
+          <Head>
+            <Title>{{"活動介紹 - 赤翠迷蹤"}}</Title>
+            <Meta property="og:description" content="每回合開始時把地板的顔色記起來
+                    牆上顯示顔色後地板將不會有顔色
+                    憑記憶站到正確的顔色上, 最後一人為勝者
+                    畫面上方的BOSS血條代表各階段的時間
+            "/>
+            <Meta property="og:twitter" content="每回合開始時把地板的顔色記起來
+                    牆上顯示顔色後地板將不會有顔色
+                    憑記憶站到正確的顔色上, 最後一人為勝者
+                    畫面上方的BOSS血條代表各階段的時間
+            "/>
+
+            <Meta property="og:image" content="https://minigame.letsdream.today/images/maze.png"/>
+            <Meta property="twitter:image" content="https://minigame.letsdream.today/images/maze.png"/>
+          </Head>
+        </Html>
+
         <NuxtLayout name="intro">
             <template #event>
                 <img src="~/assets/images/banner/maze_arena.png">

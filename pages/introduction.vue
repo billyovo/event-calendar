@@ -1,5 +1,10 @@
 <template>
     <div>
+        <Html>
+          <Head>
+            <Title>{{"活動介紹"}}</Title>
+          </Head>
+        </Html>
         <NuxtLayout name="intro">
             <template #event>
                 <img src="https://via.placeholder.com/1000x1000" class="event-img">
