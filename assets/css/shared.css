@@ -20,6 +20,8 @@
     --font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
     --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
 
+    --mobile-breakpoint: 1000px;
+    
     --shade: #DDF4FB;
     --shade-darken: #C3ECF8;
     --shade-darken2: #9CA4F5;
@@ -32,6 +34,7 @@
     --color-disabled: rgb(180,180,180);
     --color-secondary: rgb(240,240,240);
     --color-main: rgb(31,0,44);
+    --color-main-sub: rgb(211,211,211);
     --color-text: rgb(45,45,45);
     --color-danger: rgb(220,53,69);
 }
@@ -63,5 +66,26 @@ html, body {
 @media screen and (max-width: 1000px){
     html, body{
         min-height: calc(100vh + 400px);
+    }
+}
+.query-hidden, .query-none, .query-hidden-mobile, .query-none-mobile{
+    display: flex;
+}
+
+@media screen and (max-width: 1000px){
+    .query-hidden{
+        visibility: hidden;
+    }
+    .query-none{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    .query-hidden-mobile{
+        visibility: hidden;
+    }
+    .query-none-mobile{
+        display: none;
     }
 }

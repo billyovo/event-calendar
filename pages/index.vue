@@ -6,8 +6,8 @@
 <template>
     <div>
         <main class="landing">
-            <NavBarMobileControl class="mobile-nav"/>
-            <div class="appear nav-bar desktop-nav"><NavBar/></div>
+            <NavBarMobileControl/>
+            <NavBar/>
 
             <div class="slogan">
                 <div/>
@@ -33,7 +33,7 @@
                 <NewsList hide-control :limit="3"/>
             </div>
         </section>
-        <NavBarMobile style="background-color: var(--color-main);" class="mobile-nav"/>
+        <NavBarMobile style="background-color: var(--color-main);"/>
     </div>
 </template>
 
@@ -124,26 +124,6 @@
     font-weight: bold;
     display: block;
 }
-.header-container{
-    display: flex;
-    justify-content: space-between;
-}
-
-.mobile{
-    display: none;
-    margin: 50px 0px;
-}
-@media screen and (max-width: 1000px){
-    .desktop{
-        display: none;
-    }
-    .mobile{
-        display: flex;
-    }
-}
-.main{
-    color: black;
-}
 .header{
 	color: var(--shade-darken3);
 	font-weight: bold;
@@ -175,19 +155,6 @@
     }
 }
 
-.mobile-nav{
-    display: none;
-}
-
-@media  screen and (max-width: 1000px) {
-    .desktop-nav{
-        visibility: hidden;
-    }
-
-    .mobile-nav{
-        display: flex;
-    }
-}
 </style>
 
 

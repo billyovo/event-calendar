@@ -114,7 +114,7 @@
         </header>
         <div class="mobile-hints">
           <div v-for="event in events" :key="event.id" class="mobile-hints-line">
-            <img :src="images[event.id]" :alt="event.title+ '活動圖示'" height="25" width="25"><span> = {{event.title}}</span>
+            <img :src="images[event.id]" :alt="event.title+ '活動圖示'" height="25" width="25" style="margin-right: 5px"><span>{{` = ${event.title}`}}</span>
           </div>
         </div>
     </section>
@@ -185,13 +185,14 @@
     }
     .mobile-hints{
       margin-top: 15px;
-      margin-left: 15px;
+      margin-left: 5px;
       display: none;
-      width: 100%;
     }
     .mobile-hints-line{
       margin-right: 15px;
       margin-bottom: 10px;
+      display: flex;
+      align-items: center;
     }
     @media screen and (max-width: 550px){
       .wrapper-content-title{

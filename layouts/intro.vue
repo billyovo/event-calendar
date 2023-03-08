@@ -38,14 +38,14 @@
                 <slot name="reward"/>
             </section>
 
-            <FloatingButton class="mobile-intro" style="background-color: var(--color-main);" @click="()=>isOpened = !isOpened">
+            <FloatingButton class="mobile-intro" style="background-color: var(--color-main-sub);" @click="()=>isOpened = !isOpened">
                 <font-awesome-icon icon="fa-solid fa-book" size="xl" v-if="$route.name === 'introduction'"/>
                 <img v-else :src="images[$route.name]" height="30" width="30" :alt="`正在觀看${eventMapping.get($route.name)}的介紹`">
             </FloatingButton>
             <Modal v-model="isOpened" class="mobile-intro">
                 <div class="modal-content">
                     <IconNav to="/introduction">
-                        <font-awesome-icon icon="fa-solid fa-book" style="width: 55px; height: 55px; margin-bottom: 5px"></font-awesome-icon>
+                        <font-awesome-icon icon="fa-solid fa-book" style="width: 45px; height: 45px; margin-bottom: 5px"></font-awesome-icon>
                         <span>介紹</span>
                     </IconNav>
                     <IconNav 
@@ -53,11 +53,11 @@
                         :key="event.id" 
                         :to="`/introduction/${event.id}`"
                     >
-                        <img :src="images[event.id]" height="60" width="60" :alt="`${event.title}的活動圖示`">
+                        <img :src="images[event.id]" height="45" width="45" :alt="`${event.title}的活動圖示`">
                         <span>{{event.title}}</span>
                     </IconNav>
                     <IconNav to="/introduction/maze">
-                        <img :src="images.maze" height="60" width="60" alt="赤翠迷蹤的活動圖示">
+                        <img :src="images.maze" height="45" width="45" alt="赤翠迷蹤的活動圖示">
                         <span>赤翠迷蹤</span>
                     </IconNav>
                 </div>

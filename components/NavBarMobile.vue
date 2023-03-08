@@ -1,5 +1,5 @@
 <template>
-    <nav class="nav-container">
+    <nav class="nav-container" :class="takeSpace ? 'query-hidden-mobile' : 'query-none-mobile'">
         <NuxtLink class="nav-icon" to="/introduction">
             <font-awesome-icon icon="fa-solid fa-book" size="xl" />
             <span>活動介紹</span>
@@ -56,3 +56,17 @@
 }
 
 </style>
+
+<script>
+    import mediaQueryProps from '~~/mixins/mediaQueryProps.vue';
+
+    export default{
+        mixins:[mediaQueryProps],
+        props:{
+            takeSpace:{
+                type: Boolean,
+                default: false
+            }
+        }
+    }
+</script>

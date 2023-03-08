@@ -1,9 +1,9 @@
 <template>
-    <NavBar class="nav-bg desktop"/>
-    <NavBarMobileControl class="mobile"/>
+    <NavBar class="nav-bg"/>
+    <NavBarMobileControl/>
     <slot/>
     <FooterBar/>
-    <NavBarMobile class="nav-bg mobile"/>
+    <NavBarMobile class="nav-bg"/>
     
 </template>
 
@@ -13,23 +13,4 @@
         z-index: 1000;
     }
 
-    .mobile{
-        display: none;
-    }
-    
-    .desktop{
-        position: sticky;
-        display: flex;
-        top: 0;
-    }
-    
-    @media screen and (max-width: 1000px) {
-        .desktop{
-            display: none;
-        }
-
-        .mobile{
-            display: grid;
-        }
-    }
 </style>

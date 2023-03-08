@@ -19,7 +19,7 @@
                     </div>
             </main>
             <Modal v-model="isOpened" class="mobile"><FilterList style="height: 100vh"/></Modal>
-            <FloatingButton @click="toggleModal" :style="`background-color: ${isOpened ? 'var(--color-danger)' : 'var(--color-main)'}`" class="mobile">
+            <FloatingButton @click="toggleModal" :style="`background-color: ${isOpened ? 'var(--color-danger)' : 'var(--color-main-sub)'}`" class="mobile">
                 <font-awesome-icon :icon="`fa-solid ${isOpened ? 'fa-xmark' : 'fa-filter'}`" size="xl"/>
             </FloatingButton>
     </div>

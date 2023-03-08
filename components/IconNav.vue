@@ -6,8 +6,8 @@
 
 <style scoped>
     .icon-base{
-        height: 100px;
-        width: 100px;
+        height: 90px;
+        width: 80px;
         border-radius: 10px;
         display: flex;
         justify-content: center;
