@@ -68,23 +68,18 @@ html, body {
         min-height: calc(100vh + 400px);
     }
 }
-.query-hidden, .query-none, .query-hidden-mobile, .query-none-mobile{
+.query-none, .query-none-mobile{
     display: flex;
 }
 
 @media screen and (max-width: 1000px){
-    .query-hidden{
-        visibility: hidden;
-    }
     .query-none{
         display: none;
     }
 }
 
 @media screen and (min-width: 1000px){
-    .query-hidden-mobile{
-        visibility: hidden;
-    }
+
     .query-none-mobile{
         display: none;
     }

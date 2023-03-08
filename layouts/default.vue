@@ -2,8 +2,8 @@
     <NavBar class="nav-bg"/>
     <NavBarMobileControl/>
     <slot/>
-    <FooterBar/>
     <NavBarMobile class="nav-bg"/>
+    <FooterBar/>
     
 </template>
 

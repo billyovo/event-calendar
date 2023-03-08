@@ -1,5 +1,5 @@
 <template>
-    <nav class="nav-container" :class="takeSpace ? 'query-hidden' : 'query-none'">
+    <nav class="nav-container query-none">
         <NuxtLink to="/" class="brand">
             <img src="~/assets/icons/brand.svg" alt="伺服器圖示" class="brand" height="50" width="300">
         </NuxtLink>
@@ -45,9 +45,7 @@
 
 </style>
 <script>
-    import mediaQueryProps from '~~/mixins/mediaQueryProps.vue';
     export default{
-        mixin: [mediaQueryProps],
         methods:{
             updateTheme(){
                 this.$colorMode.preference = this.$colorMode?.value === 'dark' ? 'light' : 'dark';
