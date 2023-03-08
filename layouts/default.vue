@@ -14,3 +14,17 @@
     }
 
 </style>
+
+<script>
+    export default{
+        mounted(){
+            //why am i even doing this
+            const footers = document.getElementsByTagName("footer");
+            if(footers.length !== 1){
+                while(footers[0].nextElementSibling){
+                    footers[0].nextElementSibling.remove();
+                }
+            }
+        }
+    }
+</script>
