@@ -4,8 +4,9 @@
             <Title>{{news.title}}</Title>
             <Meta property="og:description" :content="news.content"/>
             
-            <Meta property="og:description" :content="news.content"/>
+            <Meta property="twitter:description" :content="news.content"/>
 
+            <Meta name="description" :content="news.content"/>
           </Head>
 
             <article class="news-container">

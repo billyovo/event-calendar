@@ -25,7 +25,8 @@ export default defineNuxtConfig({
                     "charset": "UFT-8",
                 },
                 {
-                    "name": "description"
+                    "name": "description",
+                    "content": "在這裡你可以查詢到我們小遊戲的資訊。"
                 },
                 {
                     "name": "keywords",

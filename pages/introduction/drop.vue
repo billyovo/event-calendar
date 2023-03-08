@@ -15,7 +15,11 @@
                 成功降落時會將附近地板填色
                 所有人都墜落完成會開始新一回合, 最後一人為勝者
             "/>
-
+            <Meta name="description" content="每回合有10秒時間尋找合適的位置往下跳
+                倒數結束後平台的地板會消失
+                只能降落在白色混凝土上, 否則會被淘汰
+                成功降落時會將附近地板填色
+                所有人都墜落完成會開始新一回合, 最後一人為勝者"/>
             <Meta property="og:image" content="https://minigame.letsdream.today/images/drop.png"/>
             <Meta property="twitter:image" content="https://minigame.letsdream.today/images/drop.png"/>
           </Head>
