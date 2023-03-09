@@ -1,12 +1,24 @@
 <template>
     <NuxtLayout name="default">
         <main class="container error-container">
-            <h2>你好啊玩家們，沒想到你可以到這個什麼都沒有的地方來呢！不過就到這裡為止了。接下來就由我閃耀的小花來做你的對手！</h2>
-            <div class="sleepyrose-container">
+            <h2 v-if="hp > 0">你好啊玩家們，沒想到你可以到這個什麼都沒有的地方來呢！不過就到這裡為止了。接下來就由我閃耀的小花來做你的對手！</h2>
+            <h2 v-else>你竟然打敗了閃耀的小花，並找到了回去的路！</h2>
+            <div class="hp-bar" v-if="(hp != 1000) && (hp > 0)">
+
+                <div class="hp-bar-inner">
+                                    {{ hp}}
+                </div>
+            </div>
+            <div class="sleepyrose-container" v-if="hp > 0">
+                <div class="sleepy-hit" @click="generateHit"></div>
                 <img src="~/assets/images/sleepyrose.png" height="500" width="500" class="sleepy">
+            </div>
+            <div v-else>
+                <NuxtLink to="/" class="home">回到主頁</NuxtLink>
             </div>
             
         </main>
+        
     </NuxtLayout>
 </template>
 <style>
@@ -14,6 +26,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        min-height: 100vh;
     }
 
     .sleepyrose-container{
@@ -25,18 +38,47 @@
     }
     .sleepy{
         width: 100%;
+        position: absolute;
         max-width: 200px;
         height: auto;
         animation: rainbow 1.5s steps(36) infinite, shake 0.15s infinite;
+        z-index: 100;
     }
 
+    .sleepy-hit{
+        position: absolute;
+        width: 100%;
+        max-width: 200px;
+        height: 200px;
+        z-index: 10000;
+    }
 
+    .hit{
+        color: red;
+        position: absolute;
+        z-index: 1000;
+        font-size: 1.5rem;
+    }
+
+    .hp-bar{
+        width: 100%;
+        border-radius: 20px;
+    }
+    .hp-bar-inner{
+        width: 100%;
+        padding: 5px;
+        background-color: red;
+        border-radius: 10px;
+    }
+    .home{
+        padding: 30px;
+    }
     @keyframes rainbow {
      from {
-            filter:hue-rotate(10deg);
+            filter: hue-rotate(10deg);
         }
       to {
-            filter:hue-rotate(360deg);
+            filter: hue-rotate(360deg);
         }
     }
 
@@ -54,3 +96,48 @@
         100% { transform: translate(1px, -2px) rotate(-1deg); }
     }
 </style>
+
+<script>
+    export default{
+        data(){
+            return{
+                hit: null,
+                interval: null,
+                hp: 1000,
+                hpBar: null
+            }
+        },
+        methods:{
+            generateHit(event){
+                this.hp--;
+                this.hpBar.style.width = this.hp/1000*100 + '%';
+                const hit = document.createElement('span');
+                hit.classList.add('hit');
+                hit.innerText = '-1';
+                hit.style.top = `${event.clientY}px`;
+                hit.style.left = `${event.clientX}px`;
+                
+                this.hit.appendChild(hit);
+
+                setTimeout(() => hit.remove(), 2000);
+
+            },
+            moveHits(){
+                const hits = document.getElementsByClassName('hit');
+                for(let i = 0; i < hits.length; i++){
+                    hits[i].style.top = `${parseInt(hits[i].style.top) - 10}px`;
+                }
+            }
+        },
+        mounted(){
+            this.hit = document.getElementsByClassName("sleepyrose-container")[0];
+
+            this.interval = setInterval(this.moveHits, 250);
+            this.hpBar = document.getElementsByClassName('hp-bar-inner')[0];
+            console.log(this.hpBar);
+        },
+        beforeUnmount(){
+            clearInterval(this.interval);
+        }
+    }
+</script>

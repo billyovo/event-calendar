@@ -14,7 +14,8 @@ export default defineNuxtConfig({
                 },
                 {
                     rel: "preload stylesheet",
-                    as: "font",
+                    type: "text/css",
+                    as: "style",
                     crossorigin: "anonymous",
                     href: "https://fonts.googleapis.com/css?family=Noto%20Sans"
                 }
