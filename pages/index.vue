@@ -21,7 +21,7 @@
 	    		    <div class="bubble-container">
 	    		        <div class="bubble bubble-bottom-left">你好嗎</div>
 	    		    </div>						
-	    		    <img src="~/assets/images/avatar.png" alt="小妹的半身像" class="slide avatar"/>
+	    		    <img src="~/assets/images/avatar.png" alt="小妹的半身像" class="slide avatar" width="724" height="344"/>
                 
 	    	    </div>
             </div>

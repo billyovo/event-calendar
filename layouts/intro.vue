@@ -42,7 +42,7 @@
                 <slot name="reward"/>
             </section>
 
-            <FloatingButton class="mobile-intro" style="background-color: var(--color-main-sub);" @click="()=>isOpened = !isOpened">
+            <FloatingButton class="mobile-intro" style="background-color: var(--color-main-sub);" @click="()=>isOpened = !isOpened" aria-label="查看其他活動介紹">
                 <font-awesome-icon icon="fa-solid fa-book" size="xl" v-if="$route.name === 'introduction'"/>
                 <img v-else :src="images[$route.name]" height="30" width="30" :alt="`正在觀看${eventMapping.get($route.name)}的介紹`">
             </FloatingButton>

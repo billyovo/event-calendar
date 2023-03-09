@@ -1,5 +1,5 @@
 <template>
-    <div class="background" v-if="modelValue" @click="(event) => checkModalClose(event)">
+    <div class="background" v-if="modelValue" @click="(event) => checkModalClose(event)" role="dialog" aria-modal="true" :aria-hidden="modelValue">
         <div class="modal">
             <div class="modal-inner">
 

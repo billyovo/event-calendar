@@ -3,6 +3,9 @@ export default defineNuxtConfig({
     app:{
         head:{
             title: "DC 築夢物語 - 綜合伺服器 | 小遊戲",
+            htmlAttrs:{
+                lang: 'zh-Hant'
+            },
             link:[
                 {
                     rel: "icon",
@@ -13,7 +16,7 @@ export default defineNuxtConfig({
                     rel: "preload stylesheet",
                     as: "font",
                     crossorigin: "anonymous",
-                    href: "https://fonts.googleapis.com/css?family=Noto Sans"
+                    href: "https://fonts.googleapis.com/css?family=Noto%20Sans"
                 }
             ],
             meta:[

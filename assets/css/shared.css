@@ -39,7 +39,7 @@
     --color-danger: rgb(220,53,69);
 }
 .dark-mode body{
-    --shade-darken3: rgb(63,123,254);
+    --shade-darken3: rgb(60,133,254);
     --color-disabled: black;
     --color-secondary: rgb(50,50,50);
     --color-bg:  rgb(32,35,39);
@@ -55,6 +55,7 @@ h2 {
 
 html, body {
     font-family: 'Noto Sans', system-ui, sans-serif;
+    font-display: swap;
     font-size: var(--font-size-base);
     color: var(--color-text);
     background-color: var(--color-bg);

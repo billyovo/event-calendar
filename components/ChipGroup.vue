@@ -25,7 +25,6 @@
         },
         mounted(){
             this.updateValue(this.modelValue);
-           this.$forceUpdate();
         }
     }
 </script>

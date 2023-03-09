@@ -7,6 +7,7 @@
             'background-color: var(--shade-darken3); color: white'  : 
             null
         "
+        :tabindex="to ? null : 0"
     >   
         <slot/>
     </NuxtLink>
