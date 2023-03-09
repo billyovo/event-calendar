@@ -22,7 +22,7 @@
 
         <NuxtLayout name="intro">
             <template #event>
-                <img src="~/assets/images/banner/snake_arena.png">
+                <img src="~/assets/images/banner/snake_arena.png" alt="繽紛飛天蛇遊戲場地">
                 <div>
                     <h2>遊戲規則:</h2>
                     <p>遊戲開始前跳到飛天蛇上</p>

@@ -8,7 +8,7 @@
 
             <Meta name="description" :content="news.content"/>
           </Head>
-
+          <Loader v-if="loading" :aria-busy="loading" :aria-hidden="!loading"/>
             <article class="news-container">
                 <div class="container">
                     <span class="date">{{news?.publish_date}}</span>
@@ -36,14 +36,16 @@
         mixins: [configHandler],
         data(){
             return{
-                news: null
+                news: null,
+                loading: false,
             }
         },
         async mounted(){
             const route = useRoute();
+            this.loading = true;
             const news = await fetch(`${this.API_URL}/news/${route.params.id}`)
-            
             this.news = await news.json();
+            this.loading = false;
         }
     }
 </script>

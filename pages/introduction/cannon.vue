@@ -24,7 +24,7 @@
 
         <NuxtLayout name="intro">
             <template #event>
-                <img src="~/assets/images/banner/cannon_arena.png">
+                <img src="~/assets/images/banner/cannon_arena.png" alt="忘掉那 無形鎖遊戲場地">
                 <div>
                     <h2>遊戲規則:</h2>
                     <p>以弓或弩射出炸彈箭, 箭矢會定時增加, 最多8根</p>

@@ -12,7 +12,7 @@
         </Html>
         <NuxtLayout name="intro">
             <template #event>
-                <img src="~/assets/images/banner/bumper_arena.png">
+                <img src="~/assets/images/banner/bumper_arena.png" alt="碰碰豬遊戲場地">
                 <div>
                     <h2>遊戲規則:</h2>
                     <p>把所有人撞下平台, 最後一人為勝者</p>

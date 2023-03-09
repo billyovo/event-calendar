@@ -1,9 +1,8 @@
 <template>
-    <button @click="updateTheme" class="theme-button" aria-label="改變網頁主題顏色" :aria-valuetext="$colorMode === 'dark' ? '黑暗' : '光亮'" >
+    <button @click="updateTheme" class="theme-button" aria-label="改變網頁主題顏色" >
                 <font-awesome-icon 
                     :icon="'fa-solid '+($colorMode?.value === 'dark' ? 'fa-moon' :'fa-sun')" 
                     size="lg" 
-                    aria-label="網頁顏色"
                 />
             </button>
 </template>

@@ -24,7 +24,7 @@
 
         <NuxtLayout name="intro">
             <template #event>
-                <img src="~/assets/images/banner/maze_arena.png">
+                <img src="~/assets/images/banner/maze_arena.png" alt="赤翠迷蹤遊戲場地">
                 <div>
                     <h2>遊戲規則:</h2>
                     <p>每回合開始時把地板的顔色記起來</p>

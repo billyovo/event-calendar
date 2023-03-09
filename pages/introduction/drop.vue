@@ -27,7 +27,7 @@
 
         <NuxtLayout name="intro">
             <template #event>
-                <img src="~/assets/images/banner/drop_arena.png">
+                <img src="~/assets/images/banner/drop_arena.png" alt="高空墜落遊戲場地">
                 <div>
                     <h2>遊戲規則:</h2>
                     <p>每回合有10秒時間尋找合適的位置往下跳</p>

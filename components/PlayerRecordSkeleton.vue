@@ -1,7 +1,6 @@
 <template>
     <div class="skeleton-container">
         <PlayerRecordItemSkeleton 
-            v-for="index in 15" :key="index"
         />
     </div>
 </template>

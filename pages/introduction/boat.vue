@@ -24,7 +24,7 @@
 
         <NuxtLayout name="intro">
             <template #event>
-                <img src="~/assets/images/banner/boat_arena.png">
+                <img src="~/assets/images/banner/boat_arena.png" alt="七彩羊駝保衛戰遊戲場地">
                 <div>
                     <h2>遊戲規則:</h2>
                     <p>右鍵魔法棒向草泥馬發射魔咒, 每10秒可以發射8次魔咒</p>

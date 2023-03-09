@@ -1,15 +1,5 @@
-<script>
-    export default {
-        props:{
-            data: Object,
-            imageurl: String,
-        }
-    }
-</script>
 <template>
-    <article class="card">
-        
-    </article>
+    <article class="card"/>
 </template>
 
 <style scoped>

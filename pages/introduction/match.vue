@@ -24,7 +24,7 @@
 
         <NuxtLayout name="intro">
             <template #event>
-                <img src="~/assets/images/banner/match_arena.png">
+                <img src="~/assets/images/banner/match_arena.png" alt="記憶極限遊戲場地">
                 <div>
                     <h2>遊戲規則:</h2>
                     <p>每回合開始時把地板的顔色記起來</p>
