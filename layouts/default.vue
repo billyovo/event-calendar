@@ -1,9 +1,11 @@
 <template>
-    <NavBar class="nav-bg"/>
-    <NavBarMobileControl/>
-    <slot/>
-    <NavBarMobile class="nav-bg"/>
-    <FooterBar/>
+    <div>
+        <NavBar class="nav-bg"/>
+        <NavBarMobileControl/>
+        <slot/>
+        <NavBarMobile class="nav-bg"/>
+        <FooterBar/>
+    </div>
     
 </template>
 

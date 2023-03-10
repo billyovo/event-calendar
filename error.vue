@@ -3,13 +3,13 @@
         <main class="container error-container">
             <h2 v-if="hp > 0">你好啊玩家們，沒想到你可以到這個什麼都沒有的地方來呢！不過就到這裡為止了。接下來就由我閃耀的小花來做你的對手！</h2>
             <h2 v-else>你竟然打敗了閃耀的小花，並找到了回去的路！</h2>
-            <div class="hp-bar" v-if="(hp != 1000) && (hp > 0)">
+            <div class="hp-bar" ref="hp-bar" :style="`width: ${hpBarWidth}; ${hp===1000 ? 'visibility: hidden' : null}`" v-if="hp > 0">
 
-                <div class="hp-bar-inner">
+                <div class="hp-bar-inner" id="hp-bar">
                                     {{ hp}}
                 </div>
             </div>
-            <div class="sleepyrose-container" v-if="hp > 0">
+            <div class="sleepyrose-container" ref="sleepy" v-if="hp > 0">
                 <div class="sleepy-hit" @click="generateHit"></div>
                 <img src="~/assets/images/sleepyrose.png" height="500" width="500" class="sleepy">
             </div>
@@ -109,15 +109,14 @@
         },
         methods:{
             generateHit(event){
-                this.hp--;
-                this.hpBar.style.width = this.hp/1000*100 + '%';
+                this.hp-=100;
                 const hit = document.createElement('span');
                 hit.classList.add('hit');
                 hit.innerText = '-1';
                 hit.style.top = `${event.clientY}px`;
                 hit.style.left = `${event.clientX}px`;
                 
-                this.hit.appendChild(hit);
+                this.$refs.sleepy.appendChild(hit);
 
                 setTimeout(() => hit.remove(), 2000);
 
@@ -129,15 +128,16 @@
                 }
             }
         },
-        mounted(){
-            this.hit = document.getElementsByClassName("sleepyrose-container")[0];
-
+        async mounted(){
             this.interval = setInterval(this.moveHits, 250);
-            this.hpBar = document.getElementsByClassName('hp-bar-inner')[0];
-            console.log(this.hpBar);
         },
         beforeUnmount(){
             clearInterval(this.interval);
+        },
+        computed:{
+            hpBarWidth(){
+                return this.hp/1000*100 + '%';
+            }
         }
     }
 </script>
