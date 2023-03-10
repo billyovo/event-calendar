@@ -71,7 +71,7 @@
         :style="(today-selectedMonth) < 0 ? null : 'visibility: hidden'" 
         class="control-button desktop-tool-bar"
       >
-        <i class="fa-solid fa-arrow-left"></i>上一頁
+        上一頁
       </button>
       <h2 class="selected">{{selectedMonth.getFullYear()}} / {{selectedMonth.getMonth()+1}}</h2>
       <button 
@@ -79,7 +79,7 @@
         :style="(selectedMonth-today) < 31556952000 ? null : 'visibility: hidden'" 
         class="control-button desktop-tool-bar"
       >
-        下一頁<i class="fa-solid fa-arrow-right"></i>
+        下一頁
       </button>
     </header>
     <div class="notification">
@@ -108,9 +108,23 @@
         </section>
       <section> 
         <header class="tool-bar mobile-tool-bar">
-          <button @click="changeMonth(-1)" :style="(today-selectedMonth) < 0 ? null : 'visibility: hidden'" class="control-button"><i class="fa-solid fa-arrow-left"></i>上一頁</button>
+          <button 
+            @click="changeMonth(-1)" 
+            :aria-hidden="(today-selectedMonth) > 0"
+            :style="(today-selectedMonth) < 0 ? null : 'visibility: hidden'" 
+            class="control-button"
+            >
+            上一頁
+          </button>
           <div/>
-          <button @click="changeMonth(1)" :style="(selectedMonth-today) < 31556952000 ? null : 'visibility: hidden'" class="control-button">下一頁<i class="fa-solid fa-arrow-right"></i></button>
+          <button 
+            @click="changeMonth(1)" 
+            :aria-hidden="(selectedMonth-today) > 31556952000"
+            :style="(selectedMonth-today) < 31556952000 ? null : 'visibility: hidden'" 
+            class="control-button"
+          >
+          下一頁
+        </button>
         </header>
         <div class="mobile-hints">
           <div v-for="event in events" :key="event.id" class="mobile-hints-line">

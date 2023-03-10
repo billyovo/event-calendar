@@ -1,19 +1,19 @@
 <template>
     <div>
         <Head>
-            <Title>{{news.title}}</Title>
-            <Meta property="og:description" :content="news.content"/>
+            <Title>{{news?.title}}</Title>
+            <Meta property="og:description" :content="news?.content?.join('\n\n')"/>
             
-            <Meta property="twitter:description" :content="news.content"/>
+            <Meta property="twitter:description" :content="news?.content?.join('\n\n')"/>
 
-            <Meta name="description" :content="news.content"/>
+            <Meta name="description" :content="news?.content?.join('\n\n')"/>
           </Head>
           <Loader v-if="loading" :aria-busy="loading" :aria-hidden="!loading"/>
             <article class="news-container">
                 <div class="container">
                     <span class="date">{{news?.publish_date}}</span>
                     <h2 class="title">{{ news?.title }}</h2>
-                    <p class="title">{{ news?.content }}</p>
+                    <p v-for="newParagraph in news?.content">{{ newParagraph }}</p>
                     <div class="img-container" v-if="news?.image?.length > 0">
                         <img v-for="imgLink in news.image" :src="imgLink" alt="新聞的描述相片" class="news-image">
                     </div>
