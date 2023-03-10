@@ -86,17 +86,20 @@ export default defineNuxtConfig({
     components: true,
     runtimeConfig:{
         public:{
-            API_URL: "https://minigame-api.letsdream.today"
+            API_URL: "https://minigame-api.letsdream.today",
+            OAUTH2_URL: "https://discord.com/api/oauth2/authorize?client_id=832486484451262474&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fedit&response_type=code&scope=identify%20guilds",
         }
     },
     css: [
         '~/assets/css/shared.css', 
-        '@fortawesome/fontawesome-svg-core/styles.css'
+        '@fortawesome/fontawesome-svg-core/styles.css',
+        '@vueup/vue-quill/dist/vue-quill.snow.css'
     ],
     build: {
         transpile: ['@vuepic/vue-datepicker', '@fortawesome/fontawesome-svg-core', '@fortawesome/free-brands-svg-icons', '@fortawesome/free-solid-svg-icons','@fortawesome/vue-fontawesome','rrule'],
     },
     modules: ['@nuxtjs/color-mode'],
+    
     hooks: {
         'pages:extend'(pages) {
             const introIndex = pages.findIndex(obj => obj.name === 'introduction');
@@ -142,6 +145,11 @@ export default defineNuxtConfig({
                     name: 'news/id',
                     path: '/news/:id',
                     file: '~/pages/news/[id].vue'
+                },
+                {
+                    name: 'edit/id',
+                    path: '/edit/:id',
+                    file: '~/pages/edit/[id].vue'
                 }
                 
             ]
@@ -150,6 +158,9 @@ export default defineNuxtConfig({
             })
             const newsIndex = pages.findIndex(obj => obj.name === 'news');
             delete pages[newsIndex].children;
+
+            const editIndex = pages.findIndex(obj => obj.name === 'edit');
+            delete pages[editIndex].children;
         },
     },
 
