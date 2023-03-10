@@ -7,7 +7,7 @@
                     <ClientOnly>
                         <span class="date">{{publish_date}}</span>
                         <h2 class="title">{{ title }}</h2>
-                        <QuillEditor v-model:content="content" theme="snow" contentType="text" />
+                        <QuillEditor v-model:content="content" theme="snow" contentType="delta" :readOnly="true" :toolbar="false" style="border: none"/>
                         {{ content }}
                     </ClientOnly>
                     <div class="back">
