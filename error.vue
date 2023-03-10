@@ -109,7 +109,7 @@
         },
         methods:{
             generateHit(event){
-                this.hp-=100;
+                this.hp--;
                 const hit = document.createElement('span');
                 hit.classList.add('hit');
                 hit.innerText = '-1';
