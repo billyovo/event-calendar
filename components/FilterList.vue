@@ -49,6 +49,8 @@
         <div class="divider"/>
         <h3>玩家名稱</h3>
         <input type="search" v-model="name" placeholder="輸入名稱..." class="text-input">
+        <span style="margin-top: 30px">頭像提供: <a href="https://crafatar.com">Crafatar</a></span>
+        <span style="margin-top: 20px"><a href="/docs">點我查看小遊戲紀錄API規格</a></span>
     </aside>
 </template>
 <script>

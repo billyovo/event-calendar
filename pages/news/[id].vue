@@ -13,7 +13,7 @@
                 <div class="container">
                     <span class="date">{{news?.publish_date}}</span>
                     <h2 class="title">{{ news?.title }}</h2>
-                    <QuillEditor v-model:content="content" theme="snow" contentType="delta" :readOnly="true" :toolbar="false" style="border: none"/>
+                    <div v-html="content"/>
 
                     <div class="img-container" v-if="news?.image?.length > 0">
                         <img v-for="imgLink in news.image" :src="imgLink" alt="新聞的描述相片" class="news-image">
@@ -46,6 +46,10 @@
             const route = useRoute();
             this.loading = true;
             const news = await fetch(`${this.API_URL}/news/${route.params.id}`)
+            if(!news.ok){
+                this.$router.push('/error');
+                return;
+            }
             this.news = await news.json();
             this.content= this.news.content
             this.loading = false;

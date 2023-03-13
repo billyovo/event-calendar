@@ -99,7 +99,6 @@ export default defineNuxtConfig({
         transpile: ['@vuepic/vue-datepicker', '@fortawesome/fontawesome-svg-core', '@fortawesome/free-brands-svg-icons', '@fortawesome/free-solid-svg-icons','@fortawesome/vue-fontawesome','rrule'],
     },
     modules: ['@nuxtjs/color-mode'],
-    
     hooks: {
         'pages:extend'(pages) {
             const introIndex = pages.findIndex(obj => obj.name === 'introduction');
@@ -150,7 +149,7 @@ export default defineNuxtConfig({
                     name: 'edit/id',
                     path: '/edit/:id',
                     file: '~/pages/edit/[id].vue'
-                }
+                },
                 
             ]
             newPages.forEach((page)=>{
