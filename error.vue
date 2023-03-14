@@ -3,9 +3,9 @@
         <main class="container error-container">
             <h2 v-if="hp > 0">你好啊玩家們，沒想到你可以到這個什麼都沒有的地方來呢！不過就到這裡為止了。接下來就由我閃耀的小花來做你的對手！</h2>
             <h2 v-else>你竟然打敗了閃耀的小花，並找到了回去的路！</h2>
-            <div class="hp-bar" ref="hp-bar" :style="`width: ${hpBarWidth}; ${hp===1000 ? 'visibility: hidden' : null}`" v-if="hp > 0">
+            <div class="hp-bar" ref="hp-bar" :style="`${hp===1000 ? 'visibility: hidden' : null}`" v-if="hp > 0">
 
-                <div class="hp-bar-inner" id="hp-bar">
+                <div class="hp-bar-inner" id="hp-bar" :style="`width: ${hpBarWidth}`">
                                     {{ hp}}
                 </div>
             </div>
@@ -63,6 +63,9 @@
     .hp-bar{
         width: 100%;
         border-radius: 20px;
+        display: flex;
+        justify-content: flex-start;
+        border: 5px solid var(--color-main);
     }
     .hp-bar-inner{
         width: 100%;
