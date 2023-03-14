@@ -14,7 +14,7 @@
                 <img src="~/assets/images/sleepyrose.png" height="500" width="500" class="sleepy">
             </div>
             <div v-else>
-                <NuxtLink to="/" class="home">回到主頁</NuxtLink>
+                <NuxtLink to="/" class="home" style="color: var(--color-text)">回到主頁</NuxtLink>
             </div>
             
         </main>

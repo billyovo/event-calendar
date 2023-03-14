@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import {redirectURI} from './config.json';
+
 export default defineNuxtConfig({
     app:{
         head:{
@@ -87,8 +87,8 @@ export default defineNuxtConfig({
     components: true,
     runtimeConfig:{
         public:{
-            API_URL: "https://minigame-api.letsdream.today",
-            OAUTH2_URL: redirectURI,
+            API_URL: process.env.API_URL,
+            OAUTH2_URL: process.env.OAUTH2_URL,
         }
     },
     css: [
