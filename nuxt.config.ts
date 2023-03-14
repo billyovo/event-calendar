@@ -88,7 +88,7 @@ export default defineNuxtConfig({
     runtimeConfig:{
         public:{
             API_URL: "https://minigame-api.letsdream.today",
-            OAUTH2_URL: `https://discord.com/api/oauth2/authorize?client_id=832486484451262474&redirect_uri=${redirectURI}&response_type=code&scope=identify%20guilds`,
+            OAUTH2_URL: redirectURI,
         }
     },
     css: [

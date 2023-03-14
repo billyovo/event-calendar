@@ -1,3 +1,3 @@
 {
-    "redirectURI": "https://minigame.letsdream.today/edit"
+    "redirectURI": "https://discord.com/api/oauth2/authorize?client_id=832486484451262474&redirect_uri=https%3A%2F%2Fminigame.letsdream.today%2Fedit&response_type=code&scope=identify%20guilds"
 }
