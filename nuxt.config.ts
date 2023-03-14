@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import {redirectURI} from './config.json';
 export default defineNuxtConfig({
     app:{
         head:{
@@ -87,7 +88,7 @@ export default defineNuxtConfig({
     runtimeConfig:{
         public:{
             API_URL: "https://minigame-api.letsdream.today",
-            OAUTH2_URL: "https://discord.com/api/oauth2/authorize?client_id=832486484451262474&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fedit&response_type=code&scope=identify%20guilds",
+            OAUTH2_URL: `https://discord.com/api/oauth2/authorize?client_id=832486484451262474&redirect_uri=${redirectURI}&response_type=code&scope=identify%20guilds`,
         }
     },
     css: [
