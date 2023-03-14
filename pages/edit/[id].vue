@@ -40,7 +40,7 @@
                         <button @click="() => images.push('')" style="font-size: 1.5rem; padding: 15px; margin-top: 15px; color: var(--color-text); background-color: var(--color-secondary);">Add Another Image</button>
                     </ClientOnly>
                     <div class="back">
-                        <NuxtLink to="/news" class="back-href">
+                        <NuxtLink to="/edit" class="back-href">
                             <span>回到通知</span>
                         </NuxtLink>
                     </div>
@@ -53,6 +53,7 @@
 <script>
     import configHandler from '~~/mixins/configHandler.vue';
     import Datepicker from '@vuepic/vue-datepicker'
+    import '@vuepic/vue-datepicker/dist/main.css'
     export default{
         
         mixins: [configHandler],
@@ -82,11 +83,13 @@
                     const res = await fetch(`${this.API_URL}/news/${this._id}`, {
                         method: "DELETE",
                         headers: {
-                            "Content-Type": "application/json"
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${localStorage.getItem("access-token")}`
                         },
                     })
                     if(res.status === 401){
                         alert("Your token expired :( Going back to edit list");
+                        localStorage.removeItem("access-token");
                         this.$router.push("/edit");
                         return;
                     }
@@ -112,17 +115,19 @@
                     const res = await fetch(`${this.API_URL}/news/${this._id}`, {
                         method: "PATCH",
                         headers: {
-                            "Content-Type": "application/json"
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${localStorage.getItem("access-token")}`
                         },
                         body: JSON.stringify({
                             title: this.title,
                             content: this.content,
                             publish_date: this.publish_date,
-                            images: this.images
+                            image: this.images
                         })
                     })
                     if(res.status === 401){
                         alert("Your token expired :( Going back to edit list");
+                        localStorage.removeItem("access-token");
                         this.$router.push("/edit");
                         return;
                     }
@@ -131,6 +136,9 @@
                         return;
                     }
                     this.status = "Updated!";
+                    setTimeout(() => {
+                        this.status = "";
+                    }, 3000);
                 }
                 catch(error){
                     console.log(error);
@@ -152,7 +160,7 @@
 
             this._id = newsData?._id;
             this.content = newsData?.content;
-            this.images = newsData?.images;
+            this.images = newsData?.image;
             this.title = newsData?.title;
             this.publish_date = newsData?.publish_date;
             this.loading = false;

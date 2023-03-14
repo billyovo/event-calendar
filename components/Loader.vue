@@ -21,7 +21,7 @@
      .loader {
         height: 100vh;
         width: 100vw;
-        position: sticky;
+        position: fixed;
         top: 0;
         overflow: hidden;
         background: transparent;
@@ -29,7 +29,7 @@
      }
      .loader .bar {
         position: relative;
-        height: 5px;
+        height: 7px;
         width: 100%;
         background-color: var(--color-main-sub);
         animation: loader-animation 3s infinite ease-in-out;
