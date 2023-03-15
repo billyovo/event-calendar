@@ -74,7 +74,7 @@
             async fetchRecord(isFirstFetch = false){
                 const query = new URLSearchParams();
                 if(!isFirstFetch){
-                    if(this.$route.query.type === "record" && this.record[this.record.length-1]?._id){
+                    if((this.$route.query.type === "record" || !this.$route.query.type === "record" ) && this.record[this.record.length-1]?._id){
                         query.append("before", this.record[this.record.length-1]?._id);
                     }
                     else{
