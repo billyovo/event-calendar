@@ -96,7 +96,9 @@
                         return;
                     }
                     const data = await res.json();
-                    this.total = data.total ?? 0;
+                    if(isFirstFetch){
+                        this.total = data.total ?? 0;
+                     }
                     this.record = isFirstFetch ? [...data.rows] : [...this.record, ...data.rows];
                 }
                 catch(error){
