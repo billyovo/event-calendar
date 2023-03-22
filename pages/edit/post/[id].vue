@@ -152,7 +152,7 @@
 
             }
         },
-        async mounted(){
+        async created(){
             const route = useRoute();
             this.loading = true;
             const news = await fetch(`${this.API_URL}/news/${route.params.id}`)

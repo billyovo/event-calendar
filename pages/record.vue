@@ -139,8 +139,11 @@
                 this.page = 1;
             }
         },
-        async mounted(){
+        async created(){
             await this.fetchRecord(true);
+        },
+        async mounted(){
+            
             const endList = document.getElementsByClassName("skeleton-container")[0];
             const observer = new IntersectionObserver(async (entry)=>{
               if(entry[0].isIntersecting){
