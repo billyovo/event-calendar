@@ -18,7 +18,16 @@
                                     :aria-hidden="total === record.length ? 'true' : false"
                                     ref="endList" 
                                 />
+                                
                         </div>
+                        <button class="load-more" 
+                            @click="async ()=> await fetchRecord()"
+                            :style="total === record.length ? 'display: none' : null"
+                            :aria-hidden="total === record.length ? 'true' : false"
+                        >
+                            你是不是滾動太快才看到我或是瀏覽器版本太舊? 點我載入更多
+                        </button>
+                        
                 </main>
                 <Modal v-model="isOpened" class="mobile"><FilterList style="height: 100vh"/></Modal>
                 <FloatingButton @click="toggleModal" :style="`background-color: ${isOpened ? 'var(--color-danger)' : 'var(--color-main-sub)'}`" class="mobile">
@@ -58,6 +67,7 @@
         color: var(--color-text);
         border-radius: 10px;
         padding: 30px 0px;
+        width: 100%;
     }
 </style>
 

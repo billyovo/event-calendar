@@ -8,7 +8,11 @@
                 default: 20
             },
             hideControl: Boolean,
-            editMode: Boolean
+            editMode: Boolean,
+            canSeeFuture: {
+              type: Boolean,
+              default: false
+            }
         },
         data(){
             return{
@@ -20,8 +24,18 @@
       },
       methods:{
         async getNews(after){
-          const res = await fetch(`${this.API_URL}/news?limit=${this.limit}`+ (after ? `&after=${after}` : ""));
+          const res = await fetch(`${this.API_URL}/news${this.canSeeFuture ? "-edit" : ""}?limit=${this.limit}`+ (after ? `&after=${after}` : ""),
+          this.canSeeFuture ? {
+            headers: {
+              Authorization: `Bearer ${window.localStorage.getItem('access-token')}`
+            }
+          } : {}
+          );
           if(res.status !== 200){
+            if(res.status === 401){
+              window.localStorage.removeItem('access-token');
+              this.$router.push({path: "/edit"});
+            }
             return [];
           }
           const news = await res.json();

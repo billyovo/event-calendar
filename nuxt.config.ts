@@ -147,10 +147,11 @@ export default defineNuxtConfig({
                     file: '~/pages/news/[id].vue'
                 },
                 {
-                    name: 'edit/id',
-                    path: '/edit/:id',
-                    file: '~/pages/edit/[id].vue'
+                    name: 'edit/post/id',
+                    path: '/edit/post/:id',
+                    file: '~/pages/edit/post/[id].vue'
                 },
+                
                 
             ]
             newPages.forEach((page)=>{

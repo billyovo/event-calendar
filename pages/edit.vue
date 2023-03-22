@@ -1,5 +1,5 @@
 <template>
-    <NewsList edit-mode/>
+    <NewsList edit-mode can-see-future/>
 </template>
 
 <script>
@@ -28,7 +28,7 @@
                     if(token.status === 400 || token.status === 401){
                         alert("You are not authorised!");
                     }
-                    if(token.status === 50){
+                    if(token.status === 500){
                         alert("A server error has occured. Please try again later.");
                     }
                     return;
@@ -36,6 +36,7 @@
                 const tokenJson = await token.json();
                 if(tokenJson) window.localStorage.setItem("access-token", tokenJson.token);
                 this.$router.replace({path: this.$route.path, query: {}});
+                this.$router.go();
                 return;
             }
 

@@ -9,7 +9,7 @@
 
 <template>
     <article>
-        <NuxtLink class="line" :to="editMode ? `./edit/${data._id}` : `./news/${data._id}`">
+        <NuxtLink class="line" :to="editMode ? `./edit/post/${data._id}` : `./news/${data._id}`">
             <span class="news-date">{{data.publish_date}}</span>
             <span>{{data.title}}</span>
         </NuxtLink>
