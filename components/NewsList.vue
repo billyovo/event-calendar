@@ -42,13 +42,12 @@
           return news;
         },
       },
-      async created(){
+
+      async mounted(){ 
+        if(this.hideControl) return;
         const data = await this.getNews();
         this.news = data.rows;
         this.total = data.total;
-      },
-      async mounted(){ 
-        if(this.hideControl) return;
         const bottom = this.$refs.bottom.$el;
         const observer = new IntersectionObserver(async (entry)=>{
           if(entry[0].isIntersecting){
