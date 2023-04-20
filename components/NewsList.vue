@@ -27,7 +27,7 @@
           const res = await fetch(`${this.API_URL}/news${this.canSeeFuture ? "-edit" : ""}?limit=${this.limit}`+ (after ? `&after=${after}` : ""),
           this.canSeeFuture ? {
             headers: {
-              Authorization: `Bearer ${window.localStorage.getItem('access-token')}`
+              Authorization: `Bearer ${window?.localStorage?.getItem('access-token')}`
             }
           } : {}
           );
@@ -42,7 +42,7 @@
           return news;
         },
       },
-      async created(){
+      async beforeMount(){
         const data = await this.getNews();
         this.news = data.rows;
         this.total = data.total;
