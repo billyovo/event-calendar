@@ -99,7 +99,10 @@ export default defineNuxtConfig({
     build: {
         transpile: ['@vuepic/vue-datepicker', '@fortawesome/fontawesome-svg-core', '@fortawesome/free-brands-svg-icons', '@fortawesome/free-solid-svg-icons','@fortawesome/vue-fontawesome','rrule'],
     },
-    modules: ['@nuxtjs/color-mode'],
+    modules: ['@nuxtjs/color-mode',  '@nuxtjs/sitemap'],
+    sitemap: {
+        exclude: ["/edit/**"]
+      },
     hooks: {
         'pages:extend'(pages) {
             const introIndex = pages.findIndex(obj => obj.name === 'introduction');
