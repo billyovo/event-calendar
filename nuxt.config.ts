@@ -101,7 +101,10 @@ export default defineNuxtConfig({
     },
     modules: ['@nuxtjs/color-mode',  '@nuxtjs/sitemap'],
     sitemap: {
-        exclude: ["/edit/**"]
+        path: '/sitemap.xml',
+        hostname: 'https://minigame.letsdream.today',
+        exclude: ["/edit/**"],
+        generate: true
       },
     hooks: {
         'pages:extend'(pages) {
