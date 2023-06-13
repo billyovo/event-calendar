@@ -108,7 +108,7 @@
         display: flex;
         flex-direction: column;
         top: 0px;
-        height: 95vh;
+        height: 50vh;
         align-self: start;
         overflow: auto;
     }

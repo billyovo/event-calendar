@@ -9,14 +9,14 @@
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^3.2.0",
-    "nuxt": "^3.2.2"
+    "nuxt": "^3.5.3",
+    "nuxt-simple-sitemap": "^2.6.2"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
     "@fortawesome/free-brands-svg-icons": "^6.3.0",
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@fortawesome/vue-fontawesome": "^3.0.3",
-    "@nuxtjs/sitemap": "^2.4.0",
     "@vuepic/vue-datepicker": "^3.6.8",
     "@vueup/vue-quill": "^1.1.1",
     "rrule": "^2.7.2",

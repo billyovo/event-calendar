@@ -72,11 +72,10 @@
 </style>
 
 <script>
-    import configHandler from '~~/mixins/configHandler.vue';
     import eventHandler from '~~/mixins/eventHandler.vue';
 
     export default{
-        mixins: [configHandler, eventHandler],
+        mixins: [eventHandler],
         methods:{
             toggleModal(){
                 this.isOpened = !this.isOpened;
@@ -159,7 +158,7 @@
         },
         computed:{
             API_ENDPOINT(){
-                let endpoint = this.API_URL+"/";
+                let endpoint = this.$config.public.API_URL+"/";
                 endpoint += (this.$route.query.type || "record") + "/";
                 endpoint += (this.$route.query.server || "all") + "/";
                 endpoint += (this.$route.query.event || "all");

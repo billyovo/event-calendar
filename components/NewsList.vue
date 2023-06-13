@@ -1,5 +1,4 @@
 <script>
-    import configHandler from '~~/mixins/configHandler.vue';
 
     export default{
         props: {
@@ -20,23 +19,29 @@
               total: Infinity,
 
               observer: null
-          }
-      },
+            }
+        },
+        computed:{
+          currentAPIURL(){
+            return `${this.$config.public.API_URL}/news`+ (this.canSeeFuture ? "-edit" : "");
+          },
+        },
       methods:{
         async getNews(after){
-          const res = await fetch(`${this.API_URL}/news${this.canSeeFuture ? "-edit" : ""}?limit=${this.limit}`+ (after ? `&after=${after}` : ""),
-          this.canSeeFuture ? {
-            headers: {
-              Authorization: `Bearer ${window?.localStorage?.getItem('access-token')}`
+          const query = `?limit=${this.limit}` + (after ? `&after=${after}` : "");
+          const res = await fetch( `${this.currentAPIURL}${query}`,  
+            {
+              headers: {
+                Authorization: `Bearer ${window?.localStorage?.getItem('access-token')}`
+              }
             }
-          } : {}
           );
           if(res.status !== 200){
             if(res.status === 401){
               window.localStorage.removeItem('access-token');
               this.$router.push({path: "/edit"});
             }
-            return [];
+            return {rows: [], total: 0};
           }
           const news = await res.json();
           return news;
@@ -46,7 +51,12 @@
         const data = await this.getNews();
         this.news = data.rows;
         this.total = data.total;
+      },
+
+      mounted(){
+        if(this.hideControl) return;
         const bottom = this.$refs.bottom.$el;
+        
         const observer = new IntersectionObserver(async (entry)=>{
           if(entry[0].isIntersecting){
             if(!this.news[this.news?.length-1]?._id) return;
@@ -57,13 +67,11 @@
         
         this.observer = observer;
         this.observer.observe(bottom);
-        
       },
       beforeUnmount(){
         if(this.hideControl) return;
         this.observer.disconnect();
-      }, 
-      mixins: [configHandler],
+      }
     }
 </script>
 <template>
@@ -82,7 +90,7 @@
 <style scoped>
     .list-container{
         width: 90%;
-        min-height: 80vh;
+        padding-bottom: 50px;
         margin: 0 auto;
         margin-top: 20px;
     }

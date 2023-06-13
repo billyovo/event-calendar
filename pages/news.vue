@@ -20,3 +20,9 @@
     } 
 }
 </script>
+
+<style scoped>
+  main{
+    min-height: 80vh;
+  }
+</style>

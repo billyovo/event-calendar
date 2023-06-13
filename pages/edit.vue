@@ -3,20 +3,19 @@
 </template>
 
 <script>
-    import configHandler from '~~/mixins/configHandler.vue';
     export default{
-        mixins: [configHandler],
         async mounted(){
+            console.log(this.$config.public.OAUTH2_URL)
             const fragment = new URLSearchParams(window.location.search);
             const code = fragment.get("code");
 
             if(!code && !window.localStorage.getItem("access-token")){
-                window.location.href = this.OAUTH2_URL;
+                window.location.href = this.$config.public.OAUTH2_URL;
                 return;
             }
 
             if(code && !window.localStorage.getItem("access-token")){
-                const token = await fetch(this.API_URL+"/login", {
+                const token = await fetch(this.$config.public.API_URL+"/login", {
                     method: "POST",
                     headers:{
                         "Content-Type": "application/json"

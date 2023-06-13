@@ -31,10 +31,9 @@
 </template>
 
 <script>
-    import configHandler from '~~/mixins/configHandler.vue';
+
     export default{
         
-        mixins: [configHandler],
         data(){
             return{
                 news: null,
@@ -45,7 +44,7 @@
         async created(){
             const route = useRoute();
             this.loading = true;
-            const news = await fetch(`${this.API_URL}/news/${route.params.id}`)
+            const news = await fetch(`${this.$config.public.API_URL}/news/${route.params.id}`)
             if(!news.ok){
                 this.$router.push('/error');
                 return;

@@ -99,12 +99,9 @@ export default defineNuxtConfig({
     build: {
         transpile: ['@vuepic/vue-datepicker', '@fortawesome/fontawesome-svg-core', '@fortawesome/free-brands-svg-icons', '@fortawesome/free-solid-svg-icons','@fortawesome/vue-fontawesome','rrule'],
     },
-    modules: ['@nuxtjs/color-mode',  '@nuxtjs/sitemap'],
+    modules: ['@nuxtjs/color-mode', 'nuxt-simple-sitemap'],
     sitemap: {
-        path: '/sitemap.xml',
-        hostname: 'https://minigame.letsdream.today',
-        exclude: ["/edit/**"],
-        generate: true
+        siteUrl: 'https://minigame.letsdream.today',
       },
     hooks: {
         'pages:extend'(pages) {

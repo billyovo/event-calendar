@@ -51,12 +51,9 @@
 </template>
 
 <script>
-    import configHandler from '~~/mixins/configHandler.vue';
     import Datepicker from '@vuepic/vue-datepicker'
     import '@vuepic/vue-datepicker/dist/main.css'
     export default{
-        
-        mixins: [configHandler],
         components: { Datepicker },
         data(){
             return{
@@ -80,7 +77,7 @@
             async deleteNews(){
                 this.loading = true;
                 try{
-                    const res = await fetch(`${this.API_URL}/news/${this._id}`, {
+                    const res = await fetch(`${this.$config.public.API_URL}/news/${this._id}`, {
                         method: "DELETE",
                         headers: {
                             "Content-Type": "application/json",
@@ -112,7 +109,7 @@
             async updateNews(){
                 this.loading = true;
                 try{
-                    const res = await fetch(`${this.API_URL}/news/${this._id}`, {
+                    const res = await fetch(`${this.$config.public.API_URL}/news/${this._id}`, {
                         method: "PATCH",
                         headers: {
                             "Content-Type": "application/json",
@@ -155,7 +152,7 @@
         async created(){
             const route = useRoute();
             this.loading = true;
-            const news = await fetch(`${this.API_URL}/news/${route.params.id}`)
+            const news = await fetch(`${this.$config.public.API_URL}/news/${route.params.id}`)
             const newsData = await news.json();
 
             this._id = newsData?._id;
