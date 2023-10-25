@@ -17,8 +17,8 @@
                 金色箭矢會隨機從天而降, 射出的炸彈威力更強
                 把所有人炸下暗海磷石平台, 最後一人為勝者
                 苦力怕掉下來會炸掉地板喔(☉д⊙)"/>
-            <Meta property="og:image" content="https://minigame.letsdream.today/images/lock.png"/>
-            <Meta property="twitter:image" content="https://minigame.letsdream.today/images/lock.png"/>
+            <Meta property="og:image" content="https://minigame.letsdream.today/images/cannon.png"/>
+            <Meta property="twitter:image" content="https://minigame.letsdream.today/images/cannon.png"/>
           </Head>
         </Html>
 

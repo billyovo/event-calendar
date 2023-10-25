@@ -3,14 +3,14 @@
       "title": "碰碰豬",
       "id": "bumper",
       "rrule": "FREQ=MONTHLY;BYDAY=2WE,4SA",
-      "imageurl":"/assets/images/pig.svg",
+      "imageurl":"/assets/images/bumper.svg",
       "emote": "🐷"
     },
     {
       "title": "忘掉那 無形鎖",
       "id": "cannon",        
       "rrule": "FREQ=MONTHLY;BYDAY=1WE,3SA",
-      "imageurl":"/assets/images/lock.svg",
+      "imageurl":"/assets/images/cannon.svg",
       "emote": "🔓"
     },
     {

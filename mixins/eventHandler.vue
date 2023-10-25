@@ -2,8 +2,8 @@
     import events from '~/assets/event.json';
     import match from '~/assets/images/match.svg';
     import drop from '~/assets/images/drop.svg';
-    import pig from '~/assets/images/pig.svg';
-    import lock from '~/assets/images/lock.svg';
+    import bumper from '~/assets/images/bumper.svg';
+    import cannon from '~/assets/images/cannon.svg';
     import boat from '~/assets/images/boat.svg';
     import snake from '~/assets/images/snake.svg';
     import maze from "~/assets/images/maze.svg";
@@ -13,10 +13,10 @@
                 events: events,
                 images: {
                     match: match,
-                    bumper: pig,
+                    bumper: bumper,
                     drop: drop,
                     boat: boat,
-                    cannon: lock,
+                    cannon: cannon,
                     snake: snake,
                     maze: maze
                     
