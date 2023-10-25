@@ -1,10 +1,10 @@
 <script>
     import events from '~/assets/event.json';
-    import brain from '~/assets/images/brain.svg';
+    import match from '~/assets/images/match.svg';
     import drop from '~/assets/images/drop.svg';
     import pig from '~/assets/images/pig.svg';
     import lock from '~/assets/images/lock.svg';
-    import llama from '~/assets/images/llama.svg';
+    import boat from '~/assets/images/boat.svg';
     import snake from '~/assets/images/snake.svg';
     import maze from "~/assets/images/maze.svg";
     export default{
@@ -12,10 +12,10 @@
             return{
                 events: events,
                 images: {
-                    match: brain,
+                    match: match,
                     bumper: pig,
                     drop: drop,
-                    boat: llama,
+                    boat: boat,
                     cannon: lock,
                     snake: snake,
                     maze: maze

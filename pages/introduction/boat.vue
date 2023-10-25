@@ -17,8 +17,8 @@
                     ☆不能同時移動和發射魔咒, 請慎重決定每一步行動☆
                     保護自己的草泥馬, 把別人的全部殺死, 最後一人為勝者
                     ⟁ 建議遊玩時全程拿著魔法棒, 以免坐上草泥馬 ⟁"/>
-                <Meta property="og:image" content="https://minigame.letsdream.today/images/llama.png"/>
-                <Meta property="twitter:image" content="https://minigame.letsdream.today/images/llama.png"/>
+                <Meta property="og:image" content="https://minigame.letsdream.today/images/boat.png"/>
+                <Meta property="twitter:image" content="https://minigame.letsdream.today/images/boat.png"/>
             </Head>
         </Html>
 

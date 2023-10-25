@@ -24,7 +24,7 @@
       "title": "七彩羊駝保衛戰",
       "id": "boat",        
       "rrule": "FREQ=MONTHLY;BYDAY=4WE,2SA",
-      "imageurl":"/assets/images/llama.svg",
+      "imageurl":"/assets/images/boat.svg",
       "emote": "🦙"  
     },
     {
@@ -38,7 +38,7 @@
       "title": "記憶極限",
       "id": "match",        
       "rrule": "FREQ=MONTHLY;BYDAY=2MO,4FR",
-      "imageurl":"/assets/images/brain.svg",
+      "imageurl":"/assets/images/match.svg",
       "emote": "🧠"
     }
 ]
